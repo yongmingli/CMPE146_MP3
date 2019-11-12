@@ -25,16 +25,33 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "mp3_function.h"
 /*
   Lab use
   Global functions and variables
 */
 
+// if: play aaa.mp3
+// QueueHandle_t instruction; // play      goes there
+// QueueHandle_t content;     // aaa.mp3   goes there
+
+const char receive_instruction[32];
+
 int main(void) {
   printf("Welcome to our MP3!!!\n");
 
-//  sj2_cli__init();
-//  vTaskStartScheduler(); // This function never returns unless RTOS scheduler runs out of memory and fails
+  // instruction = xQueueCreate(1, sizeof(int));
+  // content = xQueueCreate(1, sizeof(int));
 
+  sj2_cli__init();
+  while (true) {
+    if (xQueueReceive(instruction, &receive_instruction, portMAX_DELAY)) {
+      if (receive_instruction == "play")
+        mp3_play();
+      // more
+    }
+  }
+  // vTaskStartScheduler(); // This function never returns unless RTOS scheduler
+  //                        // runs out of memory and fails
   return -1; // return 0;
 }
