@@ -2,6 +2,6 @@
 
 // function declaration
 void mp3_play() {
-  xQueueReceive(content, &receive_content, portMAX_DELAY);
-  printf("receive: <%s>", receive_content);
+  // xQueueReceive(content, &receive_content, portMAX_DELAY);
+  // printf("receive: <%s>", receive_content);
 }

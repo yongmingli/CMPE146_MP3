@@ -25,29 +25,30 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "mp3_function.h"
+// #include "mp3_function.h"
 /*
   Lab use
   Global functions and variables
 */
 
 // if: play aaa.mp3
-// QueueHandle_t instruction; // play      goes there
-// QueueHandle_t content;     // aaa.mp3   goes there
+QueueHandle_t instruction; // play      goes there
+QueueHandle_t content;     // aaa.mp3   goes there
 
 const char receive_instruction[32];
 
 int main(void) {
   printf("Welcome to our MP3!!!\n");
 
-  // instruction = xQueueCreate(1, sizeof(int));
-  // content = xQueueCreate(1, sizeof(int));
+  instruction = xQueueCreate(1, sizeof(int));
+  content = xQueueCreate(1, sizeof(int));
 
   sj2_cli__init();
   while (true) {
     if (xQueueReceive(instruction, &receive_instruction, portMAX_DELAY)) {
-      if (receive_instruction == "play")
+      if (receive_instruction == "play") // highest prity
         mp3_play();
+        // else if 
       // more
     }
   }
