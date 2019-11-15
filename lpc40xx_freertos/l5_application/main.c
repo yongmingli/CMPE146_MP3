@@ -25,34 +25,61 @@
 #include <stdlib.h>
 #include <string.h>
 
-// #include "mp3_function.h"
+#include "mp3_function.h"
 /*
   Lab use
   Global functions and variables
 */
 
 // if: play aaa.mp3
-QueueHandle_t instruction; // play      goes there
-QueueHandle_t content;     // aaa.mp3   goes there
+QueueHandle_t content; // aaa.mp3   goes there
+const char song_name[32];
 
-const char receive_instruction[32];
+// QueueHandle_t Q_songname;
+// QueueHandle_t Q_songdata;
+
+// functions
+void mp3_init(); // NOT START
+
+void mp3_play();  // WORKING
+void mp3_pause(); // NOT START
+void mp3_vup();   // NOT START
+void mp3_vdw();   // NOT START
+void mp3_next();  // NOT START
+void mp3_last();  // NOT START
 
 int main(void) {
+  printf("************************************\n");
   printf("Welcome to our MP3!!!\n");
+  printf("************************************\n\n");
 
-  instruction = xQueueCreate(1, sizeof(int));
-  content = xQueueCreate(1, sizeof(int));
+  content = xQueueCreate(1, sizeof(char[32]));
+
+  // Q_songname = xQueueCreate(sizeof(char[32]), 1);
+  // Q_songdata = xQueueCreate(512, 1);
 
   sj2_cli__init();
-  while (true) {
-    if (xQueueReceive(instruction, &receive_instruction, portMAX_DELAY)) {
-      if (receive_instruction == "play") // highest prity
-        mp3_play();
-        // else if 
-      // more
-    }
+
+  xTaskCreate(mp3_play, "play", 1024U * 32 / (sizeof(void *)), NULL, 2, NULL);
+
+  vTaskStartScheduler(); // This function never returns unless RTOS scheduler
+                         // runs out of memory and fails
+  return -1;             // return 0;
+}
+
+void mp3_play() {
+  while (1) {
+    xQueueReceive(content, &song_name, portMAX_DELAY);
+    // printf("content received: %s\n", receive_content); // TESTING
+    if (check_name(song_name)) {
+      // printf("Song name OK!\n"); // TESTING
+      if (check_file(song_name)) {
+        /*** NO SD, CANNOT TEST NOW!!! ***/
+        printf("file open OK!\n"); // TESTING
+
+      } else
+        printf("ERROR! CANNNOT OPEN FILE!\n"); // Error message
+    } else
+      printf("INPUT ERROR!\n"); // Error message
   }
-  // vTaskStartScheduler(); // This function never returns unless RTOS scheduler
-  //                        // runs out of memory and fails
-  return -1; // return 0;
 }

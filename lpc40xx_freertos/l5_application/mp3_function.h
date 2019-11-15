@@ -26,8 +26,7 @@
 #include <string.h>
 
 // variables
-// QueueHandle_t content;
-char receive_content[32];
 
 // function defination
-void mp3_play();
+bool check_name(char song_name[32]);
+bool check_file(char song_name[32]);
