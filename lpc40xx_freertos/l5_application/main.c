@@ -84,7 +84,7 @@ void mp3_play(void) {
            * START PLAYING SONG
            *
            * This is where the cli_pause and cli_resume would successfully
-           *effect on task "play"
+           * effect on task "play"
            *
            *************************************/
           printf("song play start!\n"); // TESTING
