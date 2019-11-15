@@ -91,8 +91,10 @@ void mp3_play(void) {
           /* TESTING: pause cli and resume cli */
           { // TESTING: pause cli and resume cli
             while (1) {
-              printf("task is not pasue, wait 3000 tick\n"); // TESTING
-              vTaskDelay(3000);
+              for (int temp = 0; temp < 999; temp++) {
+                printf("temp: %d, wait 3000 tick\n", temp); // TESTING
+                vTaskDelay(3000);
+              }
             }
           }
           /* TESTING: pause cli and resume cli END */
@@ -105,8 +107,10 @@ void mp3_play(void) {
       /* TESTING: pause cli and resume cli */
       { // TESTING: pause cli and resume cli
         while (1) {
-          printf("task is not pause, wait 3000 tick\n"); // TESTING
-          vTaskDelay(3000);
+          for (int temp = 0; temp < 999; temp++) {
+            printf("temp: %d, wait 3000 tick\n", temp); // TESTING
+            vTaskDelay(3000);
+          }
         }
       }
       /* TESTING: pause cli and resume cli END */
