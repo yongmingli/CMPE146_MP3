@@ -42,11 +42,12 @@ const char song_name[32];
 void mp3_init(); // NOT START
 
 void mp3_play(void); // WORKING
-void mp3_pause();    // WORKING
-void mp3_vup();      // NOT START
-void mp3_vdw();      // NOT START
-void mp3_next();     // NOT START
-void mp3_last();     // NOT START
+// cli_pause    // WORKING
+// cli_resume    // WORKING
+void mp3_vup();  // NOT START
+void mp3_vdw();  // NOT START
+void mp3_next(); // NOT START
+void mp3_last(); // NOT START
 
 int main(void) {
   printf("************************************\n");
