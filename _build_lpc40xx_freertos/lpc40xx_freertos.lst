@@ -27,14 +27,14 @@ Idx Name             Size      VMA       LMA       File off  Algn  Flags
   6 .debug_abbrev    00006a30  00000000  00000000  00045771  2**0  CONTENTS, READONLY, DEBUGGING
   7 .debug_aranges   00000f58  00000000  00000000  0004c1a1  2**0  CONTENTS, READONLY, DEBUGGING
   8 .debug_ranges    00001c50  00000000  00000000  0004d0f9  2**0  CONTENTS, READONLY, DEBUGGING
-  9 .debug_line      00012421  00000000  00000000  0004ed49  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_str       00006613  00000000  00000000  0006116a  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .comment         00000076  00000000  00000000  0006777d  2**0  CONTENTS, READONLY
- 12 .ARM.attributes  00000032  00000000  00000000  000677f3  2**0  CONTENTS, READONLY
- 13 .debug_frame     000044bc  00000000  00000000  00067828  2**2  CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc       000121b4  00000000  00000000  0006bce4  2**0  CONTENTS, READONLY, DEBUGGING
- 15 .stab            00000054  00000000  00000000  0007de98  2**2  CONTENTS, READONLY, DEBUGGING
- 16 .stabstr         000000ab  00000000  00000000  0007deec  2**0  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line      0001241f  00000000  00000000  0004ed49  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str       00006613  00000000  00000000  00061168  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .comment         00000076  00000000  00000000  0006777b  2**0  CONTENTS, READONLY
+ 12 .ARM.attributes  00000032  00000000  00000000  000677f1  2**0  CONTENTS, READONLY
+ 13 .debug_frame     000044bc  00000000  00000000  00067824  2**2  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_loc       000121b4  00000000  00000000  0006bce0  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .stab            00000054  00000000  00000000  0007de94  2**2  CONTENTS, READONLY, DEBUGGING
+ 16 .stabstr         000000ab  00000000  00000000  0007dee8  2**0  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 0000d144 l    d  .ARM.exidx	00000000 .ARM.exidx
@@ -9089,7 +9089,7 @@ check_name():
  *
  ***********************************************************************************/
 
-// Function declaration
+/* Function declaration */
 bool check_name(char song_name[32]) {
     26d8:	b537      	push	{r0, r1, r2, r4, r5, lr}
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/mp3_function.c:25
@@ -9202,8 +9202,12 @@ bool check_file(char song_name[32]) {
 
 0000274e <read_file>:
 read_file():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/mp3_function.c:61
-
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/mp3_function.c:69
+  // FRESULT result = f_open(&file, song_name, (FA_OPEN_EXISTING));
+  // if (FR_OK == result)
+  //   return true;
+  // else
+  //   return false;
     274e:	4770      	bx	lr
 
 00002750 <vApplicationStackOverflowHook>:

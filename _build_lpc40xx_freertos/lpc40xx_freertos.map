@@ -3163,7 +3163,7 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_ranges  0x0000000000001b50       0x38 _build_lpc40xx_freertos/obj/ssp2.o
  .debug_ranges  0x0000000000001b88       0xc8 _build_lpc40xx_freertos/obj/uart.o
 
-.debug_line     0x0000000000000000    0x12421
+.debug_line     0x0000000000000000    0x1241f
  .debug_line    0x0000000000000000      0x31b _build_lpc40xx_freertos/obj/entry_point.o
  .debug_line    0x000000000000031b      0x452 _build_lpc40xx_freertos/obj/interrupt_vector_table.o
  .debug_line    0x000000000000076d      0x24d _build_lpc40xx_freertos/obj/clock.o
@@ -3190,22 +3190,22 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_line    0x0000000000008bb8      0x272 _build_lpc40xx_freertos/obj/sys_time.o
  .debug_line    0x0000000000008e2a      0x495 _build_lpc40xx_freertos/obj/uart_printf.o
  .debug_line    0x00000000000092bf      0x3e9 _build_lpc40xx_freertos/obj/main.o
- .debug_line    0x00000000000096a8      0x467 _build_lpc40xx_freertos/obj/mp3_function.o
- .debug_line    0x0000000000009b0f      0x3c3 _build_lpc40xx_freertos/obj/rtos_hooks.o
- .debug_line    0x0000000000009ed2     0x1586 _build_lpc40xx_freertos/obj/sl_string.o
- .debug_line    0x000000000000b458      0x13c _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
- .debug_line    0x000000000000b594      0x644 _build_lpc40xx_freertos/obj/port.o
- .debug_line    0x000000000000bbd8      0x371 _build_lpc40xx_freertos/obj/heap_3.o
- .debug_line    0x000000000000bf49      0x466 _build_lpc40xx_freertos/obj/list.o
- .debug_line    0x000000000000c3af     0x167a _build_lpc40xx_freertos/obj/queue.o
- .debug_line    0x000000000000da29     0x2403 _build_lpc40xx_freertos/obj/tasks.o
- .debug_line    0x000000000000fe2c      0x339 _build_lpc40xx_freertos/obj/board_io.o
- .debug_line    0x0000000000010165      0x4fa _build_lpc40xx_freertos/obj/gpio.o
- .debug_line    0x000000000001065f      0x354 _build_lpc40xx_freertos/obj/hw_timer.o
- .debug_line    0x00000000000109b3      0x9b8 _build_lpc40xx_freertos/obj/i2c.o
- .debug_line    0x000000000001136b      0x385 _build_lpc40xx_freertos/obj/lpc_peripherals.o
- .debug_line    0x00000000000116f0      0x4f0 _build_lpc40xx_freertos/obj/ssp2.o
- .debug_line    0x0000000000011be0      0x841 _build_lpc40xx_freertos/obj/uart.o
+ .debug_line    0x00000000000096a8      0x465 _build_lpc40xx_freertos/obj/mp3_function.o
+ .debug_line    0x0000000000009b0d      0x3c3 _build_lpc40xx_freertos/obj/rtos_hooks.o
+ .debug_line    0x0000000000009ed0     0x1586 _build_lpc40xx_freertos/obj/sl_string.o
+ .debug_line    0x000000000000b456      0x13c _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+ .debug_line    0x000000000000b592      0x644 _build_lpc40xx_freertos/obj/port.o
+ .debug_line    0x000000000000bbd6      0x371 _build_lpc40xx_freertos/obj/heap_3.o
+ .debug_line    0x000000000000bf47      0x466 _build_lpc40xx_freertos/obj/list.o
+ .debug_line    0x000000000000c3ad     0x167a _build_lpc40xx_freertos/obj/queue.o
+ .debug_line    0x000000000000da27     0x2403 _build_lpc40xx_freertos/obj/tasks.o
+ .debug_line    0x000000000000fe2a      0x339 _build_lpc40xx_freertos/obj/board_io.o
+ .debug_line    0x0000000000010163      0x4fa _build_lpc40xx_freertos/obj/gpio.o
+ .debug_line    0x000000000001065d      0x354 _build_lpc40xx_freertos/obj/hw_timer.o
+ .debug_line    0x00000000000109b1      0x9b8 _build_lpc40xx_freertos/obj/i2c.o
+ .debug_line    0x0000000000011369      0x385 _build_lpc40xx_freertos/obj/lpc_peripherals.o
+ .debug_line    0x00000000000116ee      0x4f0 _build_lpc40xx_freertos/obj/ssp2.o
+ .debug_line    0x0000000000011bde      0x841 _build_lpc40xx_freertos/obj/uart.o
 
 .debug_str      0x0000000000000000     0x6613
  .debug_str     0x0000000000000000      0x622 _build_lpc40xx_freertos/obj/entry_point.o

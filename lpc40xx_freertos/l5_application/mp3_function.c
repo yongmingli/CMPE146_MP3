@@ -20,7 +20,7 @@ bool if_mp3(char song_type[8]) {
  *
  ***********************************************************************************/
 
-// Function declaration
+/* Function declaration */
 bool check_name(char song_name[32]) {
   int i = 0;
   int temp = 0;
@@ -58,4 +58,12 @@ bool check_file(char song_name[32]) {
     return false;
 }
 
-bool read_file(char song_name[32]) {}
+bool read_file(char song_name[32]) {
+  // FIL file; // File handle
+  // UINT bytes_written = 0;
+  // FRESULT result = f_open(&file, song_name, (FA_OPEN_EXISTING));
+  // if (FR_OK == result)
+  //   return true;
+  // else
+  //   return false;
+}
