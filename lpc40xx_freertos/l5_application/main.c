@@ -88,21 +88,28 @@ void mp3_play(void) {
            *
            *************************************/
           printf("song play start!\n"); // TESTING
-
+          /* TESTING: pause cli and resume cli */
+          { // TESTING: pause cli and resume cli
+            while (1) {
+              printf("task is not pasue, wait 3000 tick\n"); // TESTING
+              vTaskDelay(3000);
+            }
+          }
+          /* TESTING: pause cli and resume cli END */
           printf("song play end!\n"); // TESTING
           /* END PLAYING SONG */
         } else
           printf("Error, cannot read file!\n"); // Error message
       } else
       // printf("Error, cannot open file!\n"); // Error message
-      /* TESTING: pause cli */
-      { // TESTING: pause cli
+      /* TESTING: pause cli and resume cli */
+      { // TESTING: pause cli and resume cli
         while (1) {
           printf("task is not pasue, wait 3000 tick\n"); // TESTING
           vTaskDelay(3000);
         }
       }
-      /* TESTING: pause cli  END */
+      /* TESTING: pause cli and resume cli END */
     } else
       printf("Error, check input!\n"); // Error message
   }
