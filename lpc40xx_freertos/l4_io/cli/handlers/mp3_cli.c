@@ -52,8 +52,8 @@ app_cli_status_e cli__mp3_pause(app_cli__argument_t argument,
 }
 
 app_cli_status_e cli__mp3_resume(app_cli__argument_t argument,
-                                sl_string_t user_input_minus_command_name,
-                                app_cli__print_string_function cli_output) {
+                                 sl_string_t user_input_minus_command_name,
+                                 app_cli__print_string_function cli_output) {
 
   const char name[5] = "play";
   TaskHandle_t task_handle = xTaskGetHandle(name);

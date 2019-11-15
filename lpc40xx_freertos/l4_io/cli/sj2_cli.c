@@ -61,9 +61,9 @@ void sj2_cli__init(void) {
                                          .app_cli_handler = cli__mp3_pause};
 
   static app_cli__command_s mp3_resume = {.command_name = "resume",
-                                         .help_message_for_command =
-                                             "Resume the MP3 play\n",
-                                         .app_cli_handler = cli__mp3_pause};
+                                          .help_message_for_command =
+                                              "Resume the MP3 play\n",
+                                          .app_cli_handler = cli__mp3_pause};
 
   // Add your CLI commands in descending sorted order
   app_cli__add_command_handler(&sj2_cli_struct, &task_list);
