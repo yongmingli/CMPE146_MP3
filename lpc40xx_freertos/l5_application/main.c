@@ -41,12 +41,12 @@ const char song_name[32];
 // functions
 void mp3_init(); // NOT START
 
-void mp3_play();  // WORKING
-void mp3_pause(); // NOT START
-void mp3_vup();   // NOT START
-void mp3_vdw();   // NOT START
-void mp3_next();  // NOT START
-void mp3_last();  // NOT START
+void mp3_play(void); // WORKING
+void mp3_pause();    // WORKING
+void mp3_vup();      // NOT START
+void mp3_vdw();      // NOT START
+void mp3_next();     // NOT START
+void mp3_last();     // NOT START
 
 int main(void) {
   printf("************************************\n");
@@ -67,7 +67,7 @@ int main(void) {
   return -1;             // return 0;
 }
 
-void mp3_play() {
+void mp3_play(void) {
   while (1) {
     xQueueReceive(content, &song_name, portMAX_DELAY);
     // printf("content received: %s\n", receive_content); // TESTING
@@ -76,10 +76,17 @@ void mp3_play() {
       if (check_file(song_name)) {
         /*** NO SD, CANNOT TEST NOW!!! ***/
         printf("file open OK!\n"); // TESTING
-
       } else
-        printf("ERROR! CANNNOT OPEN FILE!\n"); // Error message
+      // printf("Error, cannot open file!\n"); // Error message
+      /* TESTING: pause cli */
+      { // TESTING: pause cli
+        while (1) {
+          printf("task is not pasue, wait 3000 tick\n"); // TESTING
+          vTaskDelay(3000);
+        }
+      }
+      /* TESTING: pause cli  END */
     } else
-      printf("INPUT ERROR!\n"); // Error message
+      printf("Error, check input!\n"); // Error message
   }
 }

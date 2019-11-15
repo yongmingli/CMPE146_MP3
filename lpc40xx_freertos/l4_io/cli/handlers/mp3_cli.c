@@ -35,3 +35,33 @@ app_cli_status_e cli__mp3_play(app_cli__argument_t argument,
 
   return APP_CLI_STATUS__SUCCESS;
 }
+
+app_cli_status_e cli__mp3_pause(app_cli__argument_t argument,
+                                sl_string_t user_input_minus_command_name,
+                                app_cli__print_string_function cli_output) {
+
+  const char name[5] = "play";
+  TaskHandle_t task_handle = xTaskGetHandle(name);
+  if (NULL == task_handle) {
+    fprintf(stderr, "pause failed!!!\n");
+  } else {
+    vTaskSuspend(task_handle);
+    fprintf(stderr, "Paused!!!\n");
+  }
+  return APP_CLI_STATUS__SUCCESS;
+}
+
+app_cli_status_e cli__mp3_resume(app_cli__argument_t argument,
+                                sl_string_t user_input_minus_command_name,
+                                app_cli__print_string_function cli_output) {
+
+  const char name[5] = "play";
+  TaskHandle_t task_handle = xTaskGetHandle(name);
+  if (NULL == task_handle) {
+    fprintf(stderr, "resume failed!!!\n");
+  } else {
+    vTaskResume(task_handle);
+    fprintf(stderr, "Resumed!!!\n");
+  }
+  return APP_CLI_STATUS__SUCCESS;
+}
