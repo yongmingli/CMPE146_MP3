@@ -33,7 +33,7 @@
 
 // if: play aaa.mp3
 QueueHandle_t content; // aaa.mp3   goes there
-const char song_name[32];
+char song_name[32];
 QueueHandle_t song_data;
 // QueueHandle_t Q_songname;
 
@@ -41,8 +41,8 @@ QueueHandle_t song_data;
 void mp3_init(); // NOT START
 
 void mp3_play(void); // WORKING
-// cli_pause    // WORKING
-// cli_resume    // WORKING
+// cli_pause    // DONE
+// cli_resume    // DONE
 void mp3_vup();  // NOT START
 void mp3_vdw();  // NOT START
 void mp3_next(); // NOT START
