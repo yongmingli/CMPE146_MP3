@@ -34,9 +34,8 @@
 // if: play aaa.mp3
 QueueHandle_t content; // aaa.mp3   goes there
 const char song_name[32];
-
+QueueHandle_t song_data;
 // QueueHandle_t Q_songname;
-// QueueHandle_t Q_songdata;
 
 // functions
 void mp3_init(); // NOT START
@@ -55,9 +54,8 @@ int main(void) {
   printf("************************************\n\n");
 
   content = xQueueCreate(1, sizeof(char[32]));
-
+  song_data = xQueueCreate(512, 1);
   // Q_songname = xQueueCreate(sizeof(char[32]), 1);
-  // Q_songdata = xQueueCreate(512, 1);
 
   sj2_cli__init();
 
@@ -72,11 +70,29 @@ void mp3_play(void) {
   while (1) {
     xQueueReceive(content, &song_name, portMAX_DELAY);
     // printf("content received: %s\n", receive_content); // TESTING
-    if (check_name(song_name)) {
+    if (check_name(song_name)) { // check if song_name is vaild
       // printf("Song name OK!\n"); // TESTING
-      if (check_file(song_name)) {
+      if (check_file(song_name)) { // song_name is vaild, check if the file
+                                   // 'song_name' is in SD card
         /*** NO SD, CANNOT TEST NOW!!! ***/
-        printf("file open OK!\n"); // TESTING
+        printf("file open OK!\n");   // TESTING
+        if (read_file(song_name)) {  // the file 'song_name' is in SD card,
+                                     // start reading the file 'song_name' from
+                                     // SD card to Q: song_data
+          printf("read file OK!\n"); // TESTING
+          /*************************************
+           * START PLAYING SONG
+           *
+           * This is where the cli_pause and cli_resume would successfully
+           *effect on task "play"
+           *
+           *************************************/
+          printf("song play start!\n"); // TESTING
+
+          printf("song play end!\n"); // TESTING
+          /* END PLAYING SONG */
+        } else
+          printf("Error, cannot read file!\n"); // Error message
       } else
       // printf("Error, cannot open file!\n"); // Error message
       /* TESTING: pause cli */

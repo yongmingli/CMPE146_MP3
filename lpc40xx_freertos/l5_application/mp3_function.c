@@ -57,3 +57,5 @@ bool check_file(char song_name[32]) {
   else
     return false;
 }
+
+bool read_file(char song_name[32]) {}

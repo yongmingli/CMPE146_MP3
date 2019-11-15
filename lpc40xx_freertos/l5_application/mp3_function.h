@@ -26,7 +26,11 @@
 #include <string.h>
 
 // variables
+extern QueueHandle_t song_data;
 
 // function defination
-bool check_name(char song_name[32]);
-bool check_file(char song_name[32]);
+bool check_name(char song_name[32]); // check if song_name is vaild
+bool check_file(
+    char song_name[32]); // check if the file 'song_name' is in SD card
+bool read_file(char song_name[32]); // reading the file 'song_name' from SD card
+                                    // to Q: song_data
