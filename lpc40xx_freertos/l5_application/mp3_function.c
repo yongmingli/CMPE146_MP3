@@ -50,20 +50,34 @@ bool check_name(char song_name[32]) {
 
 bool check_file(char song_name[32]) {
   FIL file; // File handle
-  UINT bytes_written = 0;
   FRESULT result = f_open(&file, song_name, (FA_OPEN_EXISTING));
-  if (FR_OK == result)
+  if (FR_OK == result) {
+    f_close(&file);
     return true;
-  else
+  } else
     return false;
 }
 
 bool read_file(char song_name[32]) {
-  // FIL file; // File handle
-  // UINT bytes_written = 0;
-  // FRESULT result = f_open(&file, song_name, (FA_OPEN_EXISTING));
-  // if (FR_OK == result)
-  //   return true;
-  // else
-  //   return false;
+  char bytes_512[512];
+  FIL file; // File handle
+  UINT bytes_written = 0;
+  FRESULT result = f_open(&file, song_name, (FA_READ | FA_OPEN_EXISTING));
+
+  if (FR_OK == result) {
+    // START READING
+    // int index = 0;
+    // while (!file.end()) {
+    //   if (FR_OK == f_read(&file, bytes_512[index], sizeof(bytes_512[index]),
+    //                       &bytes_written)) {
+    //     xQueueSend(song_data, &bytes_512[index], portMAX_DELAY);
+    //     index++;
+    //   } else
+    //     return false;
+    // }
+    // END READING
+    f_close(&file);
+    return true;
+  } else
+    return false;
 }
