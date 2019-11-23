@@ -61,10 +61,10 @@ int main(void) {
 
   sj2_cli__init();
 
-  xTaskCreate(mp3_cli_play, "cli_play", 1024U * 8 / (sizeof(void *)), NULL, 3,
-              NULL);
-  xTaskCreate(mp3_play, "play", 1024U * 32 / (sizeof(void *)), NULL, 2,
+  xTaskCreate(mp3_play, "play", 1024 * 16 / (sizeof(void *)), NULL, 3,
               NULL); // This function will always run
+  xTaskCreate(mp3_cli_play, "cli_play", 1024 * 16 / (sizeof(void *)), NULL, 2,
+              NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
@@ -72,7 +72,6 @@ int main(void) {
 }
 
 void mp3_play(void) {
-
   char bytes_512[512];
   while (1) {
     /*************************************
@@ -85,46 +84,47 @@ void mp3_play(void) {
      *
      *************************************/
 
-    /* TESTING: pause cli and resume cli */
-    // TESTING: pause cli and resume cli
-    while (1) {
-      for (int temp = 0; temp < 999; temp++) {
-        printf("temp: %d, wait 3000 tick\n", temp); // TESTING
-        vTaskDelay(3000);
-      }
-    }
-    /* TESTING: pause cli and resume cli END */
+    // /* TESTING: pause cli and resume cli */
+    // while (1) {
+    //   for (int temp = 0; temp < 999; temp++) {
+    //     printf("temp: %d, wait 3000 tick\n", temp); // TESTING
+    //     vTaskDelay(3000);
+    //   }
+    // }
+    // /* TESTING: pause cli and resume cli END */
 
-    // for (int index = 0; index<512; index++){
-    //   xQueueReceive(Q_songdata,  &bytes_512[0], portMAX_DELAY);
-    //   for (int i = 0; i < sizeof(bytes_512); i++) {
-    //     while (!mp3_decoder_needs_data()) {
-    //     vTaskDelay(1);
-    //   }
-    //   spi_send_to_mp3_decoder(bytes_512[i]);
-    //   }
-    // }
-    // }
-    /* This funcion will NOT return */
-  }
+    xQueueReceive(song_data, &bytes_512[0], portMAX_DELAY);
+    for (int i = 0; i < sizeof(bytes_512); i++) {
+      /* TESTING */
+      printf("Received data: %c\n", bytes_512[0]); // TESTING
+      vTaskDelay(1000);                            // TESTING
+      /* TESTING */
+
+      //   while (!mp3_decoder_needs_data()) {
+      //   vTaskDelay(1);
+      // }
+      // spi_send_to_mp3_decoder(bytes_512[i]);
+    }
+  } // END of while(1)
+  /* This funcion will NOT return */
 }
 
 void mp3_cli_play(void) {
   while (1) {
     xQueueReceive(content, &song_name, portMAX_DELAY);
-    printf("Song name received: %s\n", song_name); // TESTING
-    if (check_name(song_name)) {     // check if song_name is vaild
-      printf("Song name OK!\n");     // TESTING
-      if (check_file(song_name)) {   // song_name is vaild, check if the file
-                                     // 'song_name' is in SD card
-        printf("file open OK!\n");   // TESTING
-        if (read_file(song_name))    // the file 'song_name' is in SD card,
-                                     // start reading the file 'song_name' from
-                                     // SD card to Q: song_data
-          printf("read file OK!\n"); // TESTING
+    // printf("Song name received: %s\n", song_name); // TESTING
+    if (check_name(song_name)) { // check if song_name is vaild
+      // printf("Song name OK!\n");   // TESTING
+      if (check_file(song_name)) { // song_name is vaild, check if the file
+                                   // 'song_name' is in SD card
+        // printf("file open OK!\n"); // TESTING
+        if (read_file(song_name)) {
+        } // the file 'song_name' is in SD card,
+          // start reading the file 'song_name' from
+          // SD card to Q: song_data
+        // printf("read file DONE!\n"); // TESTING
         else
           printf("Error, cannot read file!\n"); // Error message
-
       } else
         printf("Error, cannot open file!\n"); // Error message
     } else

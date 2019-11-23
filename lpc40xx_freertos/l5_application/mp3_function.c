@@ -61,20 +61,21 @@ bool check_file(char song_name[32]) {
 bool read_file(char song_name[32]) {
   char bytes_512[512];
   FIL file; // File handle
-  UINT bytes_written = 0;
+  // UINT *next_read = NULL;
+  UINT next_read = 0;
+  // fprintf(stderr, "song name 1: <%s>\n", song_name); // TESTING
   FRESULT result = f_open(&file, song_name, (FA_READ | FA_OPEN_EXISTING));
 
   if (FR_OK == result) {
     // START READING
-    // int index = 0;
-    // while (!file.end()) {
-    //   if (FR_OK == f_read(&file, bytes_512[index], sizeof(bytes_512[index]),
-    //                       &bytes_written)) {
-    //     xQueueSend(song_data, &bytes_512[index], portMAX_DELAY);
-    //     index++;
-    //   } else
-    //     return false;
-    // }
+    do {
+      // fprintf(stderr, "song name 2: <%s>\n", song_name); // TESTING
+      if (FR_OK == f_read(&file, &bytes_512[0], 512, next_read)) {
+        fprintf(stderr, "read data: %c\n", bytes_512[0]); // TESTING
+        xQueueSend(song_data, &bytes_512[0], portMAX_DELAY);
+      } else
+        return false;
+    } while (next_read != NULL); // reach the end of the file
     // END READING
     f_close(&file);
     return true;
