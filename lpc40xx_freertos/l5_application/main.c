@@ -32,28 +32,35 @@
 */
 
 // if: play aaa.mp3
+char cli_input[32];
+QueueHandle_t cli; // play   goes there
 QueueHandle_t content; // aaa.mp3   goes there
 char song_name[32];
 QueueHandle_t song_data;
+TaskHandle_t task_handle = xTaskGetHandle(name);
 // QueueHandle_t Q_songname;
 
 // functions
 void mp3_init(); // NOT START
 
+/* Alway run: the music play function */
 void mp3_play(void);     // WORKING
+/* */
+void mp3_cli_init(void); // WORKING
 void mp3_cli_play(void); // WORKING
 // cli_pause    // DONE
 // cli_resume    // DONE
+void mp3_cli_next(void); // NOT START
+void mp3_cli_last(void); // NOT START
 void mp3_vup();  // NOT START
 void mp3_vdw();  // NOT START
-void mp3_next(); // NOT START
-void mp3_last(); // NOT START
 
 int main(void) {
   printf("************************************\n");
   printf("Welcome to our MP3!!!\n");
   printf("************************************\n\n");
 
+  cli = xQueueCreate(1, sizeof(char[32]));
   content = xQueueCreate(1, sizeof(char[32]));
   // song_data = xQueueCreate(512, 1);
   song_data = xQueueCreate(512, sizeof(char));
@@ -61,14 +68,29 @@ int main(void) {
 
   sj2_cli__init();
 
-  xTaskCreate(mp3_play, "play", 1024 * 16 / (sizeof(void *)), NULL, 3,
-              NULL); // This function will always run
-  xTaskCreate(mp3_cli_play, "cli_play", 1024 * 16 / (sizeof(void *)), NULL, 2,
-              NULL);
+  xTaskCreate(mp3_cli_init, "cli_init", 1024 * 2 ·/ (sizeof(void *)), NULL, 3, NULL);
+  xTaskCreate(mp3_play, "play", 1024 * 16 / (sizeof(void *)), NULL, 2, NULL); // This function will always run
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
   return -1;             // return 0;
+}
+
+void mp3_cli_init(void){
+  xQueueReceive(cli, &cli_input[0], portMAX_DELAY);
+  if (cli_input == "play"){
+    // clear the pervious song play ("cli_play") if there is any
+    // get ready for the new incoming cli
+    const char name[16] = "cli_play";
+    TaskHandle_t task_handle = xTaskGetHandle(name);
+    if (NULL == task_handle) {} else vTaskDelete(task_handle); 
+
+    // new cli_play
+    xTaskCreate(mp3_cli_play, "cli_play", 1024 * 16 / (sizeof(void *)), NULL, 1, NULL); // This function will always run
+  }
+  // else if (cli_input == "next")
+  // else if (cli_input == "last")
+  else printf ("Error, can not identify instruction! Please enter again\n");
 }
 
 void mp3_play(void) {

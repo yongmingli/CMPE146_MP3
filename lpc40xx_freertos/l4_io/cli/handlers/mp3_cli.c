@@ -22,7 +22,7 @@
 
 #include "cli_handlers.h"
 
-extern QueueHandle_t instruction;
+extern QueueHandle_t cli;
 extern QueueHandle_t content;
 
 const char *cli_instruction;
@@ -30,7 +30,8 @@ const char *cli_instruction;
 app_cli_status_e cli__mp3_play(app_cli__argument_t argument,
                                sl_string_t user_input_minus_command_name,
                                app_cli__print_string_function cli_output) {
-
+  const char name[5] = "play";
+  xQueueSend(cli, name, portMAX_DELAY);
   xQueueSend(content, user_input_minus_command_name, portMAX_DELAY);
 
   return APP_CLI_STATUS__SUCCESS;
