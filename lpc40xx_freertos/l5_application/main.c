@@ -26,6 +26,7 @@
 #include <string.h>
 
 #include "mp3_function.h"
+#include "decoder.h"
 /*
   Lab use
   Global functions and variables
@@ -41,7 +42,7 @@ TaskHandle_t task_handle = xTaskGetHandle(name);
 // QueueHandle_t Q_songname;
 
 // functions
-void mp3_init(); // NOT START
+void mp3_init(void); // WORKING
 
 /* Alway run: the music play function */
 void mp3_play(void);     // WORKING
@@ -67,6 +68,7 @@ int main(void) {
   // Q_songname = xQueueCreate(sizeof(char[32]), 1);
 
   sj2_cli__init();
+  mp3_init(void); 
 
   xTaskCreate(mp3_cli_init, "cli_init", 1024 * 2 ·/ (sizeof(void *)), NULL, 3, NULL);
   xTaskCreate(mp3_play, "play", 1024 * 16 / (sizeof(void *)), NULL, 2, NULL); // This function will always run
@@ -74,6 +76,14 @@ int main(void) {
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
   return -1;             // return 0;
+}
+
+void mp3_init(void){
+  /* DECODER INIT*/
+  decoder_init(); 
+  // Ready the DECODER for music play:
+  decoder_write_reg(VS1053_REG_MODE, 0x0820);
+
 }
 
 void mp3_cli_init(void){
@@ -116,17 +126,17 @@ void mp3_play(void) {
     // /* TESTING: pause cli and resume cli END */
 
     xQueueReceive(song_data, &bytes_512[0], portMAX_DELAY);
-    for (int i = 0; i < sizeof(bytes_512); i++) {
-      /* TESTING */
-      printf("Received data: %c\n", bytes_512[0]); // TESTING
-      vTaskDelay(1000);                            // TESTING
-      /* TESTING */
-
-      //   while (!mp3_decoder_needs_data()) {
-      //   vTaskDelay(1);
-      // }
-      // spi_send_to_mp3_decoder(bytes_512[i]);
-    }
+    decoder_send_data(&bytes_512[0], 512);
+    // for (int i = 0; i < sizeof(bytes_512); i++) {
+    //   /* TESTING */
+    //   printf("Received data: %c\n", bytes_512[0]); // TESTING
+    //   vTaskDelay(1000);                            // TESTING
+    //   /* TESTING */
+    //   //   while (!mp3_decoder_needs_data()) {
+    //   //   vTaskDelay(1);
+    //   // }
+    //   // spi_send_to_mp3_decoder(bytes_512[i]);
+    // }
   } // END of while(1)
   /* This funcion will NOT return */
 }
