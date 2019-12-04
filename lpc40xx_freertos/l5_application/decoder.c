@@ -5,9 +5,6 @@
 #include "lpc40xx.h"
 #include "ssp2_lab.h"
 
-#include <stdint.h>
-#include <stdio.h>
-
 #define VS1053_REG_MODE 0x00
 #define VS1053_REG_STATUS 0x01
 #define VS1053_REG_BASS 0x02
@@ -54,15 +51,21 @@ void decoder_send_data(uint8_t data[], int size) {
   int counter = 0;
   gpio__reset(mp3.xdcs);
   while (counter < size) {
+    // fprintf(stderr, "here0\n");
     while (!gpio__get(mp3.dreq))
       ;
     for (int i = 0; i < 32; i++) {
       ssp2__transfer_byte(data[counter++]);
+      // fprintf(stderr, "counter is: <%d>\n", counter);
     }
-    while (gpio__get(mp3.dreq))
+    // fprintf(stderr, "here1\n");
+
+    while (!gpio__get(mp3.dreq))
       ;
+    // fprintf(stderr, "here2\n");
   }
   gpio__set(mp3.xdcs);
+  // fprintf(stderr, "here3\n");
 }
 
 uint16_t decoder_read_reg(uint8_t address) {
@@ -112,7 +115,16 @@ void decoder_test() {
   decoder_write_reg(VS1053_REG_MODE, 0x0820);
   uint8_t sine_test[8] = {0x53, 0xEF, 0x6E, 0x7E, 0x00, 0x00, 0x00, 0x00};
   decoder_send_data(sine_test, 8);
-  delay__ms(6000);
+  delay__ms(3000);
   uint8_t end_test[8] = {0x45, 0x78, 0x69, 0x74, 0x00, 0x00, 0x00, 0x00};
   decoder_send_data(end_test, 8);
+}
+
+void decoder_test2() {
+  decoder_write_reg(VS1053_REG_MODE, 0x0820);
+  // uint8_t sine_test[8] = {0x53, 0xEF, 0x6E, 0x7E, 0x00, 0x00, 0x00, 0x00};
+  decoder_send_data(sound_test, sizeof(sound_test));
+  // delay__ms(3000);
+  // uint8_t end_test[8] = {0x45, 0x78, 0x69, 0x74, 0x00, 0x00, 0x00, 0x00};
+  // decoder_send_data(end_test, 8);
 }

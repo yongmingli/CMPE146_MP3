@@ -36,3 +36,5 @@ bool check_name(char song_name[32]);
 bool check_file(char song_name[32]);
 // reading the file 'song_name' from SD card to Q: song_data
 bool read_file(char song_name[32]);
+
+bool isMP3(char *file_name);
