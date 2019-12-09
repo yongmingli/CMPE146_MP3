@@ -169,7 +169,7 @@ void mp3_lcd(void) {
   while (1) {
     vTaskDelay(10);
     // printf(" ");
-    if (lcd_print) {
+    if (lcd_print && !pause) {
       printf("Song: %s\n", song_list[current_song]);
       lcd_print = false;
     }

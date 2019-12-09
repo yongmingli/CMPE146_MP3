@@ -1780,134 +1780,133 @@ END GROUP
  .text.mp3_play
                 0x0000000000002cec       0xf8 _build_lpc40xx_freertos/obj/main.o
                 0x0000000000002cec                mp3_play
- .text.mp3_lcd  0x0000000000002de4       0x38 _build_lpc40xx_freertos/obj/main.o
+ .text.mp3_lcd  0x0000000000002de4       0x44 _build_lpc40xx_freertos/obj/main.o
                 0x0000000000002de4                mp3_lcd
  .text.sd_mount
-                0x0000000000002e1c       0xc8 _build_lpc40xx_freertos/obj/main.o
-                0x0000000000002e1c                sd_mount
+                0x0000000000002e28       0xc8 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000002e28                sd_mount
  .text.mp3_init
-                0x0000000000002ee4       0x60 _build_lpc40xx_freertos/obj/main.o
-                0x0000000000002ee4                mp3_init
+                0x0000000000002ef0       0x60 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000002ef0                mp3_init
  .text.startup.main
-                0x0000000000002f44       0x50 _build_lpc40xx_freertos/obj/main.o
-                0x0000000000002f44                main
- .text.isMP3    0x0000000000002f94       0x44 _build_lpc40xx_freertos/obj/mp3_function.o
-                0x0000000000002f94                isMP3
+                0x0000000000002f50       0x50 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000002f50                main
+ .text.isMP3    0x0000000000002fa0       0x44 _build_lpc40xx_freertos/obj/mp3_function.o
+                0x0000000000002fa0                isMP3
  .text.vApplicationStackOverflowHook
-                0x0000000000002fd8       0x1c _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000002fd8                vApplicationStackOverflowHook
+                0x0000000000002fe4       0x1c _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000002fe4                vApplicationStackOverflowHook
  .text.vApplicationMallocFailedHook
-                0x0000000000002ff4       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000002ff4                vApplicationMallocFailedHook
+                0x0000000000003000       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003000                vApplicationMallocFailedHook
  .text.vApplicationIdleHook
-                0x0000000000003004       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000003004                vApplicationIdleHook
+                0x0000000000003010       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003010                vApplicationIdleHook
  .text.configASSERT_callback
-                0x0000000000003014       0x40 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000003014                configASSERT_callback
+                0x0000000000003020       0x40 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003020                configASSERT_callback
  .text.vApplicationGetIdleTaskMemory
-                0x0000000000003054       0x18 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000003054                vApplicationGetIdleTaskMemory
+                0x0000000000003060       0x18 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003060                vApplicationGetIdleTaskMemory
  .text.freertos_hooks__get_run_time_counter_value
-                0x000000000000306c       0x14 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x000000000000306c                freertos_hooks__get_run_time_counter_value
+                0x0000000000003078       0x14 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003078                freertos_hooks__get_run_time_counter_value
  .text.ssp2__initia
-                0x0000000000003080       0x2c _build_lpc40xx_freertos/obj/ssp2_lab.o
-                0x0000000000003080                ssp2__initia
+                0x000000000000308c       0x2c _build_lpc40xx_freertos/obj/ssp2_lab.o
+                0x000000000000308c                ssp2__initia
  .text.ssp2__transfer_byte
-                0x00000000000030ac       0x14 _build_lpc40xx_freertos/obj/ssp2_lab.o
-                0x00000000000030ac                ssp2__transfer_byte
+                0x00000000000030b8       0x14 _build_lpc40xx_freertos/obj/ssp2_lab.o
+                0x00000000000030b8                ssp2__transfer_byte
  .text.sl_string__initialize
-                0x00000000000030c0       0x28 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000030c0                sl_string__initialize
+                0x00000000000030cc       0x28 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000030cc                sl_string__initialize
  .text.sl_string__get_capacity
-                0x00000000000030e8       0x12 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000030e8                sl_string__get_capacity
+                0x00000000000030f4       0x12 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000030f4                sl_string__get_capacity
  .text.sl_string__get_capacity_including_null_char
-                0x00000000000030fa        0xc _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000030fa                sl_string__get_capacity_including_null_char
- .text.sl_string__get_length
                 0x0000000000003106        0xc _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003106                sl_string__get_length
+                0x0000000000003106                sl_string__get_capacity_including_null_char
+ .text.sl_string__get_length
+                0x0000000000003112        0xc _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003112                sl_string__get_length
  .text.sl_string__is_full
-                0x0000000000003112       0x1a _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003112                sl_string__is_full
+                0x000000000000311e       0x1a _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000311e                sl_string__is_full
  .text.sl_string__clear
-                0x000000000000312c        0x6 _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000312c                sl_string__clear
+                0x0000000000003138        0x6 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003138                sl_string__clear
  .text.sl_string__vprintf
-                0x0000000000003132       0x1c _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003132                sl_string__vprintf
+                0x000000000000313e       0x1c _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000313e                sl_string__vprintf
  .text.sl_string__printf
-                0x000000000000314e       0x1a _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000314e                sl_string__printf
+                0x000000000000315a       0x1a _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000315a                sl_string__printf
  .text.sl_string__set
-                0x0000000000003168       0x2e _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003168                sl_string__set
+                0x0000000000003174       0x2e _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003174                sl_string__set
  .text.sl_string__initialize_from
-                0x0000000000003196       0x16 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003196                sl_string__initialize_from
+                0x00000000000031a2       0x16 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000031a2                sl_string__initialize_from
  .text.sl_string__insert_at
-                0x00000000000031ac       0x54 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000031ac                sl_string__insert_at
+                0x00000000000031b8       0x54 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000031b8                sl_string__insert_at
  .text.sl_string__append
-                0x0000000000003200       0x38 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003200                sl_string__append
+                0x000000000000320c       0x38 _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000320c                sl_string__append
  .text.sl_string__append_char
-                0x0000000000003238       0x18 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003238                sl_string__append_char
+                0x0000000000003244       0x18 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003244                sl_string__append_char
  .text.sl_string__equals_to_ignore_case
-                0x0000000000003250       0x14 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003250                sl_string__equals_to_ignore_case
+                0x000000000000325c       0x14 _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000325c                sl_string__equals_to_ignore_case
  .text.sl_string__begins_with_limited_chars
-                0x0000000000003264       0x28 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003264                sl_string__begins_with_limited_chars
+                0x0000000000003270       0x28 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003270                sl_string__begins_with_limited_chars
  .text.sl_string__begins_with_ignore_case
-                0x000000000000328c       0x2e _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000328c                sl_string__begins_with_ignore_case
+                0x0000000000003298       0x2e _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003298                sl_string__begins_with_ignore_case
  .text.sl_string__begins_with_whole_word
-                0x00000000000032ba       0x44 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032ba                sl_string__begins_with_whole_word
+                0x00000000000032c6       0x44 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000032c6                sl_string__begins_with_whole_word
  .text.sl_string__ends_with_newline
-                0x00000000000032fe       0x22 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032fe                sl_string__ends_with_newline
+                0x000000000000330a       0x22 _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000330a                sl_string__ends_with_newline
  .text.sl_string__erase_after
-                0x0000000000003320       0x38 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003320                sl_string__erase_after
+                0x000000000000332c       0x38 _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000332c                sl_string__erase_after
  .text.sl_string__erase_first
-                0x0000000000003358        0x8 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003358                sl_string__erase_first
+                0x0000000000003364        0x8 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003364                sl_string__erase_first
  .text.sl_string__erase_last
-                0x0000000000003360       0x22 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003360                sl_string__erase_last
+                0x000000000000336c       0x22 _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000336c                sl_string__erase_last
  .text.sl_string__erase_at_substring
-                0x0000000000003382       0x1c _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003382                sl_string__erase_at_substring
+                0x000000000000338e       0x1c _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000338e                sl_string__erase_at_substring
  .text.sl_string__erase_first_word
-                0x000000000000339e       0x1c _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000339e                sl_string__erase_first_word
+                0x00000000000033aa       0x1c _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000033aa                sl_string__erase_first_word
  .text.sl_string__trim_end
-                0x00000000000033ba       0x40 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000033ba                sl_string__trim_end
+                0x00000000000033c6       0x40 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000033c6                sl_string__trim_end
  .text.vPortSVCHandler_wrapper
-                0x00000000000033fa       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x00000000000033fa                vPortSVCHandler_wrapper
+                0x0000000000003406       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x0000000000003406                vPortSVCHandler_wrapper
  .text.xPortPendSVHandler_wrapper
-                0x000000000000340c       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x000000000000340c                xPortPendSVHandler_wrapper
+                0x0000000000003418       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x0000000000003418                xPortPendSVHandler_wrapper
  .text.xPortSysTickHandler_wrapper
-                0x000000000000341e       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x000000000000341e                xPortSysTickHandler_wrapper
+                0x000000000000342a       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x000000000000342a                xPortSysTickHandler_wrapper
  .text.prvPortStartFirstTask
-                0x0000000000003430       0x28 _build_lpc40xx_freertos/obj/port.o
+                0x000000000000343c       0x28 _build_lpc40xx_freertos/obj/port.o
  .text.vPortEnableVFP
-                0x0000000000003458       0x14 _build_lpc40xx_freertos/obj/port.o
+                0x0000000000003464       0x14 _build_lpc40xx_freertos/obj/port.o
  .text.prvTaskExitError
-                0x000000000000346c       0x3c _build_lpc40xx_freertos/obj/port.o
+                0x0000000000003478       0x3c _build_lpc40xx_freertos/obj/port.o
  .text.pxPortInitialiseStack
-                0x00000000000034a8       0x2c _build_lpc40xx_freertos/obj/port.o
-                0x00000000000034a8                pxPortInitialiseStack
- *fill*         0x00000000000034d4        0xc ff
+                0x00000000000034b4       0x2c _build_lpc40xx_freertos/obj/port.o
+                0x00000000000034b4                pxPortInitialiseStack
  .text.vPortSVCHandler
                 0x00000000000034e0       0x24 _build_lpc40xx_freertos/obj/port.o
                 0x00000000000034e0                vPortSVCHandler
@@ -3260,7 +3259,7 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_ranges  0x0000000000001b20       0x38 _build_lpc40xx_freertos/obj/ssp2.o
  .debug_ranges  0x0000000000001b58       0xc8 _build_lpc40xx_freertos/obj/uart.o
 
-.debug_line     0x0000000000000000    0x126ca
+.debug_line     0x0000000000000000    0x126d4
  .debug_line    0x0000000000000000      0x31b _build_lpc40xx_freertos/obj/entry_point.o
  .debug_line    0x000000000000031b      0x452 _build_lpc40xx_freertos/obj/interrupt_vector_table.o
  .debug_line    0x000000000000076d      0x24d _build_lpc40xx_freertos/obj/clock.o
@@ -3285,24 +3284,24 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_line    0x0000000000008264      0x272 _build_lpc40xx_freertos/obj/sys_time.o
  .debug_line    0x00000000000084d6      0x495 _build_lpc40xx_freertos/obj/uart_printf.o
  .debug_line    0x000000000000896b      0x572 _build_lpc40xx_freertos/obj/decoder.o
- .debug_line    0x0000000000008edd      0x618 _build_lpc40xx_freertos/obj/main.o
- .debug_line    0x00000000000094f5      0x57a _build_lpc40xx_freertos/obj/mp3_function.o
- .debug_line    0x0000000000009a6f      0x3c3 _build_lpc40xx_freertos/obj/rtos_hooks.o
- .debug_line    0x0000000000009e32      0x349 _build_lpc40xx_freertos/obj/ssp2_lab.o
- .debug_line    0x000000000000a17b     0x1586 _build_lpc40xx_freertos/obj/sl_string.o
- .debug_line    0x000000000000b701      0x13c _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
- .debug_line    0x000000000000b83d      0x644 _build_lpc40xx_freertos/obj/port.o
- .debug_line    0x000000000000be81      0x371 _build_lpc40xx_freertos/obj/heap_3.o
- .debug_line    0x000000000000c1f2      0x466 _build_lpc40xx_freertos/obj/list.o
- .debug_line    0x000000000000c658     0x167a _build_lpc40xx_freertos/obj/queue.o
- .debug_line    0x000000000000dcd2     0x2403 _build_lpc40xx_freertos/obj/tasks.o
- .debug_line    0x00000000000100d5      0x339 _build_lpc40xx_freertos/obj/board_io.o
- .debug_line    0x000000000001040e      0x4fa _build_lpc40xx_freertos/obj/gpio.o
- .debug_line    0x0000000000010908      0x354 _build_lpc40xx_freertos/obj/hw_timer.o
- .debug_line    0x0000000000010c5c      0x9b8 _build_lpc40xx_freertos/obj/i2c.o
- .debug_line    0x0000000000011614      0x385 _build_lpc40xx_freertos/obj/lpc_peripherals.o
- .debug_line    0x0000000000011999      0x4f0 _build_lpc40xx_freertos/obj/ssp2.o
- .debug_line    0x0000000000011e89      0x841 _build_lpc40xx_freertos/obj/uart.o
+ .debug_line    0x0000000000008edd      0x622 _build_lpc40xx_freertos/obj/main.o
+ .debug_line    0x00000000000094ff      0x57a _build_lpc40xx_freertos/obj/mp3_function.o
+ .debug_line    0x0000000000009a79      0x3c3 _build_lpc40xx_freertos/obj/rtos_hooks.o
+ .debug_line    0x0000000000009e3c      0x349 _build_lpc40xx_freertos/obj/ssp2_lab.o
+ .debug_line    0x000000000000a185     0x1586 _build_lpc40xx_freertos/obj/sl_string.o
+ .debug_line    0x000000000000b70b      0x13c _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+ .debug_line    0x000000000000b847      0x644 _build_lpc40xx_freertos/obj/port.o
+ .debug_line    0x000000000000be8b      0x371 _build_lpc40xx_freertos/obj/heap_3.o
+ .debug_line    0x000000000000c1fc      0x466 _build_lpc40xx_freertos/obj/list.o
+ .debug_line    0x000000000000c662     0x167a _build_lpc40xx_freertos/obj/queue.o
+ .debug_line    0x000000000000dcdc     0x2403 _build_lpc40xx_freertos/obj/tasks.o
+ .debug_line    0x00000000000100df      0x339 _build_lpc40xx_freertos/obj/board_io.o
+ .debug_line    0x0000000000010418      0x4fa _build_lpc40xx_freertos/obj/gpio.o
+ .debug_line    0x0000000000010912      0x354 _build_lpc40xx_freertos/obj/hw_timer.o
+ .debug_line    0x0000000000010c66      0x9b8 _build_lpc40xx_freertos/obj/i2c.o
+ .debug_line    0x000000000001161e      0x385 _build_lpc40xx_freertos/obj/lpc_peripherals.o
+ .debug_line    0x00000000000119a3      0x4f0 _build_lpc40xx_freertos/obj/ssp2.o
+ .debug_line    0x0000000000011e93      0x841 _build_lpc40xx_freertos/obj/uart.o
 
 .debug_str      0x0000000000000000     0x6605
  .debug_str     0x0000000000000000      0x622 _build_lpc40xx_freertos/obj/entry_point.o
