@@ -22,47 +22,39 @@
 
 #include "cli_handlers.h"
 
-extern QueueHandle_t cli;
-extern QueueHandle_t content;
-
-const char *cli_instruction;
+extern bool next;
+extern bool pause;
+extern bool prev;
 
 app_cli_status_e cli__mp3_play(app_cli__argument_t argument,
                                sl_string_t user_input_minus_command_name,
                                app_cli__print_string_function cli_output) {
-  const char name[5] = "play";
-  xQueueSend(cli, name, portMAX_DELAY);
-  xQueueSend(content, user_input_minus_command_name, portMAX_DELAY);
-
+  pause = false;
+  // fprintf(stderr, "resumed!!!\n");
   return APP_CLI_STATUS__SUCCESS;
 }
 
 app_cli_status_e cli__mp3_pause(app_cli__argument_t argument,
                                 sl_string_t user_input_minus_command_name,
                                 app_cli__print_string_function cli_output) {
-
-  const char name[5] = "play";
-  TaskHandle_t task_handle = xTaskGetHandle(name);
-  if (NULL == task_handle) {
-    fprintf(stderr, "pause failed!!!\n");
-  } else {
-    vTaskSuspend(task_handle);
-    fprintf(stderr, "Paused!!!\n");
-  }
+  pause = true;
+  // fprintf(stderr, "paused!!!\n");
   return APP_CLI_STATUS__SUCCESS;
 }
 
-app_cli_status_e cli__mp3_resume(app_cli__argument_t argument,
-                                 sl_string_t user_input_minus_command_name,
-                                 app_cli__print_string_function cli_output) {
+app_cli_status_e cli__mp3_next(app_cli__argument_t argument,
+                               sl_string_t user_input_minus_command_name,
+                               app_cli__print_string_function cli_output) {
+  next = true;
+  // fprintf(stderr, "next done!!!\n");
+  return APP_CLI_STATUS__SUCCESS;
+}
 
-  const char name[5] = "play";
-  TaskHandle_t task_handle = xTaskGetHandle(name);
-  if (NULL == task_handle) {
-    fprintf(stderr, "resume failed!!!\n");
-  } else {
-    vTaskResume(task_handle);
-    fprintf(stderr, "Resumed!!!\n");
-  }
+app_cli_status_e cli__mp3_prev(app_cli__argument_t argument,
+                               sl_string_t user_input_minus_command_name,
+                               app_cli__print_string_function cli_output) {
+
+  prev = true;
+  // fprintf(stderr, "prev done!!!\n");
   return APP_CLI_STATUS__SUCCESS;
 }

@@ -22,59 +22,67 @@ void sj2_cli__init(void) {
   static app_cli_s sj2_cli_struct;
   sj2_cli_struct = app_cli__initialize(4, sj2_cli__output_function, separator);
 
-  // Need static struct that does not go out of scope
-  static app_cli__command_s crash = {
-      .command_name = "crash",
-      .help_message_for_command =
-          "Deliberately crashes the system to demonstrate how to debug a crash",
-      .app_cli_handler = cli__crash_me};
-  static app_cli__command_s i2c = {
-      .command_name = "i2c",
-      .help_message_for_command = "i2c read 0xDD 0xRR <n>\n"
-                                  "i2c write 0xDD 0xRR <value> <value> ...",
-      .app_cli_handler = cli__i2c};
-  static app_cli__command_s task_list = {
-      .command_name = "tasklist",
-      .help_message_for_command =
-          "Outputs list of RTOS tasks, CPU and stack usage.\n"
-          "tasklist <time>' will display CPU utilization within this time "
-          "window.",
-      .app_cli_handler = cli__task_list};
+  // // Need static struct that does not go out of scope
+  // static app_cli__command_s crash = {
+  //     .command_name = "crash",
+  //     .help_message_for_command =
+  //         "Deliberately crashes the system to demonstrate how to debug a
+  //         crash",
+  //     .app_cli_handler = cli__crash_me};
+  // static app_cli__command_s i2c = {
+  //     .command_name = "i2c",
+  //     .help_message_for_command = "i2c read 0xDD 0xRR <n>\n"
+  //                                 "i2c write 0xDD 0xRR <value> <value> ...",
+  //     .app_cli_handler = cli__i2c};
+  // static app_cli__command_s task_list = {
+  //     .command_name = "tasklist",
+  //     .help_message_for_command =
+  //         "Outputs list of RTOS tasks, CPU and stack usage.\n"
+  //         "tasklist <time>' will display CPU utilization within this time "
+  //         "window.",
+  //     .app_cli_handler = cli__task_list};
 
-  // Write in Watchdog Lab
-  static app_cli__command_s taskcontrol = {
-      .command_name = "t",
-      .help_message_for_command = "Suspend a task.\n"
-                                  "Resume a task.\n",
-      .app_cli_handler = cli__task_control};
+  // // Write in Watchdog Lab
+  // static app_cli__command_s taskcontrol = {
+  //     .command_name = "t",
+  //     .help_message_for_command = "Suspend a task.\n"
+  //                                 "Resume a task.\n",
+  //     .app_cli_handler = cli__task_control};
 
   // Write in MP3 Project
-  static app_cli__command_s mp3_play = {
-      .command_name = "play",
-      .help_message_for_command = "EXAMPLE: play song_name.file_type\n"
-                                  "Supported file type: mp3\n",
-      .app_cli_handler = cli__mp3_play};
+  static app_cli__command_s mp3_play = {.command_name = "play",
+                                        .help_message_for_command =
+                                            "If first time: Start playing...\n"
+                                            "Other: Resume the MP3 play...\n",
+                                        .app_cli_handler = cli__mp3_play};
 
   static app_cli__command_s mp3_pause = {.command_name = "pause",
                                          .help_message_for_command =
-                                             "Pauese the MP3 play\n",
+                                             "Pauese the MP3 play...\n",
                                          .app_cli_handler = cli__mp3_pause};
 
-  static app_cli__command_s mp3_resume = {.command_name = "resume",
-                                          .help_message_for_command =
-                                              "Resume the MP3 play\n",
-                                          .app_cli_handler = cli__mp3_resume};
+  static app_cli__command_s mp3_next = {.command_name = "next",
+                                        .help_message_for_command =
+                                            "Play next song...\n",
+                                        .app_cli_handler = cli__mp3_next};
 
-  // Add your CLI commands in descending sorted order
-  app_cli__add_command_handler(&sj2_cli_struct, &task_list);
-  app_cli__add_command_handler(&sj2_cli_struct, &i2c);
-  app_cli__add_command_handler(&sj2_cli_struct, &crash);
-  // Write in Watchdog Lab
-  app_cli__add_command_handler(&sj2_cli_struct, &taskcontrol);
+  static app_cli__command_s mp3_prev = {.command_name = "prev",
+                                        .help_message_for_command =
+                                            "Play previous song...\n",
+                                        .app_cli_handler = cli__mp3_prev};
+
+  // // Add your CLI commands in descending sorted order
+  // app_cli__add_command_handler(&sj2_cli_struct, &task_list);
+  // app_cli__add_command_handler(&sj2_cli_struct, &i2c);
+  // app_cli__add_command_handler(&sj2_cli_struct, &crash);
+  // // Write in Watchdog Lab
+  // app_cli__add_command_handler(&sj2_cli_struct, &taskcontrol);
+
   // Write in MP3 Project
   app_cli__add_command_handler(&sj2_cli_struct, &mp3_play);
   app_cli__add_command_handler(&sj2_cli_struct, &mp3_pause);
-  app_cli__add_command_handler(&sj2_cli_struct, &mp3_resume);
+  app_cli__add_command_handler(&sj2_cli_struct, &mp3_next);
+  app_cli__add_command_handler(&sj2_cli_struct, &mp3_prev);
 
   // In case other tasks are hogging the CPU, it would be useful to run the CLI
   // at high priority to at least be able to see what is going on

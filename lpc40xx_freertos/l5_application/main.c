@@ -31,192 +31,155 @@
   Global functions and variables
 */
 
-// if: play aaa.mp3
-char cli_input[32];
-QueueHandle_t cli;     // play   goes there
-QueueHandle_t content; // aaa.mp3   goes there
-char song_name[32];
-QueueHandle_t song_data;
-char song_list[20][100];
-// TaskHandle_t task_handle = xTaskGetHandle(name);
-// QueueHandle_t Q_songname;
+// lock variables
+// SemaphoreHandle_t decoder_lock;
+// SemaphoreHandle_t display_lock;
+
+// FATFS variables
+FATFS fat_fs;
+FIL file; // File handle
+DIR dir;
+FILINFO fno;
+
+// control state variables
+bool next = false;
+// bool pause = false;
+bool pause = true;
+bool prev = false;
+bool lcd_print = false;
+
+// song name buffer
+char song_list[20][100]; // 20 song max for now
+int song_count = 0;
+int current_song = 0;
 
 // functions
-void mp3_init(void); // WORKING
-/* Alway run: the music play function */
-void mp3_play(void); // WORKING
-/* */
-void mp3_cli_play(void); // WORKING
-// cli_pause    // DONE
-// cli_resume    // DONE
-void mp3_cli_next(void); // NOT START
-void mp3_cli_last(void); // NOT START
-void mp3_vup();          // NOT START
-void mp3_vdw();          // NOT START
-
 void sd_mount(void);
+void mp3_init(void);
+
+// functions for task
+void mp3_lcd(void);
+void mp3_play(void);
 
 int main(void) {
+  /* START UP*/
+  mp3_init();
+  sj2_cli__init(); // For testing only
 
-  // test the decoder
-  decoder_init();
-  // decoder_test2();
-  char bytes_512[512];
-  FIL file; // File handle
-  // UINT *next_read = NULL;
-  UINT next_read = 512;
-  char *song_name = "a.mp3";
-  // fprintf(stderr, "song name 1: <%s>\n", song_name); // TESTING
-  FRESULT result = f_open(&file, song_name, (FA_READ | FA_OPEN_EXISTING));
+  /////////////
+  // decoder_lock = xSemaphoreCreateMutex();
+  // display_lock = xSemaphoreCreateMutex();
 
-  if (FR_OK == result) {
-    // START READING
-    do {
-      // fprintf(stderr, "song name 2: <%s>\n", song_name); // TESTING
-      if (FR_OK == f_read(&file, &bytes_512[0], 512, &next_read)) {
-        decoder_send_data(&bytes_512[0], 512);
-      }
-    } while (next_read == 512); // reach the end of the file
-    // END READING
-    f_close(&file);
-  }
-
-  // coding
-  // printf("************************************\n");
-  // printf("Welcome to our MP3!!!\n");
-  // printf("************************************\n\n");
-
-  // content = xQueueCreate(1, sizeof(char[32]));
-
-  // Q_songname = xQueueCreate(sizeof(char[32]), 1);
-  // Q_songdata = xQueueCreate(512, 1);
-
-  // sj2_cli__init();
-
-  // xTaskCreate(mp3_play, "play", 1024U * 32 / (sizeof(void *)), NULL, 2,
-  // NULL);
+  xTaskCreate(mp3_lcd, "lcd", 1024U * 2 / (sizeof(void *)), NULL, 2, NULL);
+  xTaskCreate(mp3_play, "play", 1024U * 4 / (sizeof(void *)), NULL, 3, NULL);
+  // xTaskCreate(mp3_play, "play", 4096, NULL, 3, NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
   return -1;             // return 0;
 }
-
 void mp3_init(void) {
+  printf("\n***************************\n");
   printf("MP3 initialization START!!!\n");
   /* SD mounting*/
-  // sd_mount();
+  sd_mount();
 
   /* DECODER INIT*/
   decoder_init();
-  // Ready the DECODER for music play:
-  decoder_write_reg(0x00, 0x0820);
   printf("MP3 decoder initialized!!!\n");
 
   /* LCD INIT*/
   // printf("MP3 LCD initialized!!!\n");
   printf("MP3 initialization END!!!\n");
+  printf("***************************\n\n");
+  printf("Welcome to use our MP3!!!\n");
+  printf("Play to start playing music!\n\n");
+  printf("***************************\n");
 }
 
-void mp3_play(void) { // 3
+void mp3_play(void) {
   char bytes_512[512];
-  while (1) {
-    /*************************************
-     *
-     * START PLAYING SONG
-     *
-     * This funcion will NOT return!
-     *
-     * It will alway wait for next byte to play!
-     *
-     *************************************/
-
-    xQueueReceive(song_data, &bytes_512[0], portMAX_DELAY);
-    decoder_send_data(&bytes_512[0], 512);
-
-    // /* TESTING: pause cli and resume cli */
-    // while (1) {
-    //   for (int temp = 0; temp < 999; temp++) {
-    //     printf("temp: %d, wait 3000 tick\n", temp); // TESTING
-    //     vTaskDelay(3000);
-    //   }
-    // }
-    // /* TESTING: pause cli and resume cli END */
-
-    // for (int i = 0; i < sizeof(bytes_512); i++) {
-    //   /* TESTING */
-    //   printf("Received data: %c\n", bytes_512[0]); // TESTING
-    //   vTaskDelay(1000);                            // TESTING
-    //   /* TESTING */
-    //   //   while (!mp3_decoder_needs_data()) {
-    //   //   vTaskDelay(1);
-    //   // }
-    //   // spi_send_to_mp3_decoder(bytes_512[i]);
-    // }
-  } // END of while(1)
-  /* This funcion will NOT return */
-}
-
-void mp3_cli_play(void) { // 2
-  char bytes_512[512];
-  FIL file; // File handle
-  // UINT *next_read = NULL;
   UINT next_read = 512;
   while (1) {
-    xQueueReceive(content, &song_name, portMAX_DELAY);
-    // printf("Song name received: %s\n", song_name); // TESTING
-    if (check_name(song_name)) { // check if song_name is vaild
-      // printf("Song name OK!\n");   // TESTING
-      if (check_file(song_name)) { // song_name is vaild, check if the file
-                                   // 'song_name' is in SD card
-                                   // printf("file open OK!\n"); // TESTING
+    // xSemaphoreGive(display_lock);
+    lcd_print = true;
+    vTaskDelay(100); // for lcd print
 
-        // fprintf(stderr, "Here.\n", bytes_512[0]); // TESTING
-        // decoder_send_data(sound_test, sizeof(sound_test)); // TESTING
+    // if (pause)
+    // {
+    //   printf("Should appear only once at the START!\n");
+    //   printf("WAIT\n");
+    //   vTaskDelay(1000); // for lcd print
+    //   vTaskDelay(1000); // for lcd print
+    //   vTaskDelay(1000); // for lcd print
+    //   vTaskDelay(1000); // for lcd print
+    //   vTaskDelay(1000); // for lcd print
+    // }
 
-        // // fprintf(stderr, "song name 1: <%s>\n", song_name); // TESTING
-        // FRESULT result = f_open(&file, song_name, (FA_READ |
-        // FA_OPEN_EXISTING));
-        // // fprintf(stderr, "Here.\n", bytes_512[0]); // TESTING
+    if (pause)
+      vTaskDelay(100); // for lcd print
+    else {             // START setting (here0 start)
+      // while (pause == false) { // START setting (here0 start)
+      // printf("play start\n");
+      // printf("current song: %s\n", song_list[current_song]);
+      f_open(&file, song_list[current_song], FA_READ);
+      while (next_read == 512 && !next && !prev) {
+        f_read(&file, &bytes_512[0], 512, &next_read);
+        taskENTER_CRITICAL();
+        decoder_send_data(&bytes_512[0], 512);
+        taskEXIT_CRITICAL();
+        // xSemaphoreGive(decoder_lock);
+        while (pause) {
+          vTaskDelay(10);
+        }
+      }
+      f_close(&file);
+      // printf("play end\n");
 
-        // if (FR_OK == result) {
-        //   // START READING
-        //   do {
-        //     // fprintf(stderr, "song name 2: <%s>\n", song_name); // TESTING
-        //     if (FR_OK == f_read(&file, &bytes_512[0], 512, &next_read)) {
-        //       // fprintf(stderr, "read data: %c\n", bytes_512[0]); // TESTING
-        //       xQueueSend(song_data, &bytes_512[0], portMAX_DELAY);
-        //     } else
-        //       printf("Error, cannot read in middle file!\n"); // Error
-        //       message
-        //   } while (next_read == 512); // reach the end of the file
-        //   // END READING
-        //   f_close(&file);
-        // } else
-        //   printf("Error, cannot read file!\n"); // Error message
+      if (prev) {
+        if (current_song == 0) {
+          current_song = song_count - 1;
+        } else {
+          current_song--;
+        }
+        prev = false;
+      } else if (next) {
+        if (current_song + 1 < song_count) {
+          current_song++;
+        } else {
+          current_song = 0;
+        }
+        next = false;
+      } else { // default == next
+        if (current_song + 1 < song_count) {
+          current_song++;
+        } else {
+          current_song = 0;
+        }
+      }
+      // printf("next song: %s\n", song_list[current_song]);
+      // xSemaphoreGive(display_lock,NULL);
+      // vTaskDelay(200);
+    } // (here0 end)
+  }
+}
 
-        // //
-        // if (read_file(song_name)) {
-        //   // the file 'song_name' is in SD card,
-        //   // start reading the file 'song_name' from
-        //   // SD card to Q: song_data
-        //   // printf("read file DONE!\n"); // TESTING
-        // } /*END*/
-        // else
-        //   printf("Error, cannot read file!\n"); // Error message
-        // //
-      } else
-        printf("Error, cannot open file!\n"); // Error message
-    } else
-      printf("Error, check input!\n"); // Error message
+void mp3_lcd(void) {
+  while (1) {
+    printf(" ");
+    if (lcd_print) {
+      printf("\nSong: %s\n", song_list[current_song]);
+      lcd_print = false;
+    }
+    // if (xSemaphoreTake(display_lock, portMAX_DELAY)) {
+    //   xSemaphoreGive(display_lock);
+    // }
+    // while(!xSemaphoreTake(display_lock,100));
   }
 }
 
 void sd_mount(void) {
-  FATFS fat_fs;
-  FIL fil;
-  DIR dir;
-  FILINFO fno;
-  int song_count = 0;
+  song_count = 0;
   // mounting sd card
   // printf("start mounting\n");
   f_mount(&fat_fs, "", 1);
@@ -230,7 +193,7 @@ void sd_mount(void) {
     for (;;) {
       res = f_readdir(&dir, &fno);
       if (res != FR_OK || fno.fname[0] == 0) {
-        printf("Found %d songs\n\n", song_count);
+        printf("Found %d songs\n", song_count);
         break; // error or end of loop
       } else if (fno.fattrib & AM_DIR) {
         // a folder, ignore
@@ -250,9 +213,12 @@ void sd_mount(void) {
   }
   f_closedir(&dir);
   // exit if no song found
-  if (song_count == 0)
+  if (song_count == 0) {
+    printf("NO SONG FOUND!!!.\n");
     exit(1);
+  }
+
   // //remounting sd card
   // printf("start mounting\n");
-  // f_mount(&fat_fs,"",1);
+  f_mount(&fat_fs, "", 1);
 }
