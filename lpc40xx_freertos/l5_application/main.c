@@ -32,8 +32,7 @@
 */
 
 // lock variables
-// SemaphoreHandle_t decoder_lock;
-// SemaphoreHandle_t display_lock;
+
 
 // FATFS variables
 FATFS fat_fs;
@@ -43,7 +42,6 @@ FILINFO fno;
 
 // control state variables
 bool next = false;
-// bool pause = false;
 bool pause = true;
 bool prev = false;
 bool lcd_print = false;
@@ -66,13 +64,8 @@ int main(void) {
   mp3_init();
   sj2_cli__init(); // For testing only
 
-  /////////////
-  // decoder_lock = xSemaphoreCreateMutex();
-  // display_lock = xSemaphoreCreateMutex();
-
   xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
   xTaskCreate(mp3_play, "play", 1024U * 4 / (sizeof(void *)), NULL, 3, NULL);
-  // xTaskCreate(mp3_play, "play", 4096, NULL, 3, NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
@@ -101,7 +94,6 @@ void mp3_play(void) {
   char bytes_512[512];
   UINT next_read = 512;
   while (1) {
-    // xSemaphoreGive(display_lock);
     lcd_print = true;
     vTaskDelay(100); // for lcd print
     lcd_print = false;
@@ -109,7 +101,6 @@ void mp3_play(void) {
     if (pause)
       vTaskDelay(100); // waiting to start
     else {             // START setting (here0 start)
-      // while (pause == false) { // START setting (here0 start)
       // printf("play start\n"); // TESTING
       // printf("current song: %s\n", song_list[current_song]); // TESTING
       f_open(&file, song_list[current_song], FA_READ);
@@ -118,7 +109,6 @@ void mp3_play(void) {
         taskENTER_CRITICAL();
         decoder_send_data(&bytes_512[0], 512);
         taskEXIT_CRITICAL();
-        // xSemaphoreGive(decoder_lock);
         while (pause) {
           vTaskDelay(10);
         }
