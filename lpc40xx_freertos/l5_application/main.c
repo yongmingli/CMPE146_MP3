@@ -70,7 +70,7 @@ int main(void) {
   // decoder_lock = xSemaphoreCreateMutex();
   // display_lock = xSemaphoreCreateMutex();
 
-  xTaskCreate(mp3_lcd, "lcd", 1024U * 2 / (sizeof(void *)), NULL, 2, NULL);
+  xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
   xTaskCreate(mp3_play, "play", 1024U * 4 / (sizeof(void *)), NULL, 3, NULL);
   // xTaskCreate(mp3_play, "play", 4096, NULL, 3, NULL);
 
@@ -104,6 +104,7 @@ void mp3_play(void) {
     // xSemaphoreGive(display_lock);
     lcd_print = true;
     vTaskDelay(100); // for lcd print
+    lcd_print = false;
 
     // if (pause)
     // {
@@ -166,9 +167,10 @@ void mp3_play(void) {
 
 void mp3_lcd(void) {
   while (1) {
-    printf(" ");
+    vTaskDelay(10);
+    // printf(" ");
     if (lcd_print) {
-      printf("\nSong: %s\n", song_list[current_song]);
+      printf("Song: %s\n", song_list[current_song]);
       lcd_print = false;
     }
     // if (xSemaphoreTake(display_lock, portMAX_DELAY)) {
