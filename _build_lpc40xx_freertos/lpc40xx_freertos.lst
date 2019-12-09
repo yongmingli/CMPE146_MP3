@@ -10555,37 +10555,37 @@ void mp3_play(void) {
 
 00002dec <mp3_lcd>:
 mp3_lcd():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:158
-      // vTaskDelay(200);
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:156
+      // printf("next song: %s\n", song_list[current_song]); // TESTING
     } // (here0 end)
   }
 }
 
 void mp3_lcd(void) {
     2dec:	b580      	push	{r7, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:161
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:159
   while (1) {
     vTaskDelay(10);
     if (lcd_print && !pause) {
     2dee:	4c0b      	ldr	r4, [pc, #44]	; (2e1c <mp3_lcd+0x30>)
     2df0:	4f0b      	ldr	r7, [pc, #44]	; (2e20 <mp3_lcd+0x34>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:162
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:160
       printf("Song: %s\n", song_list[current_song]);
     2df2:	4e0c      	ldr	r6, [pc, #48]	; (2e24 <mp3_lcd+0x38>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:160
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:158
     vTaskDelay(10);
     2df4:	200a      	movs	r0, #10
     2df6:	f001 fc8b 	bl	4710 <vTaskDelay>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:161
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:159
     if (lcd_print && !pause) {
     2dfa:	7823      	ldrb	r3, [r4, #0]
     2dfc:	2b00      	cmp	r3, #0
     2dfe:	d0f9      	beq.n	2df4 <mp3_lcd+0x8>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:161 (discriminator 1)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:159 (discriminator 1)
     2e00:	783d      	ldrb	r5, [r7, #0]
     2e02:	2d00      	cmp	r5, #0
     2e04:	d1f6      	bne.n	2df4 <mp3_lcd+0x8>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:162
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:160
       printf("Song: %s\n", song_list[current_song]);
     2e06:	6832      	ldr	r2, [r6, #0]
     2e08:	4b07      	ldr	r3, [pc, #28]	; (2e28 <mp3_lcd+0x3c>)
@@ -10593,7 +10593,7 @@ void mp3_lcd(void) {
     2e0c:	2164      	movs	r1, #100	; 0x64
     2e0e:	fb01 3102 	mla	r1, r1, r2, r3
     2e12:	f004 fb69 	bl	74e8 <iprintf>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:163
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:161
       lcd_print = false;
     2e16:	7025      	strb	r5, [r4, #0]
     2e18:	e7ec      	b.n	2df4 <mp3_lcd+0x8>
@@ -10606,52 +10606,51 @@ void mp3_lcd(void) {
 
 00002e30 <sd_mount>:
 sd_mount():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:172
-    // }
-    // while(!xSemaphoreTake(display_lock,100));
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:166
+    }
   }
 }
 
 void sd_mount(void) {
     2e30:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:173
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:167
   song_count = 0;
     2e32:	4c26      	ldr	r4, [pc, #152]	; (2ecc <sd_mount+0x9c>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:175
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:169
   // mounting sd card
   printf("Start scanning SD card.\n");
     2e34:	4826      	ldr	r0, [pc, #152]	; (2ed0 <sd_mount+0xa0>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:173
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:167
   song_count = 0;
     2e36:	2300      	movs	r3, #0
     2e38:	6023      	str	r3, [r4, #0]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:175
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:169
   printf("Start scanning SD card.\n");
     2e3a:	f004 fbef 	bl	761c <puts>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:176
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:170
   f_mount(&fat_fs, "", 1);
     2e3e:	4925      	ldr	r1, [pc, #148]	; (2ed4 <sd_mount+0xa4>)
     2e40:	4825      	ldr	r0, [pc, #148]	; (2ed8 <sd_mount+0xa8>)
     2e42:	2201      	movs	r2, #1
     2e44:	f7fe fc62 	bl	170c <f_mount>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:179
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:173
 
   // open root directory
   FRESULT res = f_opendir(&dir, "/");
     2e48:	4924      	ldr	r1, [pc, #144]	; (2edc <sd_mount+0xac>)
     2e4a:	4825      	ldr	r0, [pc, #148]	; (2ee0 <sd_mount+0xb0>)
     2e4c:	f7fe fe9f 	bl	1b8e <f_opendir>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:182
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:176
 
   // scan for mp3 file
   if (res == FR_OK) {
     2e50:	b970      	cbnz	r0, 2e70 <sd_mount+0x40>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:184
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:178
     for (;;) {
       res = f_readdir(&dir, &fno);
     2e52:	4d24      	ldr	r5, [pc, #144]	; (2ee4 <sd_mount+0xb4>)
     2e54:	4f22      	ldr	r7, [pc, #136]	; (2ee0 <sd_mount+0xb0>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:192
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:186
         break; // error or end of loop
       } else if (fno.fattrib & AM_DIR) {
         // a folder, ignore
@@ -10659,23 +10658,23 @@ void sd_mount(void) {
         // save song name if ends with "mp3"
         if (isMP3(fno.fname)) {
     2e56:	f105 0616 	add.w	r6, r5, #22
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:184
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:178
       res = f_readdir(&dir, &fno);
     2e5a:	4922      	ldr	r1, [pc, #136]	; (2ee4 <sd_mount+0xb4>)
     2e5c:	4638      	mov	r0, r7
     2e5e:	f7fe fee4 	bl	1c2a <f_readdir>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:185
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:179
       if (res != FR_OK || fno.fname[0] == 0) {
     2e62:	b908      	cbnz	r0, 2e68 <sd_mount+0x38>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:185 (discriminator 1)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:179 (discriminator 1)
     2e64:	7dab      	ldrb	r3, [r5, #22]
     2e66:	b973      	cbnz	r3, 2e86 <sd_mount+0x56>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:186
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:180
         printf("Found %d songs\n", song_count);
     2e68:	6821      	ldr	r1, [r4, #0]
     2e6a:	481f      	ldr	r0, [pc, #124]	; (2ee8 <sd_mount+0xb8>)
     2e6c:	f004 fb3c 	bl	74e8 <iprintf>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:204
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:198
           break;
         }
       }
@@ -10684,34 +10683,34 @@ void sd_mount(void) {
   f_closedir(&dir);
     2e70:	481b      	ldr	r0, [pc, #108]	; (2ee0 <sd_mount+0xb0>)
     2e72:	f7fe fecb 	bl	1c0c <f_closedir>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:206
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:200
   // exit if no song found
   if (song_count == 0) {
     2e76:	6823      	ldr	r3, [r4, #0]
     2e78:	bb03      	cbnz	r3, 2ebc <sd_mount+0x8c>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:207
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:201
     printf("NO SONG FOUND!!!.\n");
     2e7a:	481c      	ldr	r0, [pc, #112]	; (2eec <sd_mount+0xbc>)
     2e7c:	f004 fbce 	bl	761c <puts>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:208
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:202
     exit(1);
     2e80:	2001      	movs	r0, #1
     2e82:	f003 fa29 	bl	62d8 <exit>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:188
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:182
       } else if (fno.fattrib & AM_DIR) {
     2e86:	7a2b      	ldrb	r3, [r5, #8]
     2e88:	06db      	lsls	r3, r3, #27
     2e8a:	d4e6      	bmi.n	2e5a <sd_mount+0x2a>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:192
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:186
         if (isMP3(fno.fname)) {
     2e8c:	4630      	mov	r0, r6
     2e8e:	f000 f88b 	bl	2fa8 <isMP3>
     2e92:	b160      	cbz	r0, 2eae <sd_mount+0x7e>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:193
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:187
           printf("%s\n", fno.fname);
     2e94:	4630      	mov	r0, r6
     2e96:	f004 fbc1 	bl	761c <puts>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:194
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:188
           strcpy(song_list[song_count++], fno.fname);
     2e9a:	6823      	ldr	r3, [r4, #0]
     2e9c:	1c5a      	adds	r2, r3, #1
@@ -10721,19 +10720,19 @@ void sd_mount(void) {
     2ea4:	4631      	mov	r1, r6
     2ea6:	fb00 2003 	mla	r0, r0, r3, r2
     2eaa:	f004 fcea 	bl	7882 <strcpy>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:197
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:191
         if (song_count >= 20) {
     2eae:	6823      	ldr	r3, [r4, #0]
     2eb0:	2b13      	cmp	r3, #19
     2eb2:	ddd2      	ble.n	2e5a <sd_mount+0x2a>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:198
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:192
           printf("Can NOT load more songs.\n");
     2eb4:	480f      	ldr	r0, [pc, #60]	; (2ef4 <sd_mount+0xc4>)
     2eb6:	f004 fbb1 	bl	761c <puts>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:199
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:193
           break;
     2eba:	e7d9      	b.n	2e70 <sd_mount+0x40>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:212
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:206
   }
 
   // remounting sd card
@@ -10741,10 +10740,10 @@ void sd_mount(void) {
     2ebc:	2201      	movs	r2, #1
     2ebe:	4905      	ldr	r1, [pc, #20]	; (2ed4 <sd_mount+0xa4>)
     2ec0:	4805      	ldr	r0, [pc, #20]	; (2ed8 <sd_mount+0xa8>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:213
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:207
 }
     2ec2:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:212
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:206
   f_mount(&fat_fs, "", 1);
     2ec6:	f7fe bc21 	b.w	170c <f_mount>
     2eca:	bf00      	nop

@@ -149,8 +149,6 @@ void mp3_play(void) {
         }
       }
       // printf("next song: %s\n", song_list[current_song]); // TESTING
-      // xSemaphoreGive(display_lock,NULL);
-      // vTaskDelay(200);
     } // (here0 end)
   }
 }
@@ -162,10 +160,6 @@ void mp3_lcd(void) {
       printf("Song: %s\n", song_list[current_song]);
       lcd_print = false;
     }
-    // if (xSemaphoreTake(display_lock, portMAX_DELAY)) {
-    //   xSemaphoreGive(display_lock);
-    // }
-    // while(!xSemaphoreTake(display_lock,100));
   }
 }
 
