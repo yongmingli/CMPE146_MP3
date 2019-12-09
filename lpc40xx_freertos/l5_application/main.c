@@ -106,23 +106,12 @@ void mp3_play(void) {
     vTaskDelay(100); // for lcd print
     lcd_print = false;
 
-    // if (pause)
-    // {
-    //   printf("Should appear only once at the START!\n");
-    //   printf("WAIT\n");
-    //   vTaskDelay(1000); // for lcd print
-    //   vTaskDelay(1000); // for lcd print
-    //   vTaskDelay(1000); // for lcd print
-    //   vTaskDelay(1000); // for lcd print
-    //   vTaskDelay(1000); // for lcd print
-    // }
-
     if (pause)
-      vTaskDelay(100); // for lcd print
+      vTaskDelay(100); // waiting to start
     else {             // START setting (here0 start)
       // while (pause == false) { // START setting (here0 start)
-      // printf("play start\n");
-      // printf("current song: %s\n", song_list[current_song]);
+      // printf("play start\n"); // TESTING
+      // printf("current song: %s\n", song_list[current_song]); // TESTING
       f_open(&file, song_list[current_song], FA_READ);
       while (next_read == 512 && !next && !prev) {
         f_read(&file, &bytes_512[0], 512, &next_read);
@@ -135,7 +124,8 @@ void mp3_play(void) {
         }
       }
       f_close(&file);
-      // printf("play end\n");
+      next_read = 512;
+      // printf("play end\n"); // TESTING
 
       if (prev) {
         if (current_song == 0) {
@@ -158,7 +148,7 @@ void mp3_play(void) {
           current_song = 0;
         }
       }
-      // printf("next song: %s\n", song_list[current_song]);
+      // printf("next song: %s\n", song_list[current_song]); // TESTING
       // xSemaphoreGive(display_lock,NULL);
       // vTaskDelay(200);
     } // (here0 end)
@@ -168,7 +158,6 @@ void mp3_play(void) {
 void mp3_lcd(void) {
   while (1) {
     vTaskDelay(10);
-    // printf(" ");
     if (lcd_print && !pause) {
       printf("Song: %s\n", song_list[current_song]);
       lcd_print = false;
@@ -183,11 +172,10 @@ void mp3_lcd(void) {
 void sd_mount(void) {
   song_count = 0;
   // mounting sd card
-  // printf("start mounting\n");
+  printf("Start scanning SD card.\n");
   f_mount(&fat_fs, "", 1);
 
   // open root directory
-  printf("Start scanning SD card.\n");
   FRESULT res = f_opendir(&dir, "/");
 
   // scan for mp3 file
@@ -220,7 +208,6 @@ void sd_mount(void) {
     exit(1);
   }
 
-  // //remounting sd card
-  // printf("start mounting\n");
+  // remounting sd card
   f_mount(&fat_fs, "", 1);
 }
