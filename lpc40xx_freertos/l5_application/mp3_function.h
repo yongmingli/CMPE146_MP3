@@ -26,15 +26,8 @@
 #include <string.h>
 
 /* variables */
-extern QueueHandle_t song_data;
 
 /* function defination */
 
 // check if song_name is vaild
-bool check_name(char song_name[32]);
-// check if the file 'song_name' is in SD card
-bool check_file(char song_name[32]);
-// reading the file 'song_name' from SD card to Q: song_data
-bool read_file(char song_name[32]);
-
 bool isMP3(char *file_name);

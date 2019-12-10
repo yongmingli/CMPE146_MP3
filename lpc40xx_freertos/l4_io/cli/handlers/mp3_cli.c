@@ -30,7 +30,7 @@ app_cli_status_e cli__mp3_play(app_cli__argument_t argument,
                                sl_string_t user_input_minus_command_name,
                                app_cli__print_string_function cli_output) {
   pause = false;
-  // fprintf(stderr, "resumed!!!\n");
+  fprintf(stderr, "PLAY\n");
   return APP_CLI_STATUS__SUCCESS;
 }
 
@@ -38,7 +38,7 @@ app_cli_status_e cli__mp3_pause(app_cli__argument_t argument,
                                 sl_string_t user_input_minus_command_name,
                                 app_cli__print_string_function cli_output) {
   pause = true;
-  // fprintf(stderr, "paused!!!\n");
+  fprintf(stderr, "PAUSE\n");
   return APP_CLI_STATUS__SUCCESS;
 }
 
