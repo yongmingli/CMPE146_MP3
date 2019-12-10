@@ -88,7 +88,7 @@ int main(void) {
   sj2_cli__init(); // For testing only
 
   xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
-  xTaskCreate(mp3_play, "play", 1024U * 4 / (sizeof(void *)), NULL, 3, NULL);
+  xTaskCreate(mp3_play, "play", 1024U * 6 / (sizeof(void *)), NULL, 3, NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
@@ -125,14 +125,19 @@ void mp3_play(void) {
     if (pause)         // START setting
       vTaskDelay(100); // waiting to start
     else {
-      // printf("play start\n"); // TESTING
+      // printf("play start\n");                                // TESTING
       // printf("current song: %s\n", song_list[current_song]); // TESTING
       f_open(&file, song_list[current_song], FA_READ);
       while (next_read == 512 && !next && !prev) {
-        taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc. 
+
+        taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc.
         f_read(&file, &bytes_512[0], 512, &next_read);
+        taskEXIT_CRITICAL();
+
+        taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc.
         decoder_send_data(&bytes_512[0], 512);
-        taskEXIT_CRITICAL(); 
+        taskEXIT_CRITICAL();
+        
         while (pause) {
           vTaskDelay(10);
         }
@@ -171,12 +176,12 @@ void mp3_lcd(void) {
   while (1) {
     vTaskDelay(10);
     if (lcd_print && !pause) {
-      taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc. 
+      // taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc.
       // We do not have a working LCD now!!!
       // So print on Terminal
       printf("Song: %s\n", song_list[current_song]); // TESTING
       lcd_print = false;
-      taskEXIT_CRITICAL();
+      // taskEXIT_CRITICAL();
     }
   }
 }
@@ -184,7 +189,7 @@ void mp3_lcd(void) {
 void sd_mount(void) {
   song_count = 0;
   // mounting sd card
-  printf("Start scanning SD card.\n");
+  printf("Start scanning SD card.\n\n");
   f_mount(&fat_fs, "", 1);
 
   // open root directory
@@ -195,14 +200,14 @@ void sd_mount(void) {
     for (;;) {
       res = f_readdir(&dir, &fno);
       if (res != FR_OK || fno.fname[0] == 0) {
-        printf("Found %d songs\n", song_count);
+        printf("\nFound %d songs\n", song_count);
         break; // error or end of loop
       } else if (fno.fattrib & AM_DIR) {
         // a folder, ignore
       } else {
         // save song name if ends with "mp3"
         if (isMP3(fno.fname)) {
-          printf("%s\n", fno.fname);
+          printf("%d: %s\n", song_count, fno.fname);
           strcpy(song_list[song_count++], fno.fname);
         }
         // check for max of buffer
@@ -244,6 +249,7 @@ void vol_down(void) {
     fprintf(stderr, "Volume: %d\n", vol);
   }
 }
+
 void vol_up(void) {
   if (vol < 24) {
     vol_change = vol_change - 0x0404;

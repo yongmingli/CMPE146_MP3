@@ -1475,7 +1475,7 @@ END GROUP
                 0x0000000020000000                __base_ram_32k = ORIGIN (ram_32k)
                 0x0000000020008000                __top_ram_32k = (__base_ram_32k + LENGTH (ram_32k))
 
-.text           0x0000000000000000     0xcb44
+.text           0x0000000000000000     0xcb4c
  FILL mask 0xff
  *(.interrupt_vector_table)
  .interrupt_vector_table
@@ -1776,142 +1776,142 @@ END GROUP
  .text.gpio0__interrupt_dispatcher
                 0x0000000000002d40       0x3c _build_lpc40xx_freertos/obj/gpio_isr.o
                 0x0000000000002d40                gpio0__interrupt_dispatcher
- .text.mp3_lcd  0x0000000000002d7c       0x4c _build_lpc40xx_freertos/obj/main.o
+ .text.mp3_lcd  0x0000000000002d7c       0x44 _build_lpc40xx_freertos/obj/main.o
                 0x0000000000002d7c                mp3_lcd
  .text.mp3_play
-                0x0000000000002dc8      0x100 _build_lpc40xx_freertos/obj/main.o
-                0x0000000000002dc8                mp3_play
+                0x0000000000002dc0      0x108 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000002dc0                mp3_play
  .text.vol_up   0x0000000000002ec8       0x44 _build_lpc40xx_freertos/obj/main.o
                 0x0000000000002ec8                vol_up
  .text.vol_down
                 0x0000000000002f0c       0x4c _build_lpc40xx_freertos/obj/main.o
                 0x0000000000002f0c                vol_down
  .text.sd_mount
-                0x0000000000002f58       0xc8 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000002f58       0xd0 _build_lpc40xx_freertos/obj/main.o
                 0x0000000000002f58                sd_mount
  .text.mp3_init
-                0x0000000000003020       0x70 _build_lpc40xx_freertos/obj/main.o
-                0x0000000000003020                mp3_init
+                0x0000000000003028       0x70 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000003028                mp3_init
  .text.startup.main
-                0x0000000000003090       0x94 _build_lpc40xx_freertos/obj/main.o
-                0x0000000000003090                main
- .text.isMP3    0x0000000000003124       0x44 _build_lpc40xx_freertos/obj/mp3_function.o
-                0x0000000000003124                isMP3
+                0x0000000000003098       0x94 _build_lpc40xx_freertos/obj/main.o
+                0x0000000000003098                main
+ .text.isMP3    0x000000000000312c       0x44 _build_lpc40xx_freertos/obj/mp3_function.o
+                0x000000000000312c                isMP3
  .text.vApplicationStackOverflowHook
-                0x0000000000003168       0x1c _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000003168                vApplicationStackOverflowHook
+                0x0000000000003170       0x1c _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003170                vApplicationStackOverflowHook
  .text.vApplicationMallocFailedHook
-                0x0000000000003184       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000003184                vApplicationMallocFailedHook
+                0x000000000000318c       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x000000000000318c                vApplicationMallocFailedHook
  .text.vApplicationIdleHook
-                0x0000000000003194       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000003194                vApplicationIdleHook
+                0x000000000000319c       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x000000000000319c                vApplicationIdleHook
  .text.configASSERT_callback
-                0x00000000000031a4       0x40 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x00000000000031a4                configASSERT_callback
+                0x00000000000031ac       0x40 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x00000000000031ac                configASSERT_callback
  .text.vApplicationGetIdleTaskMemory
-                0x00000000000031e4       0x18 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x00000000000031e4                vApplicationGetIdleTaskMemory
+                0x00000000000031ec       0x18 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x00000000000031ec                vApplicationGetIdleTaskMemory
  .text.freertos_hooks__get_run_time_counter_value
-                0x00000000000031fc       0x14 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x00000000000031fc                freertos_hooks__get_run_time_counter_value
+                0x0000000000003204       0x14 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000003204                freertos_hooks__get_run_time_counter_value
  .text.ssp2__initia
-                0x0000000000003210       0x2c _build_lpc40xx_freertos/obj/ssp2_lab.o
-                0x0000000000003210                ssp2__initia
+                0x0000000000003218       0x2c _build_lpc40xx_freertos/obj/ssp2_lab.o
+                0x0000000000003218                ssp2__initia
  .text.ssp2__transfer_byte
-                0x000000000000323c       0x14 _build_lpc40xx_freertos/obj/ssp2_lab.o
-                0x000000000000323c                ssp2__transfer_byte
+                0x0000000000003244       0x14 _build_lpc40xx_freertos/obj/ssp2_lab.o
+                0x0000000000003244                ssp2__transfer_byte
  .text.sl_string__initialize
-                0x0000000000003250       0x28 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003250                sl_string__initialize
+                0x0000000000003258       0x28 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003258                sl_string__initialize
  .text.sl_string__get_capacity
-                0x0000000000003278       0x12 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003278                sl_string__get_capacity
+                0x0000000000003280       0x12 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003280                sl_string__get_capacity
  .text.sl_string__get_capacity_including_null_char
-                0x000000000000328a        0xc _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000328a                sl_string__get_capacity_including_null_char
+                0x0000000000003292        0xc _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003292                sl_string__get_capacity_including_null_char
  .text.sl_string__get_length
-                0x0000000000003296        0xc _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003296                sl_string__get_length
+                0x000000000000329e        0xc _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000329e                sl_string__get_length
  .text.sl_string__is_full
-                0x00000000000032a2       0x1a _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032a2                sl_string__is_full
+                0x00000000000032aa       0x1a _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000032aa                sl_string__is_full
  .text.sl_string__clear
-                0x00000000000032bc        0x6 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032bc                sl_string__clear
+                0x00000000000032c4        0x6 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000032c4                sl_string__clear
  .text.sl_string__vprintf
-                0x00000000000032c2       0x1c _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032c2                sl_string__vprintf
+                0x00000000000032ca       0x1c _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000032ca                sl_string__vprintf
  .text.sl_string__printf
-                0x00000000000032de       0x1a _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032de                sl_string__printf
+                0x00000000000032e6       0x1a _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000032e6                sl_string__printf
  .text.sl_string__set
-                0x00000000000032f8       0x2e _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000032f8                sl_string__set
+                0x0000000000003300       0x2e _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003300                sl_string__set
  .text.sl_string__initialize_from
-                0x0000000000003326       0x16 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003326                sl_string__initialize_from
+                0x000000000000332e       0x16 _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000332e                sl_string__initialize_from
  .text.sl_string__insert_at
-                0x000000000000333c       0x54 _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000333c                sl_string__insert_at
+                0x0000000000003344       0x54 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003344                sl_string__insert_at
  .text.sl_string__append
-                0x0000000000003390       0x38 _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003390                sl_string__append
+                0x0000000000003398       0x38 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003398                sl_string__append
  .text.sl_string__append_char
-                0x00000000000033c8       0x18 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000033c8                sl_string__append_char
+                0x00000000000033d0       0x18 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000033d0                sl_string__append_char
  .text.sl_string__equals_to_ignore_case
-                0x00000000000033e0       0x14 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000033e0                sl_string__equals_to_ignore_case
+                0x00000000000033e8       0x14 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000033e8                sl_string__equals_to_ignore_case
  .text.sl_string__begins_with_limited_chars
-                0x00000000000033f4       0x28 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000033f4                sl_string__begins_with_limited_chars
+                0x00000000000033fc       0x28 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000033fc                sl_string__begins_with_limited_chars
  .text.sl_string__begins_with_ignore_case
-                0x000000000000341c       0x2e _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000341c                sl_string__begins_with_ignore_case
+                0x0000000000003424       0x2e _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003424                sl_string__begins_with_ignore_case
  .text.sl_string__begins_with_whole_word
-                0x000000000000344a       0x44 _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000344a                sl_string__begins_with_whole_word
+                0x0000000000003452       0x44 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003452                sl_string__begins_with_whole_word
  .text.sl_string__ends_with_newline
-                0x000000000000348e       0x22 _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000348e                sl_string__ends_with_newline
+                0x0000000000003496       0x22 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003496                sl_string__ends_with_newline
  .text.sl_string__erase_after
-                0x00000000000034b0       0x38 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000034b0                sl_string__erase_after
+                0x00000000000034b8       0x38 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000034b8                sl_string__erase_after
  .text.sl_string__erase_first
-                0x00000000000034e8        0x8 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000034e8                sl_string__erase_first
+                0x00000000000034f0        0x8 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000034f0                sl_string__erase_first
  .text.sl_string__erase_last
-                0x00000000000034f0       0x22 _build_lpc40xx_freertos/obj/sl_string.o
-                0x00000000000034f0                sl_string__erase_last
+                0x00000000000034f8       0x22 _build_lpc40xx_freertos/obj/sl_string.o
+                0x00000000000034f8                sl_string__erase_last
  .text.sl_string__erase_at_substring
-                0x0000000000003512       0x1c _build_lpc40xx_freertos/obj/sl_string.o
-                0x0000000000003512                sl_string__erase_at_substring
+                0x000000000000351a       0x1c _build_lpc40xx_freertos/obj/sl_string.o
+                0x000000000000351a                sl_string__erase_at_substring
  .text.sl_string__erase_first_word
-                0x000000000000352e       0x1c _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000352e                sl_string__erase_first_word
+                0x0000000000003536       0x1c _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003536                sl_string__erase_first_word
  .text.sl_string__trim_end
-                0x000000000000354a       0x40 _build_lpc40xx_freertos/obj/sl_string.o
-                0x000000000000354a                sl_string__trim_end
+                0x0000000000003552       0x40 _build_lpc40xx_freertos/obj/sl_string.o
+                0x0000000000003552                sl_string__trim_end
  .text.vPortSVCHandler_wrapper
-                0x000000000000358a       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x000000000000358a                vPortSVCHandler_wrapper
+                0x0000000000003592       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x0000000000003592                vPortSVCHandler_wrapper
  .text.xPortPendSVHandler_wrapper
-                0x000000000000359c       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x000000000000359c                xPortPendSVHandler_wrapper
+                0x00000000000035a4       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x00000000000035a4                xPortPendSVHandler_wrapper
  .text.xPortSysTickHandler_wrapper
-                0x00000000000035ae       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x00000000000035ae                xPortSysTickHandler_wrapper
+                0x00000000000035b6       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x00000000000035b6                xPortSysTickHandler_wrapper
  .text.prvPortStartFirstTask
-                0x00000000000035c0       0x28 _build_lpc40xx_freertos/obj/port.o
+                0x00000000000035c8       0x28 _build_lpc40xx_freertos/obj/port.o
  .text.vPortEnableVFP
-                0x00000000000035e8       0x14 _build_lpc40xx_freertos/obj/port.o
+                0x00000000000035f0       0x14 _build_lpc40xx_freertos/obj/port.o
  .text.prvTaskExitError
-                0x00000000000035fc       0x3c _build_lpc40xx_freertos/obj/port.o
+                0x0000000000003604       0x3c _build_lpc40xx_freertos/obj/port.o
  .text.pxPortInitialiseStack
-                0x0000000000003638       0x2c _build_lpc40xx_freertos/obj/port.o
-                0x0000000000003638                pxPortInitialiseStack
- *fill*         0x0000000000003664        0xc ff
+                0x0000000000003640       0x2c _build_lpc40xx_freertos/obj/port.o
+                0x0000000000003640                pxPortInitialiseStack
+ *fill*         0x000000000000366c        0x4 ff
  .text.vPortSVCHandler
                 0x0000000000003670       0x24 _build_lpc40xx_freertos/obj/port.o
                 0x0000000000003670                vPortSVCHandler
@@ -2686,173 +2686,172 @@ END GROUP
  .rodata.mp3_lcd.str1.1
                 0x000000000000bffb        0xa _build_lpc40xx_freertos/obj/main.o
  .rodata.sd_mount.str1.1
-                0x000000000000c005       0x55 _build_lpc40xx_freertos/obj/main.o
-                                         0x56 (size before relaxing)
+                0x000000000000c005       0x5f _build_lpc40xx_freertos/obj/main.o
+                                         0x60 (size before relaxing)
  .rodata.vol_up.str1.1
-                0x000000000000c05a       0x55 _build_lpc40xx_freertos/obj/main.o
+                0x000000000000c064       0x5f _build_lpc40xx_freertos/obj/main.o
                                           0xc (size before relaxing)
  .rodata.isMP3.str1.1
-                0x000000000000c05a       0x10 _build_lpc40xx_freertos/obj/mp3_function.o
+                0x000000000000c064       0x10 _build_lpc40xx_freertos/obj/mp3_function.o
  .rodata.configASSERT_callback.str1.1
-                0x000000000000c06a       0xf8 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x000000000000c074       0xf8 _build_lpc40xx_freertos/obj/rtos_hooks.o
  .rodata.vApplicationMallocFailedHook.str1.1
-                0x000000000000c162       0x3a _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x000000000000c16c       0x3a _build_lpc40xx_freertos/obj/rtos_hooks.o
  .rodata.vApplicationStackOverflowHook.str1.1
-                0x000000000000c19c       0x1d _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x000000000000c1a6       0x1d _build_lpc40xx_freertos/obj/rtos_hooks.o
  .rodata.prvTaskExitError.str1.1
-                0x000000000000c1b9       0x1a _build_lpc40xx_freertos/obj/port.o
+                0x000000000000c1c3       0x1a _build_lpc40xx_freertos/obj/port.o
  .rodata.vPortEnterCritical.str1.1
-                0x000000000000c1d3       0x35 _build_lpc40xx_freertos/obj/port.o
+                0x000000000000c1dd       0x35 _build_lpc40xx_freertos/obj/port.o
  .rodata.vPortExitCritical.str1.1
-                0x000000000000c208       0x12 _build_lpc40xx_freertos/obj/port.o
+                0x000000000000c212       0x12 _build_lpc40xx_freertos/obj/port.o
  .rodata.vPortValidateInterruptPriority.str1.1
-                0x000000000000c21a       0x6c _build_lpc40xx_freertos/obj/port.o
+                0x000000000000c224       0x6c _build_lpc40xx_freertos/obj/port.o
  .rodata.xPortStartScheduler.str1.1
-                0x000000000000c286       0x89 _build_lpc40xx_freertos/obj/port.o
+                0x000000000000c290       0x89 _build_lpc40xx_freertos/obj/port.o
  .rodata.xQueueGenericCreateStatic.str1.1
-                0x000000000000c30f       0xc3 _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c319       0xc3 _build_lpc40xx_freertos/obj/queue.o
  .rodata.xQueueGenericReset.str1.1
-                0x000000000000c3d2        0x8 _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c3dc        0x8 _build_lpc40xx_freertos/obj/queue.o
  .rodata.xQueueGenericSend.str1.1
-                0x000000000000c3da       0xed _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c3e4       0xed _build_lpc40xx_freertos/obj/queue.o
  .rodata.xQueueGiveFromISR.str1.1
-                0x000000000000c4c7       0x80 _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c4d1       0x80 _build_lpc40xx_freertos/obj/queue.o
  .rodata.xQueueReceive.str1.1
-                0x000000000000c547       0x5f _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c551       0x5f _build_lpc40xx_freertos/obj/queue.o
  .rodata.xQueueReceiveFromISR.str1.1
-                0x000000000000c5a6       0x4b _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c5b0       0x4b _build_lpc40xx_freertos/obj/queue.o
  .rodata.xQueueSemaphoreTake.str1.1
-                0x000000000000c5f1       0x20 _build_lpc40xx_freertos/obj/queue.o
+                0x000000000000c5fb       0x20 _build_lpc40xx_freertos/obj/queue.o
  .rodata.vTaskDelayUntil.str1.1
-                0x000000000000c611       0x45 _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c61b       0x45 _build_lpc40xx_freertos/obj/tasks.o
  .rodata.vTaskPlaceOnEventList.str1.1
-                0x000000000000c656        0xc _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c660        0xc _build_lpc40xx_freertos/obj/tasks.o
  .rodata.vTaskPriorityDisinheritAfterTimeout.str1.1
-                0x000000000000c662       0x16 _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c66c       0x16 _build_lpc40xx_freertos/obj/tasks.o
  .rodata.vTaskSetTimeOutState.str1.1
-                0x000000000000c678        0xa _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c682        0xa _build_lpc40xx_freertos/obj/tasks.o
  .rodata.vTaskStartScheduler.str1.1
-                0x000000000000c682        0x5 _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c68c        0x5 _build_lpc40xx_freertos/obj/tasks.o
  .rodata.vTaskSwitchContext.str1.1
-                0x000000000000c687       0x47 _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c691       0x47 _build_lpc40xx_freertos/obj/tasks.o
  .rodata.xTaskCheckForTimeOut.str1.1
-                0x000000000000c6ce        0xe _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c6d8        0xe _build_lpc40xx_freertos/obj/tasks.o
  .rodata.xTaskCreateStatic.str1.1
-                0x000000000000c6dc       0x45 _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c6e6       0x45 _build_lpc40xx_freertos/obj/tasks.o
  .rodata.xTaskIncrementTick.str1.1
-                0x000000000000c721       0x2b _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c72b       0x2b _build_lpc40xx_freertos/obj/tasks.o
  .rodata.xTaskPriorityDisinherit.str1.1
-                0x000000000000c74c       0x2b _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c756       0x2b _build_lpc40xx_freertos/obj/tasks.o
  .rodata.xTaskRemoveFromEventList.str1.1
-                0x000000000000c777        0xf _build_lpc40xx_freertos/obj/tasks.o
+                0x000000000000c781        0xf _build_lpc40xx_freertos/obj/tasks.o
  .rodata.xTaskResumeAll.str1.1
-                0x000000000000c786       0x15 _build_lpc40xx_freertos/obj/tasks.o
- *fill*         0x000000000000c79b        0x1 ff
+                0x000000000000c790       0x15 _build_lpc40xx_freertos/obj/tasks.o
+ *fill*         0x000000000000c7a5        0x3 ff
  .rodata.gpio_memory_map
-                0x000000000000c79c       0x18 _build_lpc40xx_freertos/obj/gpio.o
+                0x000000000000c7a8       0x18 _build_lpc40xx_freertos/obj/gpio.o
  .rodata.hw_timers
-                0x000000000000c7b4       0x20 _build_lpc40xx_freertos/obj/hw_timer.o
- .rodata        0x000000000000c7d4        0xc _build_lpc40xx_freertos/obj/i2c.o
+                0x000000000000c7c0       0x20 _build_lpc40xx_freertos/obj/hw_timer.o
+ .rodata        0x000000000000c7e0        0xc _build_lpc40xx_freertos/obj/i2c.o
  .rodata.lpc_peripheral_pconp_bit_map
-                0x000000000000c7e0       0x25 _build_lpc40xx_freertos/obj/lpc_peripherals.o
- *fill*         0x000000000000c805        0x3 ff
+                0x000000000000c7ec       0x25 _build_lpc40xx_freertos/obj/lpc_peripherals.o
+ *fill*         0x000000000000c811        0x3 ff
  .rodata.uart__isrs
-                0x000000000000c808       0x10 _build_lpc40xx_freertos/obj/uart.o
+                0x000000000000c814       0x10 _build_lpc40xx_freertos/obj/uart.o
  .rodata.uart_peripheral_ids
-                0x000000000000c818        0x4 _build_lpc40xx_freertos/obj/uart.o
+                0x000000000000c824        0x4 _build_lpc40xx_freertos/obj/uart.o
  .rodata._ctype_
-                0x000000000000c81c      0x101 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-ctype_.o)
-                0x000000000000c81c                _ctype_
- *fill*         0x000000000000c91d        0x3 ff
+                0x000000000000c828      0x101 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-ctype_.o)
+                0x000000000000c828                _ctype_
+ *fill*         0x000000000000c929        0x3 ff
  .rodata._global_impure_ptr
-                0x000000000000c920        0x4 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-impure.o)
-                0x000000000000c920                _global_impure_ptr
+                0x000000000000c92c        0x4 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-impure.o)
+                0x000000000000c92c                _global_impure_ptr
  .rodata._vfprintf_r.str1.1
-                0x000000000000c924       0x11 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfprintf.o)
+                0x000000000000c930       0x11 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfprintf.o)
  .rodata._printf_float.str1.1
-                0x000000000000c935       0x10 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfprintf_float.o)
+                0x000000000000c941       0x10 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfprintf_float.o)
                                          0x12 (size before relaxing)
  .rodata._printf_i.str1.1
-                0x000000000000c945       0x22 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000000000c951       0x22 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfprintf_i.o)
  .rodata._scanf_float.str1.1
-                0x000000000000c967        0x5 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfscanf_float.o)
+                0x000000000000c973        0x5 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-vfscanf_float.o)
                                           0x6 (size before relaxing)
  .rodata._strtod_l.str1.1
-                0x000000000000c96c        0x5 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
+                0x000000000000c978        0x5 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
                                           0xd (size before relaxing)
  .rodata.fpi.7522
-                0x000000000000c96c       0x14 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
+                0x000000000000c978       0x14 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
  .rodata.fpinan.7558
-                0x000000000000c980       0x14 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
- *fill*         0x000000000000c994        0x4 ff
+                0x000000000000c98c       0x14 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
  .rodata.tinytens
-                0x000000000000c998       0x28 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
+                0x000000000000c9a0       0x28 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-strtod.o)
  .rodata._dtoa_r.str1.1
-                0x000000000000c9c0        0xd /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-dtoa.o)
+                0x000000000000c9c8        0xd /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-dtoa.o)
                                           0xf (size before relaxing)
- *fill*         0x000000000000c9cd        0x3 ff
+ *fill*         0x000000000000c9d5        0x3 ff
  .rodata.__sf_fake_stderr
-                0x000000000000c9d0       0x20 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-findfp.o)
-                0x000000000000c9d0                __sf_fake_stderr
+                0x000000000000c9d8       0x20 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-findfp.o)
+                0x000000000000c9d8                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x000000000000c9f0       0x20 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-findfp.o)
-                0x000000000000c9f0                __sf_fake_stdin
+                0x000000000000c9f8       0x20 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-findfp.o)
+                0x000000000000c9f8                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x000000000000ca10       0x20 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-findfp.o)
-                0x000000000000ca10                __sf_fake_stdout
+                0x000000000000ca18       0x20 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-findfp.o)
+                0x000000000000ca18                __sf_fake_stdout
  .rodata._C_numeric_locale
-                0x000000000000ca30        0xc /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-lnumeric.o)
-                0x000000000000ca30                _C_numeric_locale
+                0x000000000000ca38        0xc /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-lnumeric.o)
+                0x000000000000ca38                _C_numeric_locale
  .rodata.str1.1
-                0x000000000000ca3c        0xd /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-lnumeric.o)
+                0x000000000000ca44        0xd /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-lnumeric.o)
                                           0x3 (size before relaxing)
  .rodata._setlocale_r.str1.1
-                0x000000000000ca3c        0x8 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-locale.o)
+                0x000000000000ca44        0x8 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-locale.o)
                                           0x9 (size before relaxing)
  .rodata.str1.1
-                0x000000000000ca44        0x2 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-locale.o)
- *fill*         0x000000000000ca44        0x4 ff
+                0x000000000000ca4c        0x2 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-locale.o)
+ *fill*         0x000000000000ca4c        0x4 ff
  .rodata.__mprec_bigtens
-                0x000000000000ca48       0x28 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-mprec.o)
-                0x000000000000ca48                __mprec_bigtens
+                0x000000000000ca50       0x28 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-mprec.o)
+                0x000000000000ca50                __mprec_bigtens
  .rodata.__mprec_tens
-                0x000000000000ca70       0xc8 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-mprec.o)
-                0x000000000000ca70                __mprec_tens
+                0x000000000000ca78       0xc8 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-mprec.o)
+                0x000000000000ca78                __mprec_tens
  .rodata.p05.7444
-                0x000000000000cb38        0xc /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-mprec.o)
+                0x000000000000cb40        0xc /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-mprec.o)
  .rodata._svfprintf_r.str1.1
-                0x000000000000cb44       0x11 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-svfprintf.o)
-                0x000000000000cb58                . = ALIGN (0x4)
+                0x000000000000cb4c       0x11 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg_nano.a(lib_a-nano-svfprintf.o)
+                0x000000000000cb60                . = ALIGN (0x4)
 
-.glue_7         0x000000000000cb44        0x0
- .glue_7        0x000000000000cb44        0x0 linker stubs
+.glue_7         0x000000000000cb4c        0x0
+ .glue_7        0x000000000000cb4c        0x0 linker stubs
 
-.glue_7t        0x000000000000cb44        0x0
- .glue_7t       0x000000000000cb44        0x0 linker stubs
+.glue_7t        0x000000000000cb4c        0x0
+ .glue_7t       0x000000000000cb4c        0x0 linker stubs
 
-.vfp11_veneer   0x000000000000cb44        0x0
- .vfp11_veneer  0x000000000000cb44        0x0 linker stubs
+.vfp11_veneer   0x000000000000cb4c        0x0
+ .vfp11_veneer  0x000000000000cb4c        0x0 linker stubs
 
-.v4_bx          0x000000000000cb44        0x0
- .v4_bx         0x000000000000cb44        0x0 linker stubs
+.v4_bx          0x000000000000cb4c        0x0
+ .v4_bx         0x000000000000cb4c        0x0 linker stubs
 
-.iplt           0x000000000000cb44        0x0
- .iplt          0x000000000000cb44        0x0 _build_lpc40xx_freertos/obj/entry_point.o
+.iplt           0x000000000000cb4c        0x0
+ .iplt          0x000000000000cb4c        0x0 _build_lpc40xx_freertos/obj/entry_point.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000000cb44                __exidx_start = .
+                0x000000000000cb4c                __exidx_start = .
 
-.ARM.exidx      0x000000000000cb44        0x8
+.ARM.exidx      0x000000000000cb4c        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000000000000cb44        0x8 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x000000000000cb4c                __exidx_end = .
-                0x000000000000cb4c                _etext = .
+ .ARM.exidx     0x000000000000cb4c        0x8 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/compiler/mac/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x000000000000cb54                __exidx_end = .
+                0x000000000000cb54                _etext = .
 
-.rel.dyn        0x000000000000cb4c        0x0
- .rel.iplt      0x000000000000cb4c        0x0 _build_lpc40xx_freertos/obj/entry_point.o
+.rel.dyn        0x000000000000cb54        0x0
+ .rel.iplt      0x000000000000cb54        0x0 _build_lpc40xx_freertos/obj/entry_point.o
 
-.data           0x0000000010000000      0x354 load address 0x000000000000cb4c
+.data           0x0000000010000000      0x354 load address 0x000000000000cb54
  FILL mask 0xff
  *(vtable)
  *(.data*)
@@ -2899,10 +2898,10 @@ END GROUP
                 0x0000000010000354                . = ALIGN (0x4)
                 0x0000000010000354                PROVIDE (_data_end = .)
 
-.igot.plt       0x0000000010000354        0x0 load address 0x000000000000cea0
+.igot.plt       0x0000000010000354        0x0 load address 0x000000000000cea8
  .igot.plt      0x0000000010000354        0x0 _build_lpc40xx_freertos/obj/entry_point.o
 
-.bss            0x0000000010000358     0x1d50 load address 0x000000000000cea0
+.bss            0x0000000010000358     0x1d50 load address 0x000000000000cea8
                 0x0000000010000358                _bss_start = .
  *(.bss*)
  .bss.FatFs     0x0000000010000358        0x4 _build_lpc40xx_freertos/obj/ff.o
@@ -3056,11 +3055,11 @@ END GROUP
                 0x0000000020000028                PROVIDE (_heap_start = .)
                 0x0000000020008000                PROVIDE (_heap_end = __top_ram_32k)
                 0x0000000010010000                PROVIDE (_estack = DEFINED (__user_stack_top)?__user_stack_top:__top_ram_64k)
-                0x000000000000cb4c                PROVIDE (_bdata_lma = LOADADDR (.data))
+                0x000000000000cb54                PROVIDE (_bdata_lma = LOADADDR (.data))
                 0x0000000010000000                PROVIDE (_bdata_vma = ADDR (.data))
 OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x268c2
+.debug_info     0x0000000000000000    0x268c7
  .debug_info    0x0000000000000000      0xae0 _build_lpc40xx_freertos/obj/entry_point.o
  .debug_info    0x0000000000000ae0      0xd91 _build_lpc40xx_freertos/obj/interrupt_vector_table.o
  .debug_info    0x0000000000001871      0x454 _build_lpc40xx_freertos/obj/clock.o
@@ -3086,24 +3085,24 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_info    0x000000000000f9e3      0xd1d _build_lpc40xx_freertos/obj/uart_printf.o
  .debug_info    0x0000000000010700      0xfef _build_lpc40xx_freertos/obj/decoder.o
  .debug_info    0x00000000000116ef      0x25d _build_lpc40xx_freertos/obj/gpio_isr.o
- .debug_info    0x000000000001194c     0x192a _build_lpc40xx_freertos/obj/main.o
- .debug_info    0x0000000000013276      0xa2b _build_lpc40xx_freertos/obj/mp3_function.o
- .debug_info    0x0000000000013ca1      0x896 _build_lpc40xx_freertos/obj/rtos_hooks.o
- .debug_info    0x0000000000014537      0xb4b _build_lpc40xx_freertos/obj/ssp2_lab.o
- .debug_info    0x0000000000015082     0x34e6 _build_lpc40xx_freertos/obj/sl_string.o
- .debug_info    0x0000000000018568      0x16a _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
- .debug_info    0x00000000000186d2      0x5f1 _build_lpc40xx_freertos/obj/port.o
- .debug_info    0x0000000000018cc3      0xa5a _build_lpc40xx_freertos/obj/heap_3.o
- .debug_info    0x000000000001971d      0xb9c _build_lpc40xx_freertos/obj/list.o
- .debug_info    0x000000000001a2b9     0x2ead _build_lpc40xx_freertos/obj/queue.o
- .debug_info    0x000000000001d166     0x3cce _build_lpc40xx_freertos/obj/tasks.o
- .debug_info    0x0000000000020e34      0x552 _build_lpc40xx_freertos/obj/board_io.o
- .debug_info    0x0000000000021386     0x106b _build_lpc40xx_freertos/obj/gpio.o
- .debug_info    0x00000000000223f1      0x4fa _build_lpc40xx_freertos/obj/hw_timer.o
- .debug_info    0x00000000000228eb     0x14fb _build_lpc40xx_freertos/obj/i2c.o
- .debug_info    0x0000000000023de6      0x91e _build_lpc40xx_freertos/obj/lpc_peripherals.o
- .debug_info    0x0000000000024704      0xf32 _build_lpc40xx_freertos/obj/ssp2.o
- .debug_info    0x0000000000025636     0x128c _build_lpc40xx_freertos/obj/uart.o
+ .debug_info    0x000000000001194c     0x192f _build_lpc40xx_freertos/obj/main.o
+ .debug_info    0x000000000001327b      0xa2b _build_lpc40xx_freertos/obj/mp3_function.o
+ .debug_info    0x0000000000013ca6      0x896 _build_lpc40xx_freertos/obj/rtos_hooks.o
+ .debug_info    0x000000000001453c      0xb4b _build_lpc40xx_freertos/obj/ssp2_lab.o
+ .debug_info    0x0000000000015087     0x34e6 _build_lpc40xx_freertos/obj/sl_string.o
+ .debug_info    0x000000000001856d      0x16a _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+ .debug_info    0x00000000000186d7      0x5f1 _build_lpc40xx_freertos/obj/port.o
+ .debug_info    0x0000000000018cc8      0xa5a _build_lpc40xx_freertos/obj/heap_3.o
+ .debug_info    0x0000000000019722      0xb9c _build_lpc40xx_freertos/obj/list.o
+ .debug_info    0x000000000001a2be     0x2ead _build_lpc40xx_freertos/obj/queue.o
+ .debug_info    0x000000000001d16b     0x3cce _build_lpc40xx_freertos/obj/tasks.o
+ .debug_info    0x0000000000020e39      0x552 _build_lpc40xx_freertos/obj/board_io.o
+ .debug_info    0x000000000002138b     0x106b _build_lpc40xx_freertos/obj/gpio.o
+ .debug_info    0x00000000000223f6      0x4fa _build_lpc40xx_freertos/obj/hw_timer.o
+ .debug_info    0x00000000000228f0     0x14fb _build_lpc40xx_freertos/obj/i2c.o
+ .debug_info    0x0000000000023deb      0x91e _build_lpc40xx_freertos/obj/lpc_peripherals.o
+ .debug_info    0x0000000000024709      0xf32 _build_lpc40xx_freertos/obj/ssp2.o
+ .debug_info    0x000000000002563b     0x128c _build_lpc40xx_freertos/obj/uart.o
 
 .debug_abbrev   0x0000000000000000     0x6cf0
  .debug_abbrev  0x0000000000000000      0x247 _build_lpc40xx_freertos/obj/entry_point.o
@@ -3283,7 +3282,7 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_ranges  0x0000000000001b70       0x38 _build_lpc40xx_freertos/obj/ssp2.o
  .debug_ranges  0x0000000000001ba8       0xc8 _build_lpc40xx_freertos/obj/uart.o
 
-.debug_line     0x0000000000000000    0x1289a
+.debug_line     0x0000000000000000    0x12897
  .debug_line    0x0000000000000000      0x31b _build_lpc40xx_freertos/obj/entry_point.o
  .debug_line    0x000000000000031b      0x452 _build_lpc40xx_freertos/obj/interrupt_vector_table.o
  .debug_line    0x000000000000076d      0x24d _build_lpc40xx_freertos/obj/clock.o
@@ -3309,24 +3308,24 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_line    0x0000000000008508      0x495 _build_lpc40xx_freertos/obj/uart_printf.o
  .debug_line    0x000000000000899d      0x572 _build_lpc40xx_freertos/obj/decoder.o
  .debug_line    0x0000000000008f0f      0x257 _build_lpc40xx_freertos/obj/gpio_isr.o
- .debug_line    0x0000000000009166      0x780 _build_lpc40xx_freertos/obj/main.o
- .debug_line    0x00000000000098e6      0x359 _build_lpc40xx_freertos/obj/mp3_function.o
- .debug_line    0x0000000000009c3f      0x3c3 _build_lpc40xx_freertos/obj/rtos_hooks.o
- .debug_line    0x000000000000a002      0x349 _build_lpc40xx_freertos/obj/ssp2_lab.o
- .debug_line    0x000000000000a34b     0x1586 _build_lpc40xx_freertos/obj/sl_string.o
- .debug_line    0x000000000000b8d1      0x13c _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
- .debug_line    0x000000000000ba0d      0x644 _build_lpc40xx_freertos/obj/port.o
- .debug_line    0x000000000000c051      0x371 _build_lpc40xx_freertos/obj/heap_3.o
- .debug_line    0x000000000000c3c2      0x466 _build_lpc40xx_freertos/obj/list.o
- .debug_line    0x000000000000c828     0x167a _build_lpc40xx_freertos/obj/queue.o
- .debug_line    0x000000000000dea2     0x2403 _build_lpc40xx_freertos/obj/tasks.o
- .debug_line    0x00000000000102a5      0x339 _build_lpc40xx_freertos/obj/board_io.o
- .debug_line    0x00000000000105de      0x4fa _build_lpc40xx_freertos/obj/gpio.o
- .debug_line    0x0000000000010ad8      0x354 _build_lpc40xx_freertos/obj/hw_timer.o
- .debug_line    0x0000000000010e2c      0x9b8 _build_lpc40xx_freertos/obj/i2c.o
- .debug_line    0x00000000000117e4      0x385 _build_lpc40xx_freertos/obj/lpc_peripherals.o
- .debug_line    0x0000000000011b69      0x4f0 _build_lpc40xx_freertos/obj/ssp2.o
- .debug_line    0x0000000000012059      0x841 _build_lpc40xx_freertos/obj/uart.o
+ .debug_line    0x0000000000009166      0x77d _build_lpc40xx_freertos/obj/main.o
+ .debug_line    0x00000000000098e3      0x359 _build_lpc40xx_freertos/obj/mp3_function.o
+ .debug_line    0x0000000000009c3c      0x3c3 _build_lpc40xx_freertos/obj/rtos_hooks.o
+ .debug_line    0x0000000000009fff      0x349 _build_lpc40xx_freertos/obj/ssp2_lab.o
+ .debug_line    0x000000000000a348     0x1586 _build_lpc40xx_freertos/obj/sl_string.o
+ .debug_line    0x000000000000b8ce      0x13c _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+ .debug_line    0x000000000000ba0a      0x644 _build_lpc40xx_freertos/obj/port.o
+ .debug_line    0x000000000000c04e      0x371 _build_lpc40xx_freertos/obj/heap_3.o
+ .debug_line    0x000000000000c3bf      0x466 _build_lpc40xx_freertos/obj/list.o
+ .debug_line    0x000000000000c825     0x167a _build_lpc40xx_freertos/obj/queue.o
+ .debug_line    0x000000000000de9f     0x2403 _build_lpc40xx_freertos/obj/tasks.o
+ .debug_line    0x00000000000102a2      0x339 _build_lpc40xx_freertos/obj/board_io.o
+ .debug_line    0x00000000000105db      0x4fa _build_lpc40xx_freertos/obj/gpio.o
+ .debug_line    0x0000000000010ad5      0x354 _build_lpc40xx_freertos/obj/hw_timer.o
+ .debug_line    0x0000000000010e29      0x9b8 _build_lpc40xx_freertos/obj/i2c.o
+ .debug_line    0x00000000000117e1      0x385 _build_lpc40xx_freertos/obj/lpc_peripherals.o
+ .debug_line    0x0000000000011b66      0x4f0 _build_lpc40xx_freertos/obj/ssp2.o
+ .debug_line    0x0000000000012056      0x841 _build_lpc40xx_freertos/obj/uart.o
 
 .debug_str      0x0000000000000000     0x6757
  .debug_str     0x0000000000000000      0x628 _build_lpc40xx_freertos/obj/entry_point.o
