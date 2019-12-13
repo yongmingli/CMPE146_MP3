@@ -106,11 +106,14 @@ void mp3_init(void) {
 
   /* LCD INIT*/
   // printf("MP3 LCD initialized!!!\n");
+  // lcd_init();
+
   printf("MP3 initialization END!!!\n");
   printf("***************************\n\n");
   printf("Welcome to use our MP3!!!\n");
   printf("Play to start playing music!\n\n");
   printf("***************************\n\n");
+  printf("First Song: %s\n", song_list[current_song]);
   printf("Default Volume: %d\n", vol);
 }
 
@@ -137,7 +140,7 @@ void mp3_play(void) {
         taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc.
         decoder_send_data(&bytes_512[0], 512);
         taskEXIT_CRITICAL();
-        
+
         while (pause) {
           vTaskDelay(10);
         }
@@ -176,12 +179,10 @@ void mp3_lcd(void) {
   while (1) {
     vTaskDelay(10);
     if (lcd_print && !pause) {
-      // taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc.
       // We do not have a working LCD now!!!
       // So print on Terminal
       printf("Song: %s\n", song_list[current_song]); // TESTING
       lcd_print = false;
-      // taskEXIT_CRITICAL();
     }
   }
 }

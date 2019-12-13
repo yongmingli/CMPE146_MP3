@@ -49,38 +49,38 @@ void decoder_init() {
 
 void decoder_send_data(uint8_t data[], int size) {
   int counter = 0;
-  gpio__reset(mp3.xdcs);
+  gpio__reset(mp3.xdcs); // XDCS set LOW to begin SEND DATA
   while (counter < size) {
-    // fprintf(stderr, "here0\n");
-    while (!gpio__get(mp3.dreq))
-      ;
+    // fprintf(stderr, "here0\n"); // TESTING
+    while (!gpio__get(mp3.dreq)) { // Wait for to be DREQ LOW
+    }
     for (int i = 0; i < 32; i++) {
       ssp2__transfer_byte(data[counter++]);
       // fprintf(stderr, "counter is: <%d>\n", counter);
     }
-    // fprintf(stderr, "here1\n");
+    // fprintf(stderr, "here1\n"); // TESTING
 
-    while (!gpio__get(mp3.dreq))
-      ;
-    // fprintf(stderr, "here2\n");
+    while (!gpio__get(mp3.dreq)) { // Wait for to be DREQ LOW
+    }
+    // fprintf(stderr, "here2\n"); // TESTING
   }
   gpio__set(mp3.xdcs);
-  // fprintf(stderr, "here3\n");
+  // fprintf(stderr, "here3\n"); // TESTING
 }
 
 uint16_t decoder_read_reg(uint8_t address) {
   uint8_t d[2];
-  while (!gpio__get(mp3.dreq))
-    ;
-  gpio__reset(mp3.xcs);
+  while (!gpio__get(mp3.dreq)) { // Wait for to be DREQ LOW
+  }
+  gpio__reset(mp3.xcs);     // XCS set LOW to begin Read
   ssp2__transfer_byte(0x3); // read code
   ssp2__transfer_byte(address);
   d[0] = ssp2__transfer_byte(0x11); // MSB
-  while (!gpio__get(mp3.dreq))
-    ;
+  while (!gpio__get(mp3.dreq)) {    // Wait for to be DREQ LOW
+  }
   d[1] = ssp2__transfer_byte(0x11); // LSB
-  while (!gpio__get(mp3.dreq))
-    ;
+  while (!gpio__get(mp3.dreq)) {    // Wait for to be DREQ LOW
+  }
   gpio__set(mp3.xcs);
   uint16_t result = d[0] << 8;
   result |= d[1];
@@ -90,16 +90,16 @@ uint16_t decoder_read_reg(uint8_t address) {
 void decoder_write_reg(uint8_t address, uint16_t data) {
   uint8_t h_byte = data >> 8;
   uint8_t l_byte = data;
-  while (!gpio__get(mp3.dreq))
-    ;
-  gpio__reset(mp3.xcs);
+  while (!gpio__get(mp3.dreq)) { // Wait for to be DREQ LOW
+  }
+  gpio__reset(mp3.xcs);      // XCS set LOW to begin WRITE
   ssp2__transfer_byte(0x02); // write code
   ssp2__transfer_byte(address);
   ssp2__transfer_byte(h_byte); // MSB
   ssp2__transfer_byte(l_byte); // LSB
   gpio__set(mp3.xcs);
-  while (!gpio__get(mp3.dreq))
-    ;
+  while (!gpio__get(mp3.dreq)) { // Wait for to be DREQ LOW
+  }
 }
 
 void decoder_hardware_reset() {
