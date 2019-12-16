@@ -2093,69 +2093,69 @@ END GROUP
  .text.lcd_pins
                 0x00000000000010b8       0xf4 _build_lpc40xx_freertos/obj/lcd.o
                 0x00000000000010b8                lcd_pins
- .text.execute  0x00000000000011ac       0x2c _build_lpc40xx_freertos/obj/lcd.o
+ .text.execute  0x00000000000011ac       0x30 _build_lpc40xx_freertos/obj/lcd.o
                 0x00000000000011ac                execute
  .text.display_on
-                0x00000000000011d8       0xac _build_lpc40xx_freertos/obj/lcd.o
-                0x00000000000011d8                display_on
+                0x00000000000011dc       0xac _build_lpc40xx_freertos/obj/lcd.o
+                0x00000000000011dc                display_on
  .text.display_clear
-                0x0000000000001284       0xac _build_lpc40xx_freertos/obj/lcd.o
-                0x0000000000001284                display_clear
- .text.display  0x0000000000001330      0x168 _build_lpc40xx_freertos/obj/lcd.o
-                0x0000000000001330                display
+                0x0000000000001288       0xac _build_lpc40xx_freertos/obj/lcd.o
+                0x0000000000001288                display_clear
+ .text.display  0x0000000000001334      0x168 _build_lpc40xx_freertos/obj/lcd.o
+                0x0000000000001334                display
  .text.set_2_lines
-                0x0000000000001498       0x88 _build_lpc40xx_freertos/obj/lcd.o
-                0x0000000000001498                set_2_lines
+                0x000000000000149c       0x88 _build_lpc40xx_freertos/obj/lcd.o
+                0x000000000000149c                set_2_lines
  .text.next_line
-                0x0000000000001520       0xac _build_lpc40xx_freertos/obj/lcd.o
-                0x0000000000001520                next_line
+                0x0000000000001524       0xac _build_lpc40xx_freertos/obj/lcd.o
+                0x0000000000001524                next_line
  .text.first_line
-                0x00000000000015cc       0xac _build_lpc40xx_freertos/obj/lcd.o
-                0x00000000000015cc                first_line
+                0x00000000000015d0       0xac _build_lpc40xx_freertos/obj/lcd.o
+                0x00000000000015d0                first_line
  .text.lcd_init
-                0x0000000000001678       0x3c _build_lpc40xx_freertos/obj/lcd.o
-                0x0000000000001678                lcd_init
+                0x000000000000167c       0x3c _build_lpc40xx_freertos/obj/lcd.o
+                0x000000000000167c                lcd_init
  .text.startup.main
-                0x00000000000016b4       0x30 _build_lpc40xx_freertos/obj/main.o
-                0x00000000000016b4                main
+                0x00000000000016b8       0x30 _build_lpc40xx_freertos/obj/main.o
+                0x00000000000016b8                main
  .text.vApplicationStackOverflowHook
-                0x00000000000016e4       0x1c _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x00000000000016e4                vApplicationStackOverflowHook
+                0x00000000000016e8       0x1c _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x00000000000016e8                vApplicationStackOverflowHook
  .text.vApplicationMallocFailedHook
-                0x0000000000001700       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000001700                vApplicationMallocFailedHook
+                0x0000000000001704       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000001704                vApplicationMallocFailedHook
  .text.vApplicationIdleHook
-                0x0000000000001710       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000001710                vApplicationIdleHook
+                0x0000000000001714       0x10 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000001714                vApplicationIdleHook
  .text.configASSERT_callback
-                0x0000000000001720       0x40 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000001720                configASSERT_callback
+                0x0000000000001724       0x40 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000001724                configASSERT_callback
  .text.vApplicationGetIdleTaskMemory
-                0x0000000000001760       0x18 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000001760                vApplicationGetIdleTaskMemory
+                0x0000000000001764       0x18 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x0000000000001764                vApplicationGetIdleTaskMemory
  .text.freertos_hooks__get_run_time_counter_value
-                0x0000000000001778       0x14 _build_lpc40xx_freertos/obj/rtos_hooks.o
-                0x0000000000001778                freertos_hooks__get_run_time_counter_value
+                0x000000000000177c       0x14 _build_lpc40xx_freertos/obj/rtos_hooks.o
+                0x000000000000177c                freertos_hooks__get_run_time_counter_value
  .text.vPortSVCHandler_wrapper
-                0x000000000000178c       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x000000000000178c                vPortSVCHandler_wrapper
+                0x0000000000001790       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x0000000000001790                vPortSVCHandler_wrapper
  .text.xPortPendSVHandler_wrapper
-                0x000000000000179e       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x000000000000179e                xPortPendSVHandler_wrapper
+                0x00000000000017a2       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x00000000000017a2                xPortPendSVHandler_wrapper
  .text.xPortSysTickHandler_wrapper
-                0x00000000000017b0       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
-                0x00000000000017b0                xPortSysTickHandler_wrapper
- *fill*         0x00000000000017c2        0x2 ff
+                0x00000000000017b4       0x12 _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+                0x00000000000017b4                xPortSysTickHandler_wrapper
+ *fill*         0x00000000000017c6        0x2 ff
  .text.prvPortStartFirstTask
-                0x00000000000017c4       0x28 _build_lpc40xx_freertos/obj/port.o
+                0x00000000000017c8       0x28 _build_lpc40xx_freertos/obj/port.o
  .text.vPortEnableVFP
-                0x00000000000017ec       0x14 _build_lpc40xx_freertos/obj/port.o
+                0x00000000000017f0       0x14 _build_lpc40xx_freertos/obj/port.o
  .text.prvTaskExitError
-                0x0000000000001800       0x3c _build_lpc40xx_freertos/obj/port.o
+                0x0000000000001804       0x3c _build_lpc40xx_freertos/obj/port.o
  .text.pxPortInitialiseStack
-                0x000000000000183c       0x2c _build_lpc40xx_freertos/obj/port.o
-                0x000000000000183c                pxPortInitialiseStack
- *fill*         0x0000000000001868        0x8 ff
+                0x0000000000001840       0x2c _build_lpc40xx_freertos/obj/port.o
+                0x0000000000001840                pxPortInitialiseStack
+ *fill*         0x000000000000186c        0x4 ff
  .text.vPortSVCHandler
                 0x0000000000001870       0x24 _build_lpc40xx_freertos/obj/port.o
                 0x0000000000001870                vPortSVCHandler
@@ -3175,7 +3175,7 @@ END GROUP
                 0x0000000010000000                PROVIDE (_bdata_vma = ADDR (.data))
 OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x1e835
+.debug_info     0x0000000000000000    0x1e82b
  .debug_info    0x0000000000000000      0xae0 _build_lpc40xx_freertos/obj/entry_point.o
  .debug_info    0x0000000000000ae0      0xd91 _build_lpc40xx_freertos/obj/interrupt_vector_table.o
  .debug_info    0x0000000000001871      0x454 _build_lpc40xx_freertos/obj/clock.o
@@ -3194,22 +3194,22 @@ OUTPUT(_build_lpc40xx_freertos/lpc40xx_freertos.elf elf32-littlearm)
  .debug_info    0x000000000000bfe1      0x37d _build_lpc40xx_freertos/obj/ssp2_mutex.o
  .debug_info    0x000000000000c35e      0x337 _build_lpc40xx_freertos/obj/sys_time.o
  .debug_info    0x000000000000c695      0xd1d _build_lpc40xx_freertos/obj/uart_printf.o
- .debug_info    0x000000000000d3b2     0x11fc _build_lpc40xx_freertos/obj/lcd.o
- .debug_info    0x000000000000e5ae     0x1697 _build_lpc40xx_freertos/obj/main.o
- .debug_info    0x000000000000fc45      0x896 _build_lpc40xx_freertos/obj/rtos_hooks.o
- .debug_info    0x00000000000104db      0x16a _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
- .debug_info    0x0000000000010645      0x5f1 _build_lpc40xx_freertos/obj/port.o
- .debug_info    0x0000000000010c36      0xa5a _build_lpc40xx_freertos/obj/heap_3.o
- .debug_info    0x0000000000011690      0xb9c _build_lpc40xx_freertos/obj/list.o
- .debug_info    0x000000000001222c     0x2ead _build_lpc40xx_freertos/obj/queue.o
- .debug_info    0x00000000000150d9     0x3cce _build_lpc40xx_freertos/obj/tasks.o
- .debug_info    0x0000000000018da7      0x552 _build_lpc40xx_freertos/obj/board_io.o
- .debug_info    0x00000000000192f9     0x106b _build_lpc40xx_freertos/obj/gpio.o
- .debug_info    0x000000000001a364      0x4fa _build_lpc40xx_freertos/obj/hw_timer.o
- .debug_info    0x000000000001a85e     0x14fb _build_lpc40xx_freertos/obj/i2c.o
- .debug_info    0x000000000001bd59      0x91e _build_lpc40xx_freertos/obj/lpc_peripherals.o
- .debug_info    0x000000000001c677      0xf32 _build_lpc40xx_freertos/obj/ssp2.o
- .debug_info    0x000000000001d5a9     0x128c _build_lpc40xx_freertos/obj/uart.o
+ .debug_info    0x000000000000d3b2     0x11f2 _build_lpc40xx_freertos/obj/lcd.o
+ .debug_info    0x000000000000e5a4     0x1697 _build_lpc40xx_freertos/obj/main.o
+ .debug_info    0x000000000000fc3b      0x896 _build_lpc40xx_freertos/obj/rtos_hooks.o
+ .debug_info    0x00000000000104d1      0x16a _build_lpc40xx_freertos/obj/freertos_interrupt_handlers.o
+ .debug_info    0x000000000001063b      0x5f1 _build_lpc40xx_freertos/obj/port.o
+ .debug_info    0x0000000000010c2c      0xa5a _build_lpc40xx_freertos/obj/heap_3.o
+ .debug_info    0x0000000000011686      0xb9c _build_lpc40xx_freertos/obj/list.o
+ .debug_info    0x0000000000012222     0x2ead _build_lpc40xx_freertos/obj/queue.o
+ .debug_info    0x00000000000150cf     0x3cce _build_lpc40xx_freertos/obj/tasks.o
+ .debug_info    0x0000000000018d9d      0x552 _build_lpc40xx_freertos/obj/board_io.o
+ .debug_info    0x00000000000192ef     0x106b _build_lpc40xx_freertos/obj/gpio.o
+ .debug_info    0x000000000001a35a      0x4fa _build_lpc40xx_freertos/obj/hw_timer.o
+ .debug_info    0x000000000001a854     0x14fb _build_lpc40xx_freertos/obj/i2c.o
+ .debug_info    0x000000000001bd4f      0x91e _build_lpc40xx_freertos/obj/lpc_peripherals.o
+ .debug_info    0x000000000001c66d      0xf32 _build_lpc40xx_freertos/obj/ssp2.o
+ .debug_info    0x000000000001d59f     0x128c _build_lpc40xx_freertos/obj/uart.o
 
 .debug_abbrev   0x0000000000000000     0x55ad
  .debug_abbrev  0x0000000000000000      0x247 _build_lpc40xx_freertos/obj/entry_point.o

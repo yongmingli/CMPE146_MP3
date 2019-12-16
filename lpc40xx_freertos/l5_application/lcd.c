@@ -99,9 +99,9 @@ void write_command(int command) {
 
 void execute(void) {
   gpio__set(E);
-  delay__ms(10);
+  // delay__ms(10);
   gpio__reset(E);
-  //   gpio__set(E);
+  gpio__set(E);
 }
 
 /***********************************************************************************
