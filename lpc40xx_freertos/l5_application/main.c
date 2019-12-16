@@ -1,3 +1,8 @@
+//
+// CMPE 146
+// Project: MP3
+// Author: Yongming Li
+//
 #include "FreeRTOS.h"
 #include "acceleration.h"
 #include "apds.h"
@@ -26,6 +31,7 @@
 #include <string.h>
 
 #include "gpio_isr.h"
+#include "lcd.h"
 #include "mp3_function.h"
 /*
   Lab use
@@ -34,6 +40,7 @@
 
 // bottoms
 static gpio_s onboard_button2, onboard_button3;
+static gpio_s sw_vup, sw_vdown, sw_next, sw_prev, sw_play_pause;
 
 // FATFS variables
 FATFS fat_fs;
@@ -66,29 +73,35 @@ void mp3_play(void);
 
 int main(void) {
   /* START UP*/
-  {
-    /*************************************************************************************
-     *
-     * buttons setup
-     * interrupt assign and enable
-     *
-     *************************************************************************************/
-    onboard_button2 = gpio__construct_as_input(0, 30); // (0, 30);
-    onboard_button3 = gpio__construct_as_input(0, 29); // (0, 29);
+  // {
+  //   /*************************************************************************************
+  //    *
+  //    * buttons setup
+  //    * interrupt assign and enable
+  //    *
+  //    *************************************************************************************/
+  //   onboard_button2 = gpio__construct_as_input(0, 30); // (0, 30);
+  //   onboard_button3 = gpio__construct_as_input(0, 29); // (0, 29);
 
-    gpio0__attach_interrupt(30, GPIO_INTR__FALLING_EDGE,
-                            vol_up); // button 2 => Vol ++
-    gpio0__attach_interrupt(29, GPIO_INTR__RISING_EDGE,
-                            vol_down); // button 3 => Vol--
-    lpc_peripheral__enable_interrupt(GPIO_IRQn, gpio0__interrupt_dispatcher);
-    NVIC_EnableIRQ(GPIO_IRQn);
-  }
+  //   gpio0__attach_interrupt(30, GPIO_INTR__FALLING_EDGE,
+  //                           vol_up); // button 2 => Vol ++
+  //   gpio0__attach_interrupt(29, GPIO_INTR__RISING_EDGE,
+  //                           vol_down); // button 3 => Vol--
+  //   lpc_peripheral__enable_interrupt(GPIO_IRQn, gpio0__interrupt_dispatcher);
+  //   NVIC_EnableIRQ(GPIO_IRQn);
+  // }
 
-  mp3_init();
-  sj2_cli__init(); // For testing only
+  // mp3_init();
+  lcd_init();
+  display_clear();
+  first_line();
+  display("AAA");
+  next_line();
+  display("BBB");
+  // sj2_cli__init(); // For testing only
 
-  xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
-  xTaskCreate(mp3_play, "play", 1024U * 6 / (sizeof(void *)), NULL, 3, NULL);
+  // xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
+  // xTaskCreate(mp3_play, "play", 1024U * 6 / (sizeof(void *)), NULL, 3, NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
@@ -105,8 +118,9 @@ void mp3_init(void) {
   printf("MP3 decoder initialized!!!\n");
 
   /* LCD INIT*/
-  // printf("MP3 LCD initialized!!!\n");
-  // lcd_init();
+
+  lcd_init();
+  printf("MP3 LCD initialized!!!\n");
 
   printf("MP3 initialization END!!!\n");
   printf("***************************\n\n");

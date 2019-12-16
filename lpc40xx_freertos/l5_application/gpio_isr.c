@@ -1,3 +1,8 @@
+//
+// CMPE 146
+// Project: MP3
+// Author: Yongming Li
+//
 #include "gpio_isr.h"
 
 // Note: You may want another separate array for falling vs. rising edge
