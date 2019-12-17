@@ -23,18 +23,18 @@ Idx Name             Size      VMA       LMA       File off  Algn  Flags
   2 .data            00000308  10000000  00009f4c  00020000  2**2  CONTENTS, ALLOC, LOAD, DATA
   3 .bss             00000764  10000308  0000a254  00020308  2**3  ALLOC
   4 .persistent_ram2 00000028  20000000  20000000  00030000  2**2  ALLOC
-  5 .debug_info      0001ea72  00000000  00000000  00020308  2**0  CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev    000055e6  00000000  00000000  0003ed7a  2**0  CONTENTS, READONLY, DEBUGGING
-  7 .debug_aranges   00000c78  00000000  00000000  00044360  2**0  CONTENTS, READONLY, DEBUGGING
-  8 .debug_ranges    000015c0  00000000  00000000  00044fd8  2**0  CONTENTS, READONLY, DEBUGGING
-  9 .debug_line      0000f946  00000000  00000000  00046598  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_str       0000542b  00000000  00000000  00055ede  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .comment         00000076  00000000  00000000  0005b309  2**0  CONTENTS, READONLY
- 12 .ARM.attributes  00000032  00000000  00000000  0005b37f  2**0  CONTENTS, READONLY
- 13 .debug_frame     000037dc  00000000  00000000  0005b3b4  2**2  CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc       0000e7d3  00000000  00000000  0005eb90  2**0  CONTENTS, READONLY, DEBUGGING
- 15 .stab            00000054  00000000  00000000  0006d364  2**2  CONTENTS, READONLY, DEBUGGING
- 16 .stabstr         000000ab  00000000  00000000  0006d3b8  2**0  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info      0001ead9  00000000  00000000  00020308  2**0  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev    000055e6  00000000  00000000  0003ede1  2**0  CONTENTS, READONLY, DEBUGGING
+  7 .debug_aranges   00000c78  00000000  00000000  000443c7  2**0  CONTENTS, READONLY, DEBUGGING
+  8 .debug_ranges    000015c0  00000000  00000000  0004503f  2**0  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line      0000f953  00000000  00000000  000465ff  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str       00005433  00000000  00000000  00055f52  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .comment         00000076  00000000  00000000  0005b385  2**0  CONTENTS, READONLY
+ 12 .ARM.attributes  00000032  00000000  00000000  0005b3fb  2**0  CONTENTS, READONLY
+ 13 .debug_frame     000037dc  00000000  00000000  0005b430  2**2  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_loc       0000e7d3  00000000  00000000  0005ec0c  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .stab            00000054  00000000  00000000  0006d3e0  2**2  CONTENTS, READONLY, DEBUGGING
+ 16 .stabstr         000000ab  00000000  00000000  0006d434  2**0  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 00009f44 l    d  .ARM.exidx	00000000 .ARM.exidx
@@ -5247,7 +5247,7 @@ void lcd_init(void) {
 
 000016d8 <main>:
 main():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:74
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:75
 
 // functions for task
 void mp3_lcd(void);
@@ -5255,7 +5255,7 @@ void mp3_play(void);
 
 int main(void) {
     16d8:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:96
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:97
   //   NVIC_EnableIRQ(GPIO_IRQn);
   // }
 
@@ -5263,7 +5263,7 @@ int main(void) {
 
   lcd_init();
     16da:	f7ff ffd9 	bl	1690 <lcd_init>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:108
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:109
   // sj2_cli__init(); // For testing only
 
   // xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
@@ -5271,7 +5271,7 @@ int main(void) {
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
     16de:	f001 f85f 	bl	27a0 <vTaskStartScheduler>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:111
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:112
                          // runs out of memory and fails
   return -1;             // return 0;
 }

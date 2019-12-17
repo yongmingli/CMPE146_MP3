@@ -1,12 +1,3 @@
-#include "decoder_sample.h"
-#include "delay.h"
-#include "freertos_interrupt_handlers.h"
-#include "gpio.h"
-#include "lpc40xx.h"
-#include "ssp2_lab.h"
-#include <stdint.h>
-#include <stdio.h>
-
 #include "FreeRTOS.h"
 #include "acceleration.h"
 #include "apds.h"
@@ -49,11 +40,11 @@ typedef struct {
 lcd_pin lcd;
 
 // Function declareations
-void lcd_init(void);
-void lcd_hardware_reset(void); 
-void lcd_write_command(); 
-void lcd_write_data(); 
-void lcd_display(char *input); 
+void lcd_init_ssp(void);
+void lcd_hardware_reset(void);
+void lcd_write_command();
+void lcd_write_data();
+void lcd_display(char *input);
 
 // void decoder_send_data(uint8_t data[], int size);
 // uint16_t decoder_read_reg(uint8_t address);

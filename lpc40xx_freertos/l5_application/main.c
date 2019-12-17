@@ -33,6 +33,7 @@
 #include "gpio_isr.h"
 #include "lcd.h"
 #include "mp3_function.h"
+#include "ssp_lcd.h"
 /*
   Lab use
   Global functions and variables
