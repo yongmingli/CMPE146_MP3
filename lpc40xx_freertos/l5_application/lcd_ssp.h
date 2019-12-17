@@ -1,3 +1,8 @@
+//
+// CMPE 146
+// Project: MP3
+// Author: Yongming Li
+//
 #pragma once
 
 #include <stdint.h>

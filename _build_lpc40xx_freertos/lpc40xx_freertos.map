@@ -770,7 +770,7 @@ Discarded input sections
  .debug_aranges
                 0x0000000000000000       0x38 _build_lpc40xx_freertos/obj/ssp_lcd.o
  .debug_ranges  0x0000000000000000       0x28 _build_lpc40xx_freertos/obj/ssp_lcd.o
- .debug_line    0x0000000000000000      0x387 _build_lpc40xx_freertos/obj/ssp_lcd.o
+ .debug_line    0x0000000000000000      0x389 _build_lpc40xx_freertos/obj/ssp_lcd.o
  .debug_str     0x0000000000000000      0x6a3 _build_lpc40xx_freertos/obj/ssp_lcd.o
  .comment       0x0000000000000000       0x77 _build_lpc40xx_freertos/obj/ssp_lcd.o
  .debug_frame   0x0000000000000000       0x7c _build_lpc40xx_freertos/obj/ssp_lcd.o

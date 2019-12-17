@@ -1,3 +1,8 @@
+//
+// CMPE 146
+// Project: MP3
+// Author: Yongming Li
+//
 #include "ssp_lcd.h"
 #include "delay.h"
 #include "freertos_interrupt_handlers.h"

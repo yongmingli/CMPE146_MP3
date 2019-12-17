@@ -1,3 +1,8 @@
+//
+// CMPE 146
+// Project: MP3
+// Author: Yongming Li
+//
 #include "lcd_ssp.h"
 #include "clock.h"
 #include <stdbool.h>
