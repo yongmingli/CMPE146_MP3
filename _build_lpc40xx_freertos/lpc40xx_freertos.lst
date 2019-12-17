@@ -6,11 +6,11 @@ EXEC_P, HAS_SYMS, D_PAGED
 start address 0x000000e5
 
 Program Header:
-0x70000001 off    0x00019f4c vaddr 0x00009f4c paddr 0x00009f4c align 2**2
+0x70000001 off    0x00019f44 vaddr 0x00009f44 paddr 0x00009f44 align 2**2
          filesz 0x00000008 memsz 0x00000008 flags r--
     LOAD off    0x00010000 vaddr 0x00000000 paddr 0x00000000 align 2**16
-         filesz 0x00009f54 memsz 0x00009f54 flags r-x
-    LOAD off    0x00020000 vaddr 0x10000000 paddr 0x00009f54 align 2**16
+         filesz 0x00009f4c memsz 0x00009f4c flags r-x
+    LOAD off    0x00020000 vaddr 0x10000000 paddr 0x00009f4c align 2**16
          filesz 0x00000308 memsz 0x00000a6c flags rw-
     LOAD off    0x00030000 vaddr 0x20000000 paddr 0x20000000 align 2**16
          filesz 0x00000000 memsz 0x00000028 flags rw-
@@ -18,26 +18,26 @@ private flags = 5000400: [Version5 EABI] [hard-float ABI]
 
 Sections:
 Idx Name             Size      VMA       LMA       File off  Algn  Flags
-  0 .text            00009f4c  00000000  00000000  00010000  2**4  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .ARM.exidx       00000008  00009f4c  00009f4c  00019f4c  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .data            00000308  10000000  00009f54  00020000  2**2  CONTENTS, ALLOC, LOAD, DATA
-  3 .bss             00000764  10000308  0000a25c  00020308  2**3  ALLOC
+  0 .text            00009f44  00000000  00000000  00010000  2**4  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .ARM.exidx       00000008  00009f44  00009f44  00019f44  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data            00000308  10000000  00009f4c  00020000  2**2  CONTENTS, ALLOC, LOAD, DATA
+  3 .bss             00000764  10000308  0000a254  00020308  2**3  ALLOC
   4 .persistent_ram2 00000028  20000000  20000000  00030000  2**2  ALLOC
-  5 .debug_info      0001e82b  00000000  00000000  00020308  2**0  CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev    000055ad  00000000  00000000  0003eb33  2**0  CONTENTS, READONLY, DEBUGGING
-  7 .debug_aranges   00000c70  00000000  00000000  000440e0  2**0  CONTENTS, READONLY, DEBUGGING
-  8 .debug_ranges    000015b8  00000000  00000000  00044d50  2**0  CONTENTS, READONLY, DEBUGGING
-  9 .debug_line      0000f8d1  00000000  00000000  00046308  2**0  CONTENTS, READONLY, DEBUGGING
- 10 .debug_str       0000541f  00000000  00000000  00055bd9  2**0  CONTENTS, READONLY, DEBUGGING
- 11 .comment         00000076  00000000  00000000  0005aff8  2**0  CONTENTS, READONLY
- 12 .ARM.attributes  00000032  00000000  00000000  0005b06e  2**0  CONTENTS, READONLY
- 13 .debug_frame     00003794  00000000  00000000  0005b0a0  2**2  CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc       0000e7d3  00000000  00000000  0005e834  2**0  CONTENTS, READONLY, DEBUGGING
- 15 .stab            00000054  00000000  00000000  0006d008  2**2  CONTENTS, READONLY, DEBUGGING
- 16 .stabstr         000000ab  00000000  00000000  0006d05c  2**0  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info      0001ea72  00000000  00000000  00020308  2**0  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev    000055e6  00000000  00000000  0003ed7a  2**0  CONTENTS, READONLY, DEBUGGING
+  7 .debug_aranges   00000c78  00000000  00000000  00044360  2**0  CONTENTS, READONLY, DEBUGGING
+  8 .debug_ranges    000015c0  00000000  00000000  00044fd8  2**0  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line      0000f946  00000000  00000000  00046598  2**0  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str       0000542b  00000000  00000000  00055ede  2**0  CONTENTS, READONLY, DEBUGGING
+ 11 .comment         00000076  00000000  00000000  0005b309  2**0  CONTENTS, READONLY
+ 12 .ARM.attributes  00000032  00000000  00000000  0005b37f  2**0  CONTENTS, READONLY
+ 13 .debug_frame     000037dc  00000000  00000000  0005b3b4  2**2  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_loc       0000e7d3  00000000  00000000  0005eb90  2**0  CONTENTS, READONLY, DEBUGGING
+ 15 .stab            00000054  00000000  00000000  0006d364  2**2  CONTENTS, READONLY, DEBUGGING
+ 16 .stabstr         000000ab  00000000  00000000  0006d3b8  2**0  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
-00009f4c l    d  .ARM.exidx	00000000 .ARM.exidx
+00009f44 l    d  .ARM.exidx	00000000 .ARM.exidx
 10000000 l    d  .data	00000000 .data
 10000308 l    d  .bss	00000000 .bss
 20000000 l    d  .persistent_ram2	00000000 .persistent_ram2
@@ -161,9 +161,9 @@ SYMBOL TABLE:
 10000a38 l     O .bss	00000002 board_io__led2
 10000a3a l     O .bss	00000002 board_io__led3
 00000000 l    df *ABS*	00000000 gpio.c
-00009ba4 l     O .text	00000018 gpio_memory_map
+00009b9c l     O .text	00000018 gpio_memory_map
 00000000 l    df *ABS*	00000000 hw_timer.c
-00009bbc l     O .text	00000020 hw_timers
+00009bb4 l     O .text	00000020 hw_timers
 00000000 l    df *ABS*	00000000 i2c.c
 000032c4 l     F .text	0000005e i2c__transfer_unprotected
 00003324 l     F .text	00000128 i2c__handle_interrupt
@@ -175,7 +175,7 @@ SYMBOL TABLE:
 00003620 l     F .text	00000002 lpc_peripheral__halt_handler
 10000a3c l     O .bss	00000004 memory_write_to_avoid_spurious_interrupt.7684
 10000060 l     O .data	000000a4 lpc_peripheral__isr_registrations
-00009be8 l     O .text	00000025 lpc_peripheral_pconp_bit_map
+00009be0 l     O .text	00000025 lpc_peripheral_pconp_bit_map
 00000000 l    df *ABS*	00000000 ssp2.c
 000036c8 l     F .text	00000098 ssp2__dma_transfer_block
 00000000 l    df *ABS*	00000000 uart.c
@@ -185,8 +185,8 @@ SYMBOL TABLE:
 0000389c l     F .text	0000000c uart1_isr
 000038a8 l     F .text	0000000c uart0_isr
 10000104 l     O .data	00000030 uarts
-00009c10 l     O .text	00000010 uart__isrs
-00009c20 l     O .text	00000004 uart_peripheral_ids
+00009c08 l     O .text	00000010 uart__isrs
+00009c18 l     O .text	00000004 uart_peripheral_ids
 00000000 l    df *ABS*	00000000 _arm_addsubdf3.o
 00000000 l    df *ABS*	00000000 _arm_muldivdf3.o
 00000000 l    df *ABS*	00000000 _arm_fixunsdfsi.o
@@ -216,9 +216,9 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 strncmp.c
 00000000 l    df *ABS*	00000000 strtod.c
 00005a14 l     F .text	00000038 sulp
-00009d74 l     O .text	00000014 fpi.7522
-00009d88 l     O .text	00000014 fpinan.7558
-00009da0 l     O .text	00000028 tinytens
+00009d6c l     O .text	00000014 fpi.7522
+00009d80 l     O .text	00000014 fpinan.7558
+00009d98 l     O .text	00000028 tinytens
 00000000 l    df *ABS*	00000000 strtol.c
 000065f4 l     F .text	000000f0 _strtol_l.isra.0
 00000000 l    df *ABS*	00000000 wbuf.c
@@ -239,7 +239,7 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 lib_a-memchr.o
 00000000 l    df *ABS*	00000000 mlock.c
 00000000 l    df *ABS*	00000000 mprec.c
-00009f40 l     O .text	0000000c p05.7444
+00009f38 l     O .text	0000000c p05.7444
 00000000 l    df *ABS*	00000000 nano-mallocr.c
 00000000 l    df *ABS*	00000000 nano-mallocr.c
 00000000 l    df *ABS*	00000000 nano-vfprintf.c
@@ -300,7 +300,7 @@ SYMBOL TABLE:
 00003080 g     F .text	00000024 board_io__get_led3
 00001ff4 g     F .text	000000bc xQueueGenericSendFromISR
 00008068 g     F .text	00000068 _Balloc
-00009f54 g       .ARM.exidx	00000000 __exidx_end
+00009f4c g       .ARM.exidx	00000000 __exidx_end
 000036a0 g     F .text	00000028 lpc_peripheral__enable_interrupt
 00008cf8 g     F .text	0000008a .hidden __gtdf2
 00002ed0 g     F .text	00000010 vRunTimeStatIsrExit
@@ -308,7 +308,7 @@ SYMBOL TABLE:
 00008f24 g     F .text	0000002e .hidden __aeabi_d2lz
 00008c5c g     F .text	00000024 _fstat_r
 10000a68 g     O .bss	00000004 errno
-00009f54 g       .ARM.exidx	00000000 _etext
+00009f4c g       .ARM.exidx	00000000 _etext
 00008d94 g     F .text	00000010 .hidden __aeabi_cdcmple
 000038b4 g     F .text	00000058 uart__init
 10000a48 g     O .bss	00000002 DB3
@@ -341,7 +341,7 @@ SYMBOL TABLE:
 00001ac0 g     F .text	00000058 vPortValidateInterruptPriority
 0000367c g     F .text	00000024 lpc_peripheral__is_powered_on
 00008fa0 g     F .text	00000010 _fstat
-00009e78 g     O .text	000000c8 __mprec_tens
+00009e70 g     O .text	000000c8 __mprec_tens
 00003470 g     F .text	000000b8 i2c__initialize
 00001900 g     F .text	00000064 xPortPendSVHandler
 10000308 g       .bss	00000000 _bss_start
@@ -369,22 +369,22 @@ SYMBOL TABLE:
 00003b28 g     F .text	00000276 .hidden __adddf3
 20008000 g       *ABS*	00000000 _heap_end
 00008640 g     F .text	000000a0 __b2d
-00009f4c g       .text	00000000 __exidx_start
+00009f44 g       .text	00000000 __exidx_start
 10000a5e g     O .bss	00000001 __lock___env_recursive_mutex
 00003e94 g     F .text	00000254 .hidden __aeabi_dmul
 00000d98 g     F .text	00000028 _isatty
 10000a5f g     O .bss	00000001 __lock___sinit_recursive_mutex
-00009d28 g     O .text	00000004 _global_impure_ptr
+00009d20 g     O .text	00000004 _global_impure_ptr
 00008874 g     F .text	0000004c _realloc_r
-00001334 g     F .text	00000168 display
-000011dc g     F .text	000000ac display_on
+000013f4 g     F .text	00000168 display
+0000129c g     F .text	000000ac display_on
 0000394c g     F .text	0000007c uart__enable_queues
-00009e50 g     O .text	00000028 __mprec_bigtens
+00009e48 g     O .text	00000028 __mprec_bigtens
 00008174 g     F .text	0000007c __s2b
 000031e0 g     F .text	0000001c gpio__reset
 000031c4 g     F .text	0000001c gpio__set
 00003da0 g     F .text	0000001e .hidden __floatunsidf
-0000149c g     F .text	00000088 set_2_lines
+0000155c g     F .text	00000088 set_2_lines
 000037d0 g     F .text	00000014 ssp2__exchange_byte
 00000344 g     F .text	00000054 _sbrk
 00008506 g     F .text	00000034 __mcmp
@@ -424,7 +424,7 @@ SYMBOL TABLE:
 10000000 g       .data	00000000 _bdata_vma
 000083c4 g     F .text	0000009c __pow5mult
 00003e28 g     F .text	0000006a .hidden __aeabi_ul2d
-00009dd8 g     O .text	00000020 __sf_fake_stderr
+00009dd0 g     O .text	00000020 __sf_fake_stderr
 00003224 g     F .text	00000048 hw_timer__enable
 00004700 g     F .text	00000002 __retarget_lock_release_recursive
 00000398 g     F .text	0000003c startup__initialize_ram
@@ -444,7 +444,7 @@ SYMBOL TABLE:
 00002ca0 g     F .text	000000a4 xTaskPriorityInherit
 00008de0 g     F .text	00000012 .hidden __aeabi_dcmpge
 00003b24 g     F .text	0000027a .hidden __aeabi_dsub
-000015d0 g     F .text	000000ac first_line
+000015e4 g     F .text	000000ac first_line
 00002814 g     F .text	00000010 vTaskSuspendAll
 00003e28 g     F .text	0000006a .hidden __floatundidf
 00008fb0 g     F .text	00000010 _lseek
@@ -472,7 +472,7 @@ SYMBOL TABLE:
 000045f8  w    F .text	00000002 .hidden __aeabi_ldiv0
 000040e8 g     F .text	000001d0 .hidden __divdf3
 00007798 g     F .text	0000008c __sfp
-000010b8 g     F .text	000000f4 lcd_pins
+000010b8 g     F .text	000001b4 lcd_pins
 000087e2 g     F .text	00000034 __copybits
 0000771c g     F .text	0000000c __sinit_lock_release
 0000107c g     F .text	00000012 sys_time__get_uptime_ms
@@ -486,12 +486,12 @@ SYMBOL TABLE:
 00008858 g     F .text	0000001c _calloc_r
 00001050 g     F .text	0000002c sys_time__get_uptime_us
 10000a50 g     O .bss	00000002 DB2
-00009df8 g     O .text	00000020 __sf_fake_stdin
+00009df0 g     O .text	00000020 __sf_fake_stdin
 000046fe g     F .text	00000002 __retarget_lock_acquire_recursive
 00004774 g     F .text	00000010 memset
 000035f0 g     F .text	00000018 i2c__detect
-0000167c g     F .text	0000003c lcd_init
-000016b8 g     F .text	00000030 main
+00001690 g     F .text	00000048 lcd_init
+000016d8 g     F .text	00000010 main
 000046fc g     F .text	00000002 __retarget_lock_init_recursive
 10000a52 g     O .bss	00000002 DB1
 10000000 g       .text	00000000 __base_ram_64k
@@ -503,12 +503,11 @@ SYMBOL TABLE:
 00001870 g     F .text	00000024 vPortSVCHandler
 00006980 g     F .text	00000b74 _dtoa_r
 00004820 g     F .text	000000b4 _malloc_r
-00001524 g     F .text	000000ac next_line
 00008bfe g     F .text	0000001a __ascii_wctomb
 00003e38 g     F .text	0000005a .hidden __aeabi_l2d
 0000084c g     F .text	00000070 f_mount
 00002410 g     F .text	0000009c xQueueReceiveFromISR
-000011ac g     F .text	00000030 execute
+0000126c g     F .text	00000030 execute
 00001dfc g     F .text	0000004c xQueueGenericCreate
 00003934 g     F .text	00000018 uart__is_transmit_queue_initialized
 0000378c g     F .text	00000044 ssp2__initialize
@@ -541,7 +540,7 @@ SYMBOL TABLE:
 000085f4 g     F .text	0000004c __ulp
 00002c74 g     F .text	0000000c vTaskMissedYield
 00002ff0 g     F .text	00000010 board_io__sd_card_ds
-00009e38 g     O .text	0000000c _C_numeric_locale
+00009e30 g     O .text	0000000c _C_numeric_locale
 0000026c g     F .text	00000018 crash__record_get
 10000a54 g     O .bss	00000002 E
 00000ad8 g     F .text	00000020 sd_card__update_status
@@ -553,7 +552,7 @@ SYMBOL TABLE:
 00007ebc g     F .text	00000048 __swhatbuf_r
 10010000 g       *ABS*	00000000 _estack
 00008da4 g     F .text	00000012 .hidden __aeabi_dcmpeq
-00001288 g     F .text	000000ac display_clear
+00001348 g     F .text	000000ac display_clear
 00000400 g     F .text	00000022 acceleration__init
 00001cec g     F .text	0000007c xQueueGenericReset
 00000dc0 g     F .text	00000070 _write
@@ -572,13 +571,13 @@ SYMBOL TABLE:
 0000853a g     F .text	000000ba __mdiff
 00008e34 g     F .text	0000004e .hidden __aeabi_d2iz
 000008da g     F .text	00000012 ff_req_grant
-00009f54 g       *ABS*	00000000 _bdata_lma
+00009f4c g       *ABS*	00000000 _bdata_lma
 00002a34 g     F .text	00000048 vTaskDelay
 00007704 g     F .text	0000000c __sfp_lock_release
-00009e18 g     O .text	00000020 __sf_fake_stdout
+00009e10 g     O .text	00000020 __sf_fake_stdout
 000059a0 g     F .text	00000040 siprintf
 00002c80 g     F .text	00000020 xTaskGetSchedulerState
-00009c24 g     O .text	00000101 _ctype_
+00009c1c g     O .text	00000101 _ctype_
 00002de0 g     F .text	000000b0 vTaskPriorityDisinheritAfterTimeout
 00000e30 g     F .text	0000001c _read
 000000e4 g       .text	00000000 __init_array_start
@@ -719,7 +718,7 @@ entry_point():
      12c:	f005 fb48 	bl	57c0 <iprintf>
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/entry_point.c:32
   main();
-     130:	f001 fac2 	bl	16b8 <main>
+     130:	f001 fad2 	bl	16d8 <main>
 entry_point__halt():
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/entry_point.c:38
   fprintf(stderr, "ERROR: main() should never return, program has been halted");
@@ -1320,7 +1319,7 @@ startup__init_bss_sram():
     ptr++;
      3bc:	e7f4      	b.n	3a8 <startup__initialize_ram+0x10>
      3be:	bf00      	nop
-     3c0:	00009f54 	.word	0x00009f54
+     3c0:	00009f4c 	.word	0x00009f4c
      3c4:	10000000 	.word	0x10000000
      3c8:	10000308 	.word	0x10000308
      3cc:	10000308 	.word	0x10000308
@@ -4316,913 +4315,937 @@ void uart_puts__polled(uart_e uart, const char *message) {
 
 000010b8 <lcd_pins>:
 lcd_pins():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:18
-
-void lcd_pins(void);
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:20
 void write_command(int command);
 void execute(void);
+void set_address(void);
 
 void lcd_pins(void) {
-    10b8:	b508      	push	{r3, lr}
+  gpio__set_function(E, 0);
+    10b8:	4a62      	ldr	r2, [pc, #392]	; (1244 <lcd_pins+0x18c>)
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:19
-  E = gpio__construct_as_output(1, 30);
-    10ba:	211e      	movs	r1, #30
-    10bc:	2001      	movs	r0, #1
-    10be:	f002 f85f 	bl	3180 <gpio__construct_as_output>
-    10c2:	4b30      	ldr	r3, [pc, #192]	; (1184 <lcd_pins+0xcc>)
-    10c4:	b200      	sxth	r0, r0
-    10c6:	7018      	strb	r0, [r3, #0]
-    10c8:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    10cc:	7058      	strb	r0, [r3, #1]
+void lcd_pins(void) {
+    10ba:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:20
-  RS = gpio__construct_as_output(1, 31);
-    10ce:	211f      	movs	r1, #31
-    10d0:	2001      	movs	r0, #1
-    10d2:	f002 f855 	bl	3180 <gpio__construct_as_output>
-    10d6:	4b2c      	ldr	r3, [pc, #176]	; (1188 <lcd_pins+0xd0>)
-    10d8:	b200      	sxth	r0, r0
-    10da:	7018      	strb	r0, [r3, #0]
-    10dc:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    10e0:	7058      	strb	r0, [r3, #1]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:21
-  DB0 = gpio__construct_as_output(1, 20);
-    10e2:	2114      	movs	r1, #20
-    10e4:	2001      	movs	r0, #1
-    10e6:	f002 f84b 	bl	3180 <gpio__construct_as_output>
-    10ea:	4b28      	ldr	r3, [pc, #160]	; (118c <lcd_pins+0xd4>)
-    10ec:	b200      	sxth	r0, r0
-    10ee:	7018      	strb	r0, [r3, #0]
-    10f0:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    10f4:	7058      	strb	r0, [r3, #1]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:22
-  DB1 = gpio__construct_as_output(1, 23);
-    10f6:	2117      	movs	r1, #23
-    10f8:	2001      	movs	r0, #1
-    10fa:	f002 f841 	bl	3180 <gpio__construct_as_output>
-    10fe:	4b24      	ldr	r3, [pc, #144]	; (1190 <lcd_pins+0xd8>)
-    1100:	b200      	sxth	r0, r0
-    1102:	7018      	strb	r0, [r3, #0]
-    1104:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    1108:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(E, 0);
+    10be:	7850      	ldrb	r0, [r2, #1]
+    10c0:	7813      	ldrb	r3, [r2, #0]
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:23
-  DB2 = gpio__construct_as_output(1, 28);
-    110a:	211c      	movs	r1, #28
-    110c:	2001      	movs	r0, #1
-    110e:	f002 f837 	bl	3180 <gpio__construct_as_output>
-    1112:	4b20      	ldr	r3, [pc, #128]	; (1194 <lcd_pins+0xdc>)
-    1114:	b200      	sxth	r0, r0
-    1116:	7018      	strb	r0, [r3, #0]
-    1118:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    111c:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(RS, 0);
+
+  gpio__set_function(DB0, 0);
+    10c2:	f8df b198 	ldr.w	fp, [pc, #408]	; 125c <lcd_pins+0x1a4>
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:24
-  DB3 = gpio__construct_as_output(1, 29);
-    111e:	211d      	movs	r1, #29
-    1120:	2001      	movs	r0, #1
-    1122:	f002 f82d 	bl	3180 <gpio__construct_as_output>
-    1126:	4b1c      	ldr	r3, [pc, #112]	; (1198 <lcd_pins+0xe0>)
-    1128:	b200      	sxth	r0, r0
-    112a:	7018      	strb	r0, [r3, #0]
-    112c:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    1130:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(DB1, 0);
+    10c6:	f8df a198 	ldr.w	sl, [pc, #408]	; 1260 <lcd_pins+0x1a8>
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:25
-  DB4 = gpio__construct_as_output(2, 1);
-    1132:	2101      	movs	r1, #1
-    1134:	2002      	movs	r0, #2
-    1136:	f002 f823 	bl	3180 <gpio__construct_as_output>
-    113a:	4b18      	ldr	r3, [pc, #96]	; (119c <lcd_pins+0xe4>)
-    113c:	b200      	sxth	r0, r0
-    113e:	7018      	strb	r0, [r3, #0]
-    1140:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    1144:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(DB2, 0);
+    10ca:	f8df 9198 	ldr.w	r9, [pc, #408]	; 1264 <lcd_pins+0x1ac>
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:26
-  DB5 = gpio__construct_as_output(2, 4);
-    1146:	2104      	movs	r1, #4
-    1148:	2002      	movs	r0, #2
-    114a:	f002 f819 	bl	3180 <gpio__construct_as_output>
-    114e:	4b14      	ldr	r3, [pc, #80]	; (11a0 <lcd_pins+0xe8>)
-    1150:	b200      	sxth	r0, r0
-    1152:	7018      	strb	r0, [r3, #0]
-    1154:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    1158:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(DB3, 0);
+    10ce:	f8df 8198 	ldr.w	r8, [pc, #408]	; 1268 <lcd_pins+0x1b0>
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:27
-  DB6 = gpio__construct_as_output(2, 6);
-    115a:	2106      	movs	r1, #6
-    115c:	2002      	movs	r0, #2
-    115e:	f002 f80f 	bl	3180 <gpio__construct_as_output>
-    1162:	4b10      	ldr	r3, [pc, #64]	; (11a4 <lcd_pins+0xec>)
-    1164:	b200      	sxth	r0, r0
-    1166:	7018      	strb	r0, [r3, #0]
-    1168:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    116c:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(DB4, 0);
+    10d2:	4f5d      	ldr	r7, [pc, #372]	; (1248 <lcd_pins+0x190>)
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:28
-  DB7 = gpio__construct_as_output(2, 8);
-    116e:	2108      	movs	r1, #8
-    1170:	2002      	movs	r0, #2
-    1172:	f002 f805 	bl	3180 <gpio__construct_as_output>
-    1176:	4b0c      	ldr	r3, [pc, #48]	; (11a8 <lcd_pins+0xf0>)
-    1178:	b200      	sxth	r0, r0
-    117a:	7018      	strb	r0, [r3, #0]
-    117c:	f3c0 2007 	ubfx	r0, r0, #8, #8
-    1180:	7058      	strb	r0, [r3, #1]
+  gpio__set_function(DB5, 0);
+    10d4:	4e5d      	ldr	r6, [pc, #372]	; (124c <lcd_pins+0x194>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:29
+  gpio__set_function(DB6, 0);
+    10d6:	4d5e      	ldr	r5, [pc, #376]	; (1250 <lcd_pins+0x198>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:20
+  gpio__set_function(E, 0);
+    10d8:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+    10dc:	2100      	movs	r1, #0
+    10de:	f001 ffe1 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:21
+  gpio__set_function(RS, 0);
+    10e2:	4b5c      	ldr	r3, [pc, #368]	; (1254 <lcd_pins+0x19c>)
+    10e4:	785c      	ldrb	r4, [r3, #1]
+    10e6:	7818      	ldrb	r0, [r3, #0]
+    10e8:	2100      	movs	r1, #0
+    10ea:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    10ee:	f001 ffd9 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:23
+  gpio__set_function(DB0, 0);
+    10f2:	f89b 4001 	ldrb.w	r4, [fp, #1]
+    10f6:	f89b 0000 	ldrb.w	r0, [fp]
+    10fa:	2100      	movs	r1, #0
+    10fc:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    1100:	f001 ffd0 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:24
+  gpio__set_function(DB1, 0);
+    1104:	f89a 4001 	ldrb.w	r4, [sl, #1]
+    1108:	f89a 0000 	ldrb.w	r0, [sl]
+    110c:	2100      	movs	r1, #0
+    110e:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    1112:	f001 ffc7 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:25
+  gpio__set_function(DB2, 0);
+    1116:	f899 4001 	ldrb.w	r4, [r9, #1]
+    111a:	f899 0000 	ldrb.w	r0, [r9]
+    111e:	2100      	movs	r1, #0
+    1120:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    1124:	f001 ffbe 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:26
+  gpio__set_function(DB3, 0);
+    1128:	f898 4001 	ldrb.w	r4, [r8, #1]
+    112c:	f898 0000 	ldrb.w	r0, [r8]
+    1130:	2100      	movs	r1, #0
+    1132:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    1136:	f001 ffb5 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:27
+  gpio__set_function(DB4, 0);
+    113a:	787c      	ldrb	r4, [r7, #1]
+    113c:	7838      	ldrb	r0, [r7, #0]
+    113e:	2100      	movs	r1, #0
+    1140:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    1144:	f001 ffae 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:28
+  gpio__set_function(DB5, 0);
+    1148:	7874      	ldrb	r4, [r6, #1]
+    114a:	7830      	ldrb	r0, [r6, #0]
+    114c:	2100      	movs	r1, #0
+    114e:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+    1152:	f001 ffa7 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:29
+  gpio__set_function(DB6, 0);
+    1156:	786c      	ldrb	r4, [r5, #1]
+    1158:	7828      	ldrb	r0, [r5, #0]
+    115a:	ea40 2004 	orr.w	r0, r0, r4, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:30
+  gpio__set_function(DB7, 0);
+    115e:	4c3e      	ldr	r4, [pc, #248]	; (1258 <lcd_pins+0x1a0>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:29
+  gpio__set_function(DB6, 0);
+    1160:	2100      	movs	r1, #0
+    1162:	f001 ff9f 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:30
+  gpio__set_function(DB7, 0);
+    1166:	f894 c001 	ldrb.w	ip, [r4, #1]
+    116a:	7820      	ldrb	r0, [r4, #0]
+    116c:	2100      	movs	r1, #0
+    116e:	ea40 200c 	orr.w	r0, r0, ip, lsl #8
+    1172:	f001 ff97 	bl	30a4 <gpio__set_function>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:32
+
+  E = gpio__construct_as_output(1, 30);
+    1176:	211e      	movs	r1, #30
+    1178:	2001      	movs	r0, #1
+    117a:	f002 f801 	bl	3180 <gpio__construct_as_output>
+    117e:	4a31      	ldr	r2, [pc, #196]	; (1244 <lcd_pins+0x18c>)
+    1180:	b200      	sxth	r0, r0
+    1182:	7010      	strb	r0, [r2, #0]
+    1184:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    1188:	7050      	strb	r0, [r2, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:33
+  RS = gpio__construct_as_output(1, 31);
+    118a:	211f      	movs	r1, #31
+    118c:	2001      	movs	r0, #1
+    118e:	f001 fff7 	bl	3180 <gpio__construct_as_output>
+    1192:	4b30      	ldr	r3, [pc, #192]	; (1254 <lcd_pins+0x19c>)
+    1194:	b200      	sxth	r0, r0
+    1196:	7018      	strb	r0, [r3, #0]
+    1198:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    119c:	7058      	strb	r0, [r3, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:34
+  DB0 = gpio__construct_as_output(0, 7);
+    119e:	2107      	movs	r1, #7
+    11a0:	2000      	movs	r0, #0
+    11a2:	f001 ffed 	bl	3180 <gpio__construct_as_output>
+    11a6:	b200      	sxth	r0, r0
+    11a8:	f88b 0000 	strb.w	r0, [fp]
+    11ac:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    11b0:	f88b 0001 	strb.w	r0, [fp, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:35
+  DB1 = gpio__construct_as_output(1, 23);
+    11b4:	2117      	movs	r1, #23
+    11b6:	2001      	movs	r0, #1
+    11b8:	f001 ffe2 	bl	3180 <gpio__construct_as_output>
+    11bc:	b200      	sxth	r0, r0
+    11be:	f88a 0000 	strb.w	r0, [sl]
+    11c2:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    11c6:	f88a 0001 	strb.w	r0, [sl, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:36
+  DB2 = gpio__construct_as_output(0, 11);
+    11ca:	210b      	movs	r1, #11
+    11cc:	2000      	movs	r0, #0
+    11ce:	f001 ffd7 	bl	3180 <gpio__construct_as_output>
+    11d2:	b200      	sxth	r0, r0
+    11d4:	f889 0000 	strb.w	r0, [r9]
+    11d8:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    11dc:	f889 0001 	strb.w	r0, [r9, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:37
+  DB3 = gpio__construct_as_output(0, 10);
+    11e0:	210a      	movs	r1, #10
+    11e2:	2000      	movs	r0, #0
+    11e4:	f001 ffcc 	bl	3180 <gpio__construct_as_output>
+    11e8:	b200      	sxth	r0, r0
+    11ea:	f888 0000 	strb.w	r0, [r8]
+    11ee:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    11f2:	f888 0001 	strb.w	r0, [r8, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:38
+  DB4 = gpio__construct_as_output(2, 1);
+    11f6:	2101      	movs	r1, #1
+    11f8:	2002      	movs	r0, #2
+    11fa:	f001 ffc1 	bl	3180 <gpio__construct_as_output>
+    11fe:	b200      	sxth	r0, r0
+    1200:	7038      	strb	r0, [r7, #0]
+    1202:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    1206:	7078      	strb	r0, [r7, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:39
+  DB5 = gpio__construct_as_output(2, 4);
+    1208:	2104      	movs	r1, #4
+    120a:	2002      	movs	r0, #2
+    120c:	f001 ffb8 	bl	3180 <gpio__construct_as_output>
+    1210:	b200      	sxth	r0, r0
+    1212:	7030      	strb	r0, [r6, #0]
+    1214:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    1218:	7070      	strb	r0, [r6, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:40
+  DB6 = gpio__construct_as_output(2, 6);
+    121a:	2106      	movs	r1, #6
+    121c:	2002      	movs	r0, #2
+    121e:	f001 ffaf 	bl	3180 <gpio__construct_as_output>
+    1222:	b200      	sxth	r0, r0
+    1224:	7028      	strb	r0, [r5, #0]
+    1226:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    122a:	7068      	strb	r0, [r5, #1]
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:41
+  DB7 = gpio__construct_as_output(2, 8);
+    122c:	2108      	movs	r1, #8
+    122e:	2002      	movs	r0, #2
+    1230:	f001 ffa6 	bl	3180 <gpio__construct_as_output>
+    1234:	b200      	sxth	r0, r0
+    1236:	7020      	strb	r0, [r4, #0]
+    1238:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    123c:	7060      	strb	r0, [r4, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:54
   //   gpio__set_function(DB3, 0);
   //   gpio__set_function(DB4, 0);
   //   gpio__set_function(DB5, 0);
   //   gpio__set_function(DB6, 0);
   //   gpio__set_function(DB7, 0);
 }
-    1182:	bd08      	pop	{r3, pc}
-    1184:	10000a54 	.word	0x10000a54
-    1188:	10000a5a 	.word	0x10000a5a
-    118c:	10000a56 	.word	0x10000a56
-    1190:	10000a52 	.word	0x10000a52
-    1194:	10000a50 	.word	0x10000a50
-    1198:	10000a48 	.word	0x10000a48
-    119c:	10000a4c 	.word	0x10000a4c
-    11a0:	10000a58 	.word	0x10000a58
-    11a4:	10000a4e 	.word	0x10000a4e
-    11a8:	10000a4a 	.word	0x10000a4a
+    123e:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    1242:	bf00      	nop
+    1244:	10000a54 	.word	0x10000a54
+    1248:	10000a4c 	.word	0x10000a4c
+    124c:	10000a58 	.word	0x10000a58
+    1250:	10000a4e 	.word	0x10000a4e
+    1254:	10000a5a 	.word	0x10000a5a
+    1258:	10000a4a 	.word	0x10000a4a
+    125c:	10000a56 	.word	0x10000a56
+    1260:	10000a52 	.word	0x10000a52
+    1264:	10000a50 	.word	0x10000a50
+    1268:	10000a48 	.word	0x10000a48
 
-000011ac <execute>:
+0000126c <execute>:
 execute():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:100
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:113
   delay__ms(10);
   gpio__reset(E);
   //   gpio__set(E);
 }
 
 void execute(void) {
-    11ac:	b510      	push	{r4, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:101
+    126c:	b510      	push	{r4, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:114
   gpio__set(E);
-    11ae:	4c0a      	ldr	r4, [pc, #40]	; (11d8 <execute+0x2c>)
-    11b0:	7823      	ldrb	r3, [r4, #0]
-    11b2:	7860      	ldrb	r0, [r4, #1]
-    11b4:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
-    11b8:	f002 f804 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:103
-  // delay__ms(10);
+    126e:	4c0a      	ldr	r4, [pc, #40]	; (1298 <execute+0x2c>)
+    1270:	7823      	ldrb	r3, [r4, #0]
+    1272:	7860      	ldrb	r0, [r4, #1]
+    1274:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+    1278:	f001 ffa4 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:115
+  delay__ms(10);
+    127c:	200a      	movs	r0, #10
+    127e:	f7ff fe05 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:116
   gpio__reset(E);
-    11bc:	7823      	ldrb	r3, [r4, #0]
-    11be:	7860      	ldrb	r0, [r4, #1]
-    11c0:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
-    11c4:	f002 f80c 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:104
-  gpio__set(E);
-    11c8:	7823      	ldrb	r3, [r4, #0]
-    11ca:	7860      	ldrb	r0, [r4, #1]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:105
+    1282:	7823      	ldrb	r3, [r4, #0]
+    1284:	7860      	ldrb	r0, [r4, #1]
+    1286:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+    128a:	f001 ffa9 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:117
+  delay__ms(10);
+    128e:	200a      	movs	r0, #10
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:119
+  // gpio__set(E);
 }
-    11cc:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:104
-  gpio__set(E);
-    11d0:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
-    11d4:	f001 bff6 	b.w	31c4 <gpio__set>
-    11d8:	10000a54 	.word	0x10000a54
+    1290:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:117
+  delay__ms(10);
+    1294:	f7ff bdfa 	b.w	e8c <delay__ms>
+    1298:	10000a54 	.word	0x10000a54
 
-000011dc <display_on>:
+0000129c <display_on>:
 display_on():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:152
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:226
 }
 
 void gpio__set(gpio_s gpio);   ///< Sets the pin value as 'high' -> 3.3v
 void gpio__reset(gpio_s gpio); ///< Sets the pin value as 'low' -> ground
 
 void display_on(void) {
-    11dc:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:154
+    129c:	b508      	push	{r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:228
 
   gpio__reset(RS); // COMMAND
-    11de:	4b21      	ldr	r3, [pc, #132]	; (1264 <display_on+0x88>)
-    11e0:	781a      	ldrb	r2, [r3, #0]
-    11e2:	7858      	ldrb	r0, [r3, #1]
-    11e4:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    11e8:	f001 fffa 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:156
+    129e:	4b21      	ldr	r3, [pc, #132]	; (1324 <display_on+0x88>)
+    12a0:	781a      	ldrb	r2, [r3, #0]
+    12a2:	7858      	ldrb	r0, [r3, #1]
+    12a4:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12a8:	f001 ff9a 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:230
 
   gpio__reset(DB0);
-    11ec:	4b1e      	ldr	r3, [pc, #120]	; (1268 <display_on+0x8c>)
-    11ee:	781a      	ldrb	r2, [r3, #0]
-    11f0:	7858      	ldrb	r0, [r3, #1]
-    11f2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    11f6:	f001 fff3 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:157
+    12ac:	4b1e      	ldr	r3, [pc, #120]	; (1328 <display_on+0x8c>)
+    12ae:	781a      	ldrb	r2, [r3, #0]
+    12b0:	7858      	ldrb	r0, [r3, #1]
+    12b2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12b6:	f001 ff93 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:231
   gpio__reset(DB1);
-    11fa:	4b1c      	ldr	r3, [pc, #112]	; (126c <display_on+0x90>)
-    11fc:	781a      	ldrb	r2, [r3, #0]
-    11fe:	7858      	ldrb	r0, [r3, #1]
-    1200:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1204:	f001 ffec 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:158
+    12ba:	4b1c      	ldr	r3, [pc, #112]	; (132c <display_on+0x90>)
+    12bc:	781a      	ldrb	r2, [r3, #0]
+    12be:	7858      	ldrb	r0, [r3, #1]
+    12c0:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12c4:	f001 ff8c 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:232
   gpio__set(DB2);
-    1208:	4b19      	ldr	r3, [pc, #100]	; (1270 <display_on+0x94>)
-    120a:	781a      	ldrb	r2, [r3, #0]
-    120c:	7858      	ldrb	r0, [r3, #1]
-    120e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1212:	f001 ffd7 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:159
+    12c8:	4b19      	ldr	r3, [pc, #100]	; (1330 <display_on+0x94>)
+    12ca:	781a      	ldrb	r2, [r3, #0]
+    12cc:	7858      	ldrb	r0, [r3, #1]
+    12ce:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12d2:	f001 ff77 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:233
   gpio__set(DB3);
-    1216:	4b17      	ldr	r3, [pc, #92]	; (1274 <display_on+0x98>)
-    1218:	781a      	ldrb	r2, [r3, #0]
-    121a:	7858      	ldrb	r0, [r3, #1]
-    121c:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1220:	f001 ffd0 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:160
+    12d6:	4b17      	ldr	r3, [pc, #92]	; (1334 <display_on+0x98>)
+    12d8:	781a      	ldrb	r2, [r3, #0]
+    12da:	7858      	ldrb	r0, [r3, #1]
+    12dc:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12e0:	f001 ff70 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:234
   gpio__reset(DB4);
-    1224:	4b14      	ldr	r3, [pc, #80]	; (1278 <display_on+0x9c>)
-    1226:	781a      	ldrb	r2, [r3, #0]
-    1228:	7858      	ldrb	r0, [r3, #1]
-    122a:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    122e:	f001 ffd7 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:161
+    12e4:	4b14      	ldr	r3, [pc, #80]	; (1338 <display_on+0x9c>)
+    12e6:	781a      	ldrb	r2, [r3, #0]
+    12e8:	7858      	ldrb	r0, [r3, #1]
+    12ea:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12ee:	f001 ff77 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:235
   gpio__reset(DB5);
-    1232:	4b12      	ldr	r3, [pc, #72]	; (127c <display_on+0xa0>)
-    1234:	781a      	ldrb	r2, [r3, #0]
-    1236:	7858      	ldrb	r0, [r3, #1]
-    1238:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    123c:	f001 ffd0 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:162
+    12f2:	4b12      	ldr	r3, [pc, #72]	; (133c <display_on+0xa0>)
+    12f4:	781a      	ldrb	r2, [r3, #0]
+    12f6:	7858      	ldrb	r0, [r3, #1]
+    12f8:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    12fc:	f001 ff70 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:236
   gpio__reset(DB6);
-    1240:	4b0f      	ldr	r3, [pc, #60]	; (1280 <display_on+0xa4>)
-    1242:	781a      	ldrb	r2, [r3, #0]
-    1244:	7858      	ldrb	r0, [r3, #1]
-    1246:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    124a:	f001 ffc9 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:163
+    1300:	4b0f      	ldr	r3, [pc, #60]	; (1340 <display_on+0xa4>)
+    1302:	781a      	ldrb	r2, [r3, #0]
+    1304:	7858      	ldrb	r0, [r3, #1]
+    1306:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    130a:	f001 ff69 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:237
   gpio__reset(DB7);
-    124e:	4b0d      	ldr	r3, [pc, #52]	; (1284 <display_on+0xa8>)
-    1250:	781a      	ldrb	r2, [r3, #0]
-    1252:	7858      	ldrb	r0, [r3, #1]
-    1254:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1258:	f001 ffc2 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:166
+    130e:	4b0d      	ldr	r3, [pc, #52]	; (1344 <display_on+0xa8>)
+    1310:	781a      	ldrb	r2, [r3, #0]
+    1312:	7858      	ldrb	r0, [r3, #1]
+    1314:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1318:	f001 ff62 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:240
 
   execute();
 }
-    125c:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:165
+    131c:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:239
   execute();
-    1260:	f7ff bfa4 	b.w	11ac <execute>
-    1264:	10000a5a 	.word	0x10000a5a
-    1268:	10000a56 	.word	0x10000a56
-    126c:	10000a52 	.word	0x10000a52
-    1270:	10000a50 	.word	0x10000a50
-    1274:	10000a48 	.word	0x10000a48
-    1278:	10000a4c 	.word	0x10000a4c
-    127c:	10000a58 	.word	0x10000a58
-    1280:	10000a4e 	.word	0x10000a4e
-    1284:	10000a4a 	.word	0x10000a4a
+    1320:	f7ff bfa4 	b.w	126c <execute>
+    1324:	10000a5a 	.word	0x10000a5a
+    1328:	10000a56 	.word	0x10000a56
+    132c:	10000a52 	.word	0x10000a52
+    1330:	10000a50 	.word	0x10000a50
+    1334:	10000a48 	.word	0x10000a48
+    1338:	10000a4c 	.word	0x10000a4c
+    133c:	10000a58 	.word	0x10000a58
+    1340:	10000a4e 	.word	0x10000a4e
+    1344:	10000a4a 	.word	0x10000a4a
 
-00001288 <display_clear>:
+00001348 <display_clear>:
 display_clear():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:167
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:241
 void display_clear(void) { // 0x01
-    1288:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:169
+    1348:	b508      	push	{r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:243
 
   gpio__reset(RS); // COMMAND
-    128a:	4b21      	ldr	r3, [pc, #132]	; (1310 <display_clear+0x88>)
-    128c:	781a      	ldrb	r2, [r3, #0]
-    128e:	7858      	ldrb	r0, [r3, #1]
-    1290:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1294:	f001 ffa4 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:171
+    134a:	4b21      	ldr	r3, [pc, #132]	; (13d0 <display_clear+0x88>)
+    134c:	781a      	ldrb	r2, [r3, #0]
+    134e:	7858      	ldrb	r0, [r3, #1]
+    1350:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1354:	f001 ff44 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:245
 
   gpio__set(DB0);
-    1298:	4b1e      	ldr	r3, [pc, #120]	; (1314 <display_clear+0x8c>)
-    129a:	781a      	ldrb	r2, [r3, #0]
-    129c:	7858      	ldrb	r0, [r3, #1]
-    129e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12a2:	f001 ff8f 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:172
+    1358:	4b1e      	ldr	r3, [pc, #120]	; (13d4 <display_clear+0x8c>)
+    135a:	781a      	ldrb	r2, [r3, #0]
+    135c:	7858      	ldrb	r0, [r3, #1]
+    135e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1362:	f001 ff2f 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:246
   gpio__reset(DB1);
-    12a6:	4b1c      	ldr	r3, [pc, #112]	; (1318 <display_clear+0x90>)
-    12a8:	781a      	ldrb	r2, [r3, #0]
-    12aa:	7858      	ldrb	r0, [r3, #1]
-    12ac:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12b0:	f001 ff96 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:173
+    1366:	4b1c      	ldr	r3, [pc, #112]	; (13d8 <display_clear+0x90>)
+    1368:	781a      	ldrb	r2, [r3, #0]
+    136a:	7858      	ldrb	r0, [r3, #1]
+    136c:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1370:	f001 ff36 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:247
   gpio__reset(DB2);
-    12b4:	4b19      	ldr	r3, [pc, #100]	; (131c <display_clear+0x94>)
-    12b6:	781a      	ldrb	r2, [r3, #0]
-    12b8:	7858      	ldrb	r0, [r3, #1]
-    12ba:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12be:	f001 ff8f 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:174
+    1374:	4b19      	ldr	r3, [pc, #100]	; (13dc <display_clear+0x94>)
+    1376:	781a      	ldrb	r2, [r3, #0]
+    1378:	7858      	ldrb	r0, [r3, #1]
+    137a:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    137e:	f001 ff2f 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:248
   gpio__reset(DB3);
-    12c2:	4b17      	ldr	r3, [pc, #92]	; (1320 <display_clear+0x98>)
-    12c4:	781a      	ldrb	r2, [r3, #0]
-    12c6:	7858      	ldrb	r0, [r3, #1]
-    12c8:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12cc:	f001 ff88 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:175
+    1382:	4b17      	ldr	r3, [pc, #92]	; (13e0 <display_clear+0x98>)
+    1384:	781a      	ldrb	r2, [r3, #0]
+    1386:	7858      	ldrb	r0, [r3, #1]
+    1388:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    138c:	f001 ff28 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:249
   gpio__reset(DB4);
-    12d0:	4b14      	ldr	r3, [pc, #80]	; (1324 <display_clear+0x9c>)
-    12d2:	781a      	ldrb	r2, [r3, #0]
-    12d4:	7858      	ldrb	r0, [r3, #1]
-    12d6:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12da:	f001 ff81 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:176
+    1390:	4b14      	ldr	r3, [pc, #80]	; (13e4 <display_clear+0x9c>)
+    1392:	781a      	ldrb	r2, [r3, #0]
+    1394:	7858      	ldrb	r0, [r3, #1]
+    1396:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    139a:	f001 ff21 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:250
   gpio__reset(DB5);
-    12de:	4b12      	ldr	r3, [pc, #72]	; (1328 <display_clear+0xa0>)
-    12e0:	781a      	ldrb	r2, [r3, #0]
-    12e2:	7858      	ldrb	r0, [r3, #1]
-    12e4:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12e8:	f001 ff7a 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:177
+    139e:	4b12      	ldr	r3, [pc, #72]	; (13e8 <display_clear+0xa0>)
+    13a0:	781a      	ldrb	r2, [r3, #0]
+    13a2:	7858      	ldrb	r0, [r3, #1]
+    13a4:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    13a8:	f001 ff1a 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:251
   gpio__reset(DB6);
-    12ec:	4b0f      	ldr	r3, [pc, #60]	; (132c <display_clear+0xa4>)
-    12ee:	781a      	ldrb	r2, [r3, #0]
-    12f0:	7858      	ldrb	r0, [r3, #1]
-    12f2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    12f6:	f001 ff73 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:178
+    13ac:	4b0f      	ldr	r3, [pc, #60]	; (13ec <display_clear+0xa4>)
+    13ae:	781a      	ldrb	r2, [r3, #0]
+    13b0:	7858      	ldrb	r0, [r3, #1]
+    13b2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    13b6:	f001 ff13 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:252
   gpio__reset(DB7);
-    12fa:	4b0d      	ldr	r3, [pc, #52]	; (1330 <display_clear+0xa8>)
-    12fc:	781a      	ldrb	r2, [r3, #0]
-    12fe:	7858      	ldrb	r0, [r3, #1]
-    1300:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1304:	f001 ff6c 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:181
+    13ba:	4b0d      	ldr	r3, [pc, #52]	; (13f0 <display_clear+0xa8>)
+    13bc:	781a      	ldrb	r2, [r3, #0]
+    13be:	7858      	ldrb	r0, [r3, #1]
+    13c0:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    13c4:	f001 ff0c 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:255
 
   execute();
 }
-    1308:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:180
+    13c8:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:254
   execute();
-    130c:	f7ff bf4e 	b.w	11ac <execute>
-    1310:	10000a5a 	.word	0x10000a5a
-    1314:	10000a56 	.word	0x10000a56
-    1318:	10000a52 	.word	0x10000a52
-    131c:	10000a50 	.word	0x10000a50
-    1320:	10000a48 	.word	0x10000a48
-    1324:	10000a4c 	.word	0x10000a4c
-    1328:	10000a58 	.word	0x10000a58
-    132c:	10000a4e 	.word	0x10000a4e
-    1330:	10000a4a 	.word	0x10000a4a
+    13cc:	f7ff bf4e 	b.w	126c <execute>
+    13d0:	10000a5a 	.word	0x10000a5a
+    13d4:	10000a56 	.word	0x10000a56
+    13d8:	10000a52 	.word	0x10000a52
+    13dc:	10000a50 	.word	0x10000a50
+    13e0:	10000a48 	.word	0x10000a48
+    13e4:	10000a4c 	.word	0x10000a4c
+    13e8:	10000a58 	.word	0x10000a58
+    13ec:	10000a4e 	.word	0x10000a4e
+    13f0:	10000a4a 	.word	0x10000a4a
 
-00001334 <display>:
+000013f4 <display>:
 display():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:182
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:256
 void display(char *input) {
-    1334:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
-    1338:	b089      	sub	sp, #36	; 0x24
-    133a:	4680      	mov	r8, r0
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:185
+    13f4:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    13f8:	b089      	sub	sp, #36	; 0x24
+    13fa:	4680      	mov	r8, r0
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:259
   //   gpio__set(RS); // DATA
 
   int size = strlen(input);
-    133c:	f004 fb50 	bl	59e0 <strlen>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:189
+    13fc:	f004 faf0 	bl	59e0 <strlen>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:263
   int ascii_dec = 0;
   for (int i = 0; i < size; i++) {
     ascii_dec = input[i];
     printf("The decimal is %i\n", ascii_dec);
-    1340:	f8df 9150 	ldr.w	r9, [pc, #336]	; 1494 <display+0x160>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:202
+    1400:	f8df 9150 	ldr.w	r9, [pc, #336]	; 1554 <display+0x160>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:276
       d = n >> c;
       if (d & 1)
         ascii_bin[t] = 1;
       else
         ascii_bin[t] = 0;
       printf("at bit %i is: %i\n", t, ascii_bin[t]);
-    1344:	f8df a150 	ldr.w	sl, [pc, #336]	; 1498 <display+0x164>
-    1348:	4e49      	ldr	r6, [pc, #292]	; (1470 <display+0x13c>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:185
+    1404:	f8df a150 	ldr.w	sl, [pc, #336]	; 1558 <display+0x164>
+    1408:	4e49      	ldr	r6, [pc, #292]	; (1530 <display+0x13c>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:259
   int size = strlen(input);
-    134a:	4607      	mov	r7, r0
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:187
+    140a:	4607      	mov	r7, r0
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:261
   for (int i = 0; i < size; i++) {
-    134c:	2500      	movs	r5, #0
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:187 (discriminator 1)
-    134e:	42bd      	cmp	r5, r7
-    1350:	db02      	blt.n	1358 <display+0x24>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:243
+    140c:	2500      	movs	r5, #0
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:261 (discriminator 1)
+    140e:	42bd      	cmp	r5, r7
+    1410:	db02      	blt.n	1418 <display+0x24>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:317
 
     gpio__set(RS); // DATA
 
     execute();
   }
 }
-    1352:	b009      	add	sp, #36	; 0x24
-    1354:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:188
+    1412:	b009      	add	sp, #36	; 0x24
+    1414:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:262
     ascii_dec = input[i];
-    1358:	f818 b005 	ldrb.w	fp, [r8, r5]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:189
+    1418:	f818 b005 	ldrb.w	fp, [r8, r5]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:263
     printf("The decimal is %i\n", ascii_dec);
-    135c:	4648      	mov	r0, r9
-    135e:	4659      	mov	r1, fp
-    1360:	f004 fa2e 	bl	57c0 <iprintf>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:194
+    141c:	4648      	mov	r0, r9
+    141e:	4659      	mov	r1, fp
+    1420:	f004 f9ce 	bl	57c0 <iprintf>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:268
     int ascii_bin[8] = {0};
-    1364:	2220      	movs	r2, #32
-    1366:	2100      	movs	r1, #0
-    1368:	4668      	mov	r0, sp
-    136a:	f003 fa03 	bl	4774 <memset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:196
+    1424:	2220      	movs	r2, #32
+    1426:	2100      	movs	r1, #0
+    1428:	4668      	mov	r0, sp
+    142a:	f003 f9a3 	bl	4774 <memset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:270
     for (c = 7; c >= 0; c--) {
-    136e:	2407      	movs	r4, #7
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:197
+    142e:	2407      	movs	r4, #7
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:271
       d = n >> c;
-    1370:	fa4b f204 	asr.w	r2, fp, r4
-    1374:	f002 0201 	and.w	r2, r2, #1
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:202
+    1430:	fa4b f204 	asr.w	r2, fp, r4
+    1434:	f002 0201 	and.w	r2, r2, #1
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:276
       printf("at bit %i is: %i\n", t, ascii_bin[t]);
-    1378:	4621      	mov	r1, r4
-    137a:	4650      	mov	r0, sl
-    137c:	f84d 2024 	str.w	r2, [sp, r4, lsl #2]
-    1380:	f004 fa1e 	bl	57c0 <iprintf>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:196
+    1438:	4621      	mov	r1, r4
+    143a:	4650      	mov	r0, sl
+    143c:	f84d 2024 	str.w	r2, [sp, r4, lsl #2]
+    1440:	f004 f9be 	bl	57c0 <iprintf>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:270
     for (c = 7; c >= 0; c--) {
-    1384:	f114 34ff 	adds.w	r4, r4, #4294967295	; 0xffffffff
-    1388:	d2f2      	bcs.n	1370 <display+0x3c>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:206
+    1444:	f114 34ff 	adds.w	r4, r4, #4294967295	; 0xffffffff
+    1448:	d2f2      	bcs.n	1430 <display+0x3c>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:280
     if (ascii_bin[0] == 1)
-    138a:	9b00      	ldr	r3, [sp, #0]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:207
+    144a:	9b00      	ldr	r3, [sp, #0]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:281
       gpio__set(DB0);
-    138c:	7870      	ldrb	r0, [r6, #1]
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:206
+    144c:	7870      	ldrb	r0, [r6, #1]
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:280
     if (ascii_bin[0] == 1)
-    138e:	2b01      	cmp	r3, #1
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:207
+    144e:	2b01      	cmp	r3, #1
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:281
       gpio__set(DB0);
-    1390:	7833      	ldrb	r3, [r6, #0]
-    1392:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:206
+    1450:	7833      	ldrb	r3, [r6, #0]
+    1452:	ea43 2000 	orr.w	r0, r3, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:280
     if (ascii_bin[0] == 1)
-    1396:	d152      	bne.n	143e <display+0x10a>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:207
+    1456:	d152      	bne.n	14fe <display+0x10a>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:281
       gpio__set(DB0);
-    1398:	f001 ff14 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:210
+    1458:	f001 feb4 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:284
     if (ascii_bin[1] == 1)
-    139c:	9b01      	ldr	r3, [sp, #4]
-    139e:	2b01      	cmp	r3, #1
-    13a0:	4b34      	ldr	r3, [pc, #208]	; (1474 <display+0x140>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:211
+    145c:	9b01      	ldr	r3, [sp, #4]
+    145e:	2b01      	cmp	r3, #1
+    1460:	4b34      	ldr	r3, [pc, #208]	; (1534 <display+0x140>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:285
       gpio__set(DB1);
-    13a2:	781a      	ldrb	r2, [r3, #0]
-    13a4:	7858      	ldrb	r0, [r3, #1]
-    13a6:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:210
+    1462:	781a      	ldrb	r2, [r3, #0]
+    1464:	7858      	ldrb	r0, [r3, #1]
+    1466:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:284
     if (ascii_bin[1] == 1)
-    13aa:	d14b      	bne.n	1444 <display+0x110>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:211
+    146a:	d14b      	bne.n	1504 <display+0x110>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:285
       gpio__set(DB1);
-    13ac:	f001 ff0a 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:214
+    146c:	f001 feaa 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:288
     if (ascii_bin[2] == 1)
-    13b0:	9b02      	ldr	r3, [sp, #8]
-    13b2:	2b01      	cmp	r3, #1
-    13b4:	4b30      	ldr	r3, [pc, #192]	; (1478 <display+0x144>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:215
+    1470:	9b02      	ldr	r3, [sp, #8]
+    1472:	2b01      	cmp	r3, #1
+    1474:	4b30      	ldr	r3, [pc, #192]	; (1538 <display+0x144>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:289
       gpio__set(DB2);
-    13b6:	781a      	ldrb	r2, [r3, #0]
-    13b8:	7858      	ldrb	r0, [r3, #1]
-    13ba:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:214
+    1476:	781a      	ldrb	r2, [r3, #0]
+    1478:	7858      	ldrb	r0, [r3, #1]
+    147a:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:288
     if (ascii_bin[2] == 1)
-    13be:	d144      	bne.n	144a <display+0x116>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:215
+    147e:	d144      	bne.n	150a <display+0x116>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:289
       gpio__set(DB2);
-    13c0:	f001 ff00 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:218
+    1480:	f001 fea0 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:292
     if (ascii_bin[3] == 1)
-    13c4:	9b03      	ldr	r3, [sp, #12]
-    13c6:	2b01      	cmp	r3, #1
-    13c8:	4b2c      	ldr	r3, [pc, #176]	; (147c <display+0x148>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:219
+    1484:	9b03      	ldr	r3, [sp, #12]
+    1486:	2b01      	cmp	r3, #1
+    1488:	4b2c      	ldr	r3, [pc, #176]	; (153c <display+0x148>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:293
       gpio__set(DB3);
-    13ca:	781a      	ldrb	r2, [r3, #0]
-    13cc:	7858      	ldrb	r0, [r3, #1]
-    13ce:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:218
+    148a:	781a      	ldrb	r2, [r3, #0]
+    148c:	7858      	ldrb	r0, [r3, #1]
+    148e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:292
     if (ascii_bin[3] == 1)
-    13d2:	d13d      	bne.n	1450 <display+0x11c>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:219
+    1492:	d13d      	bne.n	1510 <display+0x11c>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:293
       gpio__set(DB3);
-    13d4:	f001 fef6 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:222
+    1494:	f001 fe96 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:296
     if (ascii_bin[4] == 1)
-    13d8:	9b04      	ldr	r3, [sp, #16]
-    13da:	2b01      	cmp	r3, #1
-    13dc:	4b28      	ldr	r3, [pc, #160]	; (1480 <display+0x14c>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:223
+    1498:	9b04      	ldr	r3, [sp, #16]
+    149a:	2b01      	cmp	r3, #1
+    149c:	4b28      	ldr	r3, [pc, #160]	; (1540 <display+0x14c>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:297
       gpio__set(DB4);
-    13de:	781a      	ldrb	r2, [r3, #0]
-    13e0:	7858      	ldrb	r0, [r3, #1]
-    13e2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:222
+    149e:	781a      	ldrb	r2, [r3, #0]
+    14a0:	7858      	ldrb	r0, [r3, #1]
+    14a2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:296
     if (ascii_bin[4] == 1)
-    13e6:	d136      	bne.n	1456 <display+0x122>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:223
+    14a6:	d136      	bne.n	1516 <display+0x122>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:297
       gpio__set(DB4);
-    13e8:	f001 feec 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:226
+    14a8:	f001 fe8c 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:300
     if (ascii_bin[5] == 1)
-    13ec:	9b05      	ldr	r3, [sp, #20]
-    13ee:	2b01      	cmp	r3, #1
-    13f0:	4b24      	ldr	r3, [pc, #144]	; (1484 <display+0x150>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:227
+    14ac:	9b05      	ldr	r3, [sp, #20]
+    14ae:	2b01      	cmp	r3, #1
+    14b0:	4b24      	ldr	r3, [pc, #144]	; (1544 <display+0x150>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:301
       gpio__set(DB5);
-    13f2:	781a      	ldrb	r2, [r3, #0]
-    13f4:	7858      	ldrb	r0, [r3, #1]
-    13f6:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:226
+    14b2:	781a      	ldrb	r2, [r3, #0]
+    14b4:	7858      	ldrb	r0, [r3, #1]
+    14b6:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:300
     if (ascii_bin[5] == 1)
-    13fa:	d12f      	bne.n	145c <display+0x128>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:227
+    14ba:	d12f      	bne.n	151c <display+0x128>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:301
       gpio__set(DB5);
-    13fc:	f001 fee2 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:230
+    14bc:	f001 fe82 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:304
     if (ascii_bin[6] == 1)
-    1400:	9b06      	ldr	r3, [sp, #24]
-    1402:	2b01      	cmp	r3, #1
-    1404:	4b20      	ldr	r3, [pc, #128]	; (1488 <display+0x154>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:231
+    14c0:	9b06      	ldr	r3, [sp, #24]
+    14c2:	2b01      	cmp	r3, #1
+    14c4:	4b20      	ldr	r3, [pc, #128]	; (1548 <display+0x154>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:305
       gpio__set(DB6);
-    1406:	781a      	ldrb	r2, [r3, #0]
-    1408:	7858      	ldrb	r0, [r3, #1]
-    140a:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:230
+    14c6:	781a      	ldrb	r2, [r3, #0]
+    14c8:	7858      	ldrb	r0, [r3, #1]
+    14ca:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:304
     if (ascii_bin[6] == 1)
-    140e:	d128      	bne.n	1462 <display+0x12e>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:231
+    14ce:	d128      	bne.n	1522 <display+0x12e>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:305
       gpio__set(DB6);
-    1410:	f001 fed8 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:234
+    14d0:	f001 fe78 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:308
     if (ascii_bin[7] == 1)
-    1414:	9b07      	ldr	r3, [sp, #28]
-    1416:	2b01      	cmp	r3, #1
-    1418:	4b1c      	ldr	r3, [pc, #112]	; (148c <display+0x158>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:235
+    14d4:	9b07      	ldr	r3, [sp, #28]
+    14d6:	2b01      	cmp	r3, #1
+    14d8:	4b1c      	ldr	r3, [pc, #112]	; (154c <display+0x158>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:309
       gpio__set(DB7);
-    141a:	781a      	ldrb	r2, [r3, #0]
-    141c:	7858      	ldrb	r0, [r3, #1]
-    141e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:234
+    14da:	781a      	ldrb	r2, [r3, #0]
+    14dc:	7858      	ldrb	r0, [r3, #1]
+    14de:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:308
     if (ascii_bin[7] == 1)
-    1422:	d121      	bne.n	1468 <display+0x134>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:235
+    14e2:	d121      	bne.n	1528 <display+0x134>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:309
       gpio__set(DB7);
-    1424:	f001 fece 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:239 (discriminator 2)
+    14e4:	f001 fe6e 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:313 (discriminator 2)
     gpio__set(RS); // DATA
-    1428:	4b19      	ldr	r3, [pc, #100]	; (1490 <display+0x15c>)
-    142a:	781a      	ldrb	r2, [r3, #0]
-    142c:	7858      	ldrb	r0, [r3, #1]
-    142e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1432:	f001 fec7 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:187 (discriminator 2)
+    14e8:	4b19      	ldr	r3, [pc, #100]	; (1550 <display+0x15c>)
+    14ea:	781a      	ldrb	r2, [r3, #0]
+    14ec:	7858      	ldrb	r0, [r3, #1]
+    14ee:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    14f2:	f001 fe67 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:261 (discriminator 2)
   for (int i = 0; i < size; i++) {
-    1436:	3501      	adds	r5, #1
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:241 (discriminator 2)
+    14f6:	3501      	adds	r5, #1
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:315 (discriminator 2)
     execute();
-    1438:	f7ff feb8 	bl	11ac <execute>
-    143c:	e787      	b.n	134e <display+0x1a>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:209
+    14f8:	f7ff feb8 	bl	126c <execute>
+    14fc:	e787      	b.n	140e <display+0x1a>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:283
       gpio__reset(DB0);
-    143e:	f001 fecf 	bl	31e0 <gpio__reset>
-    1442:	e7ab      	b.n	139c <display+0x68>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:213
+    14fe:	f001 fe6f 	bl	31e0 <gpio__reset>
+    1502:	e7ab      	b.n	145c <display+0x68>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:287
       gpio__reset(DB1);
-    1444:	f001 fecc 	bl	31e0 <gpio__reset>
-    1448:	e7b2      	b.n	13b0 <display+0x7c>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:217
+    1504:	f001 fe6c 	bl	31e0 <gpio__reset>
+    1508:	e7b2      	b.n	1470 <display+0x7c>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:291
       gpio__reset(DB2);
-    144a:	f001 fec9 	bl	31e0 <gpio__reset>
-    144e:	e7b9      	b.n	13c4 <display+0x90>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:221
+    150a:	f001 fe69 	bl	31e0 <gpio__reset>
+    150e:	e7b9      	b.n	1484 <display+0x90>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:295
       gpio__reset(DB3);
-    1450:	f001 fec6 	bl	31e0 <gpio__reset>
-    1454:	e7c0      	b.n	13d8 <display+0xa4>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:225
+    1510:	f001 fe66 	bl	31e0 <gpio__reset>
+    1514:	e7c0      	b.n	1498 <display+0xa4>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:299
       gpio__reset(DB4);
-    1456:	f001 fec3 	bl	31e0 <gpio__reset>
-    145a:	e7c7      	b.n	13ec <display+0xb8>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:229
+    1516:	f001 fe63 	bl	31e0 <gpio__reset>
+    151a:	e7c7      	b.n	14ac <display+0xb8>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:303
       gpio__reset(DB5);
-    145c:	f001 fec0 	bl	31e0 <gpio__reset>
-    1460:	e7ce      	b.n	1400 <display+0xcc>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:233
+    151c:	f001 fe60 	bl	31e0 <gpio__reset>
+    1520:	e7ce      	b.n	14c0 <display+0xcc>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:307
       gpio__reset(DB6);
-    1462:	f001 febd 	bl	31e0 <gpio__reset>
-    1466:	e7d5      	b.n	1414 <display+0xe0>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:237
+    1522:	f001 fe5d 	bl	31e0 <gpio__reset>
+    1526:	e7d5      	b.n	14d4 <display+0xe0>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:311
       gpio__reset(DB7);
-    1468:	f001 feba 	bl	31e0 <gpio__reset>
-    146c:	e7dc      	b.n	1428 <display+0xf4>
-    146e:	bf00      	nop
-    1470:	10000a56 	.word	0x10000a56
-    1474:	10000a52 	.word	0x10000a52
-    1478:	10000a50 	.word	0x10000a50
-    147c:	10000a48 	.word	0x10000a48
-    1480:	10000a4c 	.word	0x10000a4c
-    1484:	10000a58 	.word	0x10000a58
-    1488:	10000a4e 	.word	0x10000a4e
-    148c:	10000a4a 	.word	0x10000a4a
-    1490:	10000a5a 	.word	0x10000a5a
-    1494:	0000943d 	.word	0x0000943d
-    1498:	00009458 	.word	0x00009458
+    1528:	f001 fe5a 	bl	31e0 <gpio__reset>
+    152c:	e7dc      	b.n	14e8 <display+0xf4>
+    152e:	bf00      	nop
+    1530:	10000a56 	.word	0x10000a56
+    1534:	10000a52 	.word	0x10000a52
+    1538:	10000a50 	.word	0x10000a50
+    153c:	10000a48 	.word	0x10000a48
+    1540:	10000a4c 	.word	0x10000a4c
+    1544:	10000a58 	.word	0x10000a58
+    1548:	10000a4e 	.word	0x10000a4e
+    154c:	10000a4a 	.word	0x10000a4a
+    1550:	10000a5a 	.word	0x10000a5a
+    1554:	0000943d 	.word	0x0000943d
+    1558:	00009458 	.word	0x00009458
 
-0000149c <set_2_lines>:
+0000155c <set_2_lines>:
 set_2_lines():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:245
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:319
 
 void set_2_lines(void) {
-    149c:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:246
+    155c:	b508      	push	{r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:320
   gpio__reset(RS); // COMMAND
-    149e:	4b1a      	ldr	r3, [pc, #104]	; (1508 <set_2_lines+0x6c>)
-    14a0:	781a      	ldrb	r2, [r3, #0]
-    14a2:	7858      	ldrb	r0, [r3, #1]
-    14a4:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14a8:	f001 fe9a 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:248
-
-  gpio__set(DB2);
-    14ac:	4b17      	ldr	r3, [pc, #92]	; (150c <set_2_lines+0x70>)
-    14ae:	781a      	ldrb	r2, [r3, #0]
-    14b0:	7858      	ldrb	r0, [r3, #1]
-    14b2:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14b6:	f001 fe85 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:249
-  gpio__set(DB3);
-    14ba:	4b15      	ldr	r3, [pc, #84]	; (1510 <set_2_lines+0x74>)
-    14bc:	781a      	ldrb	r2, [r3, #0]
-    14be:	7858      	ldrb	r0, [r3, #1]
-    14c0:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14c4:	f001 fe7e 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:250
-  gpio__set(DB4);
-    14c8:	4b12      	ldr	r3, [pc, #72]	; (1514 <set_2_lines+0x78>)
-    14ca:	781a      	ldrb	r2, [r3, #0]
-    14cc:	7858      	ldrb	r0, [r3, #1]
-    14ce:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14d2:	f001 fe77 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:251
-  gpio__set(DB5);
-    14d6:	4b10      	ldr	r3, [pc, #64]	; (1518 <set_2_lines+0x7c>)
-    14d8:	781a      	ldrb	r2, [r3, #0]
-    14da:	7858      	ldrb	r0, [r3, #1]
-    14dc:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14e0:	f001 fe70 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:252
-  gpio__reset(DB6);
-    14e4:	4b0d      	ldr	r3, [pc, #52]	; (151c <set_2_lines+0x80>)
-    14e6:	781a      	ldrb	r2, [r3, #0]
-    14e8:	7858      	ldrb	r0, [r3, #1]
-    14ea:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14ee:	f001 fe77 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:253
-  gpio__reset(DB7);
-    14f2:	4b0b      	ldr	r3, [pc, #44]	; (1520 <set_2_lines+0x84>)
-    14f4:	781a      	ldrb	r2, [r3, #0]
-    14f6:	7858      	ldrb	r0, [r3, #1]
-    14f8:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    14fc:	f001 fe70 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:256
-
-  execute();
-}
-    1500:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:255
-  execute();
-    1504:	f7ff be52 	b.w	11ac <execute>
-    1508:	10000a5a 	.word	0x10000a5a
-    150c:	10000a50 	.word	0x10000a50
-    1510:	10000a48 	.word	0x10000a48
-    1514:	10000a4c 	.word	0x10000a4c
-    1518:	10000a58 	.word	0x10000a58
-    151c:	10000a4e 	.word	0x10000a4e
-    1520:	10000a4a 	.word	0x10000a4a
-
-00001524 <next_line>:
-next_line():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:258
-
-void next_line(void) {
-    1524:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:259
-  gpio__reset(RS); // COMMAND
-    1526:	4b21      	ldr	r3, [pc, #132]	; (15ac <next_line+0x88>)
-    1528:	781a      	ldrb	r2, [r3, #0]
-    152a:	7858      	ldrb	r0, [r3, #1]
-    152c:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1530:	f001 fe56 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:261
-
-  gpio__reset(DB0);
-    1534:	4b1e      	ldr	r3, [pc, #120]	; (15b0 <next_line+0x8c>)
-    1536:	781a      	ldrb	r2, [r3, #0]
-    1538:	7858      	ldrb	r0, [r3, #1]
-    153a:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    153e:	f001 fe4f 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:262
-  gpio__reset(DB1);
-    1542:	4b1c      	ldr	r3, [pc, #112]	; (15b4 <next_line+0x90>)
-    1544:	781a      	ldrb	r2, [r3, #0]
-    1546:	7858      	ldrb	r0, [r3, #1]
-    1548:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    154c:	f001 fe48 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:263
-  gpio__reset(DB2);
-    1550:	4b19      	ldr	r3, [pc, #100]	; (15b8 <next_line+0x94>)
-    1552:	781a      	ldrb	r2, [r3, #0]
-    1554:	7858      	ldrb	r0, [r3, #1]
-    1556:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    155a:	f001 fe41 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:264
-  gpio__set(DB3);
-    155e:	4b17      	ldr	r3, [pc, #92]	; (15bc <next_line+0x98>)
+    155e:	4b1a      	ldr	r3, [pc, #104]	; (15c8 <set_2_lines+0x6c>)
     1560:	781a      	ldrb	r2, [r3, #0]
     1562:	7858      	ldrb	r0, [r3, #1]
     1564:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1568:	f001 fe2c 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:265
-  gpio__reset(DB4);
-    156c:	4b14      	ldr	r3, [pc, #80]	; (15c0 <next_line+0x9c>)
+    1568:	f001 fe3a 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:322
+
+  gpio__set(DB2);
+    156c:	4b17      	ldr	r3, [pc, #92]	; (15cc <set_2_lines+0x70>)
     156e:	781a      	ldrb	r2, [r3, #0]
     1570:	7858      	ldrb	r0, [r3, #1]
     1572:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1576:	f001 fe33 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:266
-  gpio__set(DB5);
-    157a:	4b12      	ldr	r3, [pc, #72]	; (15c4 <next_line+0xa0>)
+    1576:	f001 fe25 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:323
+  gpio__set(DB3);
+    157a:	4b15      	ldr	r3, [pc, #84]	; (15d0 <set_2_lines+0x74>)
     157c:	781a      	ldrb	r2, [r3, #0]
     157e:	7858      	ldrb	r0, [r3, #1]
     1580:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
     1584:	f001 fe1e 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:267
-  gpio__reset(DB6);
-    1588:	4b0f      	ldr	r3, [pc, #60]	; (15c8 <next_line+0xa4>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:324
+  gpio__set(DB4);
+    1588:	4b12      	ldr	r3, [pc, #72]	; (15d4 <set_2_lines+0x78>)
     158a:	781a      	ldrb	r2, [r3, #0]
     158c:	7858      	ldrb	r0, [r3, #1]
     158e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1592:	f001 fe25 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:268
-  gpio__set(DB7);
-    1596:	4b0d      	ldr	r3, [pc, #52]	; (15cc <next_line+0xa8>)
+    1592:	f001 fe17 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:325
+  gpio__set(DB5);
+    1596:	4b10      	ldr	r3, [pc, #64]	; (15d8 <set_2_lines+0x7c>)
     1598:	781a      	ldrb	r2, [r3, #0]
     159a:	7858      	ldrb	r0, [r3, #1]
     159c:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
     15a0:	f001 fe10 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:271
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:326
+  gpio__reset(DB6);
+    15a4:	4b0d      	ldr	r3, [pc, #52]	; (15dc <set_2_lines+0x80>)
+    15a6:	781a      	ldrb	r2, [r3, #0]
+    15a8:	7858      	ldrb	r0, [r3, #1]
+    15aa:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    15ae:	f001 fe17 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:327
+  gpio__reset(DB7);
+    15b2:	4b0b      	ldr	r3, [pc, #44]	; (15e0 <set_2_lines+0x84>)
+    15b4:	781a      	ldrb	r2, [r3, #0]
+    15b6:	7858      	ldrb	r0, [r3, #1]
+    15b8:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    15bc:	f001 fe10 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:330
 
   execute();
 }
-    15a4:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:270
+    15c0:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:329
   execute();
-    15a8:	f7ff be00 	b.w	11ac <execute>
-    15ac:	10000a5a 	.word	0x10000a5a
-    15b0:	10000a56 	.word	0x10000a56
-    15b4:	10000a52 	.word	0x10000a52
-    15b8:	10000a50 	.word	0x10000a50
-    15bc:	10000a48 	.word	0x10000a48
-    15c0:	10000a4c 	.word	0x10000a4c
-    15c4:	10000a58 	.word	0x10000a58
-    15c8:	10000a4e 	.word	0x10000a4e
-    15cc:	10000a4a 	.word	0x10000a4a
+    15c4:	f7ff be52 	b.w	126c <execute>
+    15c8:	10000a5a 	.word	0x10000a5a
+    15cc:	10000a50 	.word	0x10000a50
+    15d0:	10000a48 	.word	0x10000a48
+    15d4:	10000a4c 	.word	0x10000a4c
+    15d8:	10000a58 	.word	0x10000a58
+    15dc:	10000a4e 	.word	0x10000a4e
+    15e0:	10000a4a 	.word	0x10000a4a
 
-000015d0 <first_line>:
+000015e4 <first_line>:
 first_line():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:273
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:347
+  gpio__set(DB7);
+
+  execute();
+}
 
 void first_line(void) {
-    15d0:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:275
+    15e4:	b508      	push	{r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:349
 
   gpio__reset(RS); // COMMAND
-    15d2:	4b21      	ldr	r3, [pc, #132]	; (1658 <first_line+0x88>)
-    15d4:	781a      	ldrb	r2, [r3, #0]
-    15d6:	7858      	ldrb	r0, [r3, #1]
-    15d8:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    15dc:	f001 fe00 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:277
+    15e6:	4b21      	ldr	r3, [pc, #132]	; (166c <first_line+0x88>)
+    15e8:	781a      	ldrb	r2, [r3, #0]
+    15ea:	7858      	ldrb	r0, [r3, #1]
+    15ec:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    15f0:	f001 fdf6 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:351
 
   gpio__reset(DB0);
-    15e0:	4b1e      	ldr	r3, [pc, #120]	; (165c <first_line+0x8c>)
-    15e2:	781a      	ldrb	r2, [r3, #0]
-    15e4:	7858      	ldrb	r0, [r3, #1]
-    15e6:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    15ea:	f001 fdf9 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:278
+    15f4:	4b1e      	ldr	r3, [pc, #120]	; (1670 <first_line+0x8c>)
+    15f6:	781a      	ldrb	r2, [r3, #0]
+    15f8:	7858      	ldrb	r0, [r3, #1]
+    15fa:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    15fe:	f001 fdef 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:352
   gpio__reset(DB1);
-    15ee:	4b1c      	ldr	r3, [pc, #112]	; (1660 <first_line+0x90>)
-    15f0:	781a      	ldrb	r2, [r3, #0]
-    15f2:	7858      	ldrb	r0, [r3, #1]
-    15f4:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    15f8:	f001 fdf2 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:279
+    1602:	4b1c      	ldr	r3, [pc, #112]	; (1674 <first_line+0x90>)
+    1604:	781a      	ldrb	r2, [r3, #0]
+    1606:	7858      	ldrb	r0, [r3, #1]
+    1608:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    160c:	f001 fde8 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:353
   gpio__reset(DB2);
-    15fc:	4b19      	ldr	r3, [pc, #100]	; (1664 <first_line+0x94>)
-    15fe:	781a      	ldrb	r2, [r3, #0]
-    1600:	7858      	ldrb	r0, [r3, #1]
-    1602:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1606:	f001 fdeb 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:280
+    1610:	4b19      	ldr	r3, [pc, #100]	; (1678 <first_line+0x94>)
+    1612:	781a      	ldrb	r2, [r3, #0]
+    1614:	7858      	ldrb	r0, [r3, #1]
+    1616:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    161a:	f001 fde1 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:354
   gpio__reset(DB3);
-    160a:	4b17      	ldr	r3, [pc, #92]	; (1668 <first_line+0x98>)
-    160c:	781a      	ldrb	r2, [r3, #0]
-    160e:	7858      	ldrb	r0, [r3, #1]
-    1610:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1614:	f001 fde4 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:281
+    161e:	4b17      	ldr	r3, [pc, #92]	; (167c <first_line+0x98>)
+    1620:	781a      	ldrb	r2, [r3, #0]
+    1622:	7858      	ldrb	r0, [r3, #1]
+    1624:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1628:	f001 fdda 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:355
   gpio__reset(DB4);
-    1618:	4b14      	ldr	r3, [pc, #80]	; (166c <first_line+0x9c>)
-    161a:	781a      	ldrb	r2, [r3, #0]
-    161c:	7858      	ldrb	r0, [r3, #1]
-    161e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1622:	f001 fddd 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:282
+    162c:	4b14      	ldr	r3, [pc, #80]	; (1680 <first_line+0x9c>)
+    162e:	781a      	ldrb	r2, [r3, #0]
+    1630:	7858      	ldrb	r0, [r3, #1]
+    1632:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1636:	f001 fdd3 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:356
   gpio__reset(DB5);
-    1626:	4b12      	ldr	r3, [pc, #72]	; (1670 <first_line+0xa0>)
-    1628:	781a      	ldrb	r2, [r3, #0]
-    162a:	7858      	ldrb	r0, [r3, #1]
-    162c:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    1630:	f001 fdd6 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:283
+    163a:	4b12      	ldr	r3, [pc, #72]	; (1684 <first_line+0xa0>)
+    163c:	781a      	ldrb	r2, [r3, #0]
+    163e:	7858      	ldrb	r0, [r3, #1]
+    1640:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1644:	f001 fdcc 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:357
   gpio__reset(DB6);
-    1634:	4b0f      	ldr	r3, [pc, #60]	; (1674 <first_line+0xa4>)
-    1636:	781a      	ldrb	r2, [r3, #0]
-    1638:	7858      	ldrb	r0, [r3, #1]
-    163a:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    163e:	f001 fdcf 	bl	31e0 <gpio__reset>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:284
+    1648:	4b0f      	ldr	r3, [pc, #60]	; (1688 <first_line+0xa4>)
+    164a:	781a      	ldrb	r2, [r3, #0]
+    164c:	7858      	ldrb	r0, [r3, #1]
+    164e:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1652:	f001 fdc5 	bl	31e0 <gpio__reset>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:358
   gpio__set(DB7);
-    1642:	4b0d      	ldr	r3, [pc, #52]	; (1678 <first_line+0xa8>)
-    1644:	781a      	ldrb	r2, [r3, #0]
-    1646:	7858      	ldrb	r0, [r3, #1]
-    1648:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
-    164c:	f001 fdba 	bl	31c4 <gpio__set>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:287
+    1656:	4b0d      	ldr	r3, [pc, #52]	; (168c <first_line+0xa8>)
+    1658:	781a      	ldrb	r2, [r3, #0]
+    165a:	7858      	ldrb	r0, [r3, #1]
+    165c:	ea42 2000 	orr.w	r0, r2, r0, lsl #8
+    1660:	f001 fdb0 	bl	31c4 <gpio__set>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:361
 
   execute();
-    1650:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:286
+    1664:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:360
   execute();
-    1654:	f7ff bdaa 	b.w	11ac <execute>
-    1658:	10000a5a 	.word	0x10000a5a
-    165c:	10000a56 	.word	0x10000a56
-    1660:	10000a52 	.word	0x10000a52
-    1664:	10000a50 	.word	0x10000a50
-    1668:	10000a48 	.word	0x10000a48
-    166c:	10000a4c 	.word	0x10000a4c
-    1670:	10000a58 	.word	0x10000a58
-    1674:	10000a4e 	.word	0x10000a4e
-    1678:	10000a4a 	.word	0x10000a4a
+    1668:	f7ff be00 	b.w	126c <execute>
+    166c:	10000a5a 	.word	0x10000a5a
+    1670:	10000a56 	.word	0x10000a56
+    1674:	10000a52 	.word	0x10000a52
+    1678:	10000a50 	.word	0x10000a50
+    167c:	10000a48 	.word	0x10000a48
+    1680:	10000a4c 	.word	0x10000a4c
+    1684:	10000a58 	.word	0x10000a58
+    1688:	10000a4e 	.word	0x10000a4e
+    168c:	10000a4a 	.word	0x10000a4a
 
-0000167c <lcd_init>:
+00001690 <lcd_init>:
 lcd_init():
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:113
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:178
 void lcd_init(void) {
-    167c:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:115
+    1690:	b508      	push	{r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:180
+  delay__ms(30);
+    1692:	201e      	movs	r0, #30
+    1694:	f7ff fbfa 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:181
   lcd_pins();
-    167e:	f7ff fd1b 	bl	10b8 <lcd_pins>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:116
+    1698:	f7ff fd0e 	bl	10b8 <lcd_pins>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:187
   delay__ms(10);
-    1682:	200a      	movs	r0, #10
-    1684:	f7ff fc02 	bl	e8c <delay__ms>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:117
+    169c:	200a      	movs	r0, #10
+    169e:	f7ff fbf5 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:188
   display_on();
-    1688:	f7ff fda8 	bl	11dc <display_on>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:118
+    16a2:	f7ff fdfb 	bl	129c <display_on>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:189
   delay__ms(10);
-    168c:	200a      	movs	r0, #10
-    168e:	f7ff fbfd 	bl	e8c <delay__ms>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:119
+    16a6:	200a      	movs	r0, #10
+    16a8:	f7ff fbf0 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:191
   display_clear();
-    1692:	f7ff fdf9 	bl	1288 <display_clear>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:120
+    16ac:	f7ff fe4c 	bl	1348 <display_clear>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:192
   delay__ms(10);
-    1696:	200a      	movs	r0, #10
-    1698:	f7ff fbf8 	bl	e8c <delay__ms>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:121
+    16b0:	200a      	movs	r0, #10
+    16b2:	f7ff fbeb 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:194
+  delay__ms(10);
+    16b6:	200a      	movs	r0, #10
+    16b8:	f7ff fbe8 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:195
   set_2_lines();
-    169c:	f7ff fefe 	bl	149c <set_2_lines>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:122
+    16bc:	f7ff ff4e 	bl	155c <set_2_lines>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:196
   delay__ms(10);
-    16a0:	200a      	movs	r0, #10
-    16a2:	f7ff fbf3 	bl	e8c <delay__ms>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:123
+    16c0:	200a      	movs	r0, #10
+    16c2:	f7ff fbe3 	bl	e8c <delay__ms>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:197
   first_line();
-    16a6:	f7ff ff93 	bl	15d0 <first_line>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:134
+    16c6:	f7ff ff8d 	bl	15e4 <first_line>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:208
   display("WELCOME");
-    16aa:	4802      	ldr	r0, [pc, #8]	; (16b4 <lcd_init+0x38>)
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:147
+    16ca:	4802      	ldr	r0, [pc, #8]	; (16d4 <lcd_init+0x44>)
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:221
 }
-    16ac:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:134
+    16cc:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/lcd.c:208
   display("WELCOME");
-    16b0:	f7ff be40 	b.w	1334 <display>
-    16b4:	00009450 	.word	0x00009450
+    16d0:	f7ff be90 	b.w	13f4 <display>
+    16d4:	00009450 	.word	0x00009450
 
-000016b8 <main>:
+000016d8 <main>:
 main():
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:74
 
@@ -5231,48 +5254,29 @@ void mp3_lcd(void);
 void mp3_play(void);
 
 int main(void) {
-    16b8:	b508      	push	{r3, lr}
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:95
-  //   lpc_peripheral__enable_interrupt(GPIO_IRQn, gpio0__interrupt_dispatcher);
+    16d8:	b508      	push	{r3, lr}
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:96
   //   NVIC_EnableIRQ(GPIO_IRQn);
   // }
 
   // mp3_init();
+
   lcd_init();
-    16ba:	f7ff ffdf 	bl	167c <lcd_init>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:96
-  display_clear();
-    16be:	f7ff fde3 	bl	1288 <display_clear>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:97
-  first_line();
-    16c2:	f7ff ff85 	bl	15d0 <first_line>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:98
-  display("AAA");
-    16c6:	4806      	ldr	r0, [pc, #24]	; (16e0 <main+0x28>)
-    16c8:	f7ff fe34 	bl	1334 <display>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:99
-  next_line();
-    16cc:	f7ff ff2a 	bl	1524 <next_line>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:100
-  display("BBB");
-    16d0:	4804      	ldr	r0, [pc, #16]	; (16e4 <main+0x2c>)
-    16d2:	f7ff fe2f 	bl	1334 <display>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:106
+    16da:	f7ff ffd9 	bl	1690 <lcd_init>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:108
   // sj2_cli__init(); // For testing only
 
   // xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
   // xTaskCreate(mp3_play, "play", 1024U * 6 / (sizeof(void *)), NULL, 3, NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
-    16d6:	f001 f863 	bl	27a0 <vTaskStartScheduler>
-/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:109
+    16de:	f001 f85f 	bl	27a0 <vTaskStartScheduler>
+/Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/main.c:111
                          // runs out of memory and fails
   return -1;             // return 0;
 }
-    16da:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
-    16de:	bd08      	pop	{r3, pc}
-    16e0:	0000946a 	.word	0x0000946a
-    16e4:	0000946e 	.word	0x0000946e
+    16e2:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+    16e6:	bd08      	pop	{r3, pc}
 
 000016e8 <vApplicationStackOverflowHook>:
 vApplicationStackOverflowHook():
@@ -5304,7 +5308,7 @@ halt():
   }
     16fc:	e7fe      	b.n	16fc <vApplicationStackOverflowHook+0x14>
     16fe:	bf00      	nop
-    1700:	000095a4 	.word	0x000095a4
+    1700:	0000959c 	.word	0x0000959c
 
 00001704 <vApplicationMallocFailedHook>:
 vApplicationMallocFailedHook():
@@ -5325,7 +5329,7 @@ halt():
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l5_application/rtos_hooks.c:21
   }
     170e:	e7fe      	b.n	170e <vApplicationMallocFailedHook+0xa>
-    1710:	0000956a 	.word	0x0000956a
+    1710:	00009562 	.word	0x00009562
 
 00001714 <vApplicationIdleHook>:
 vApplicationIdleHook():
@@ -5392,10 +5396,10 @@ halt():
   }
     1750:	e7fe      	b.n	1750 <configASSERT_callback+0x2c>
     1752:	bf00      	nop
-    1754:	00009472 	.word	0x00009472
-    1758:	000094c4 	.word	0x000094c4
-    175c:	00009507 	.word	0x00009507
-    1760:	0000953b 	.word	0x0000953b
+    1754:	0000946a 	.word	0x0000946a
+    1758:	000094bc 	.word	0x000094bc
+    175c:	000094ff 	.word	0x000094ff
+    1760:	00009533 	.word	0x00009533
 
 00001764 <vApplicationGetIdleTaskMemory>:
 vApplicationGetIdleTaskMemory():
@@ -5609,7 +5613,7 @@ prvTaskExitError():
     1832:	b003      	add	sp, #12
     1834:	f85d fb04 	ldr.w	pc, [sp], #4
     1838:	100008dc 	.word	0x100008dc
-    183c:	000095c1 	.word	0x000095c1
+    183c:	000095b9 	.word	0x000095b9
 
 00001840 <pxPortInitialiseStack>:
 pxPortInitialiseStack():
@@ -5705,7 +5709,7 @@ vPortEnterCritical():
     18ca:	bf00      	nop
     18cc:	100008dc 	.word	0x100008dc
     18d0:	e000ed04 	.word	0xe000ed04
-    18d4:	000095db 	.word	0x000095db
+    18d4:	000095d3 	.word	0x000095d3
 
 000018d8 <vPortExitCritical>:
 vPortExitCritical():
@@ -5745,7 +5749,7 @@ vPortExitCritical():
 }
     18f6:	bd08      	pop	{r3, pc}
     18f8:	100008dc 	.word	0x100008dc
-    18fc:	00009610 	.word	0x00009610
+    18fc:	00009608 	.word	0x00009608
 
 00001900 <xPortPendSVHandler>:
 xPortPendSVHandler():
@@ -5996,13 +6000,13 @@ xPortStartScheduler():
     1a8e:	bd10      	pop	{r4, pc}
     1a90:	e000ed00 	.word	0xe000ed00
     1a94:	410fc271 	.word	0x410fc271
-    1a98:	0000968e 	.word	0x0000968e
+    1a98:	00009686 	.word	0x00009686
     1a9c:	410fc270 	.word	0x410fc270
-    1aa0:	000096b1 	.word	0x000096b1
+    1aa0:	000096a9 	.word	0x000096a9
     1aa4:	e000e400 	.word	0xe000e400
     1aa8:	100008d4 	.word	0x100008d4
     1aac:	100008d8 	.word	0x100008d8
-    1ab0:	000096d4 	.word	0x000096d4
+    1ab0:	000096cc 	.word	0x000096cc
     1ab4:	e000ed20 	.word	0xe000ed20
     1ab8:	100008dc 	.word	0x100008dc
     1abc:	e000ef34 	.word	0xe000ef34
@@ -6077,10 +6081,10 @@ vPortValidateInterruptPriority():
     1afe:	bd08      	pop	{r3, pc}
     1b00:	e000e3f0 	.word	0xe000e3f0
     1b04:	100008d4 	.word	0x100008d4
-    1b08:	00009622 	.word	0x00009622
+    1b08:	0000961a 	.word	0x0000961a
     1b0c:	e000ed0c 	.word	0xe000ed0c
     1b10:	100008d8 	.word	0x100008d8
-    1b14:	0000964c 	.word	0x0000964c
+    1b14:	00009644 	.word	0x00009644
 
 00001b18 <pvPortMalloc>:
 pvPortMalloc():
@@ -6783,7 +6787,7 @@ xQueueGenericReset():
     1d56:	f104 0024 	add.w	r0, r4, #36	; 0x24
     1d5a:	f7ff fef9 	bl	1b50 <vListInitialise>
     1d5e:	e7f2      	b.n	1d46 <xQueueGenericReset+0x5a>
-    1d60:	000097da 	.word	0x000097da
+    1d60:	000097d2 	.word	0x000097d2
     1d64:	e000ed04 	.word	0xe000ed04
 
 00001d68 <xQueueGenericCreateStatic>:
@@ -6882,11 +6886,11 @@ xQueueGenericCreateStatic():
     1de2:	b002      	add	sp, #8
     1de4:	bd10      	pop	{r4, pc}
     1de6:	bf00      	nop
-    1de8:	00009717 	.word	0x00009717
-    1dec:	00009739 	.word	0x00009739
-    1df0:	0000974f 	.word	0x0000974f
-    1df4:	00009787 	.word	0x00009787
-    1df8:	000097bf 	.word	0x000097bf
+    1de8:	0000970f 	.word	0x0000970f
+    1dec:	00009731 	.word	0x00009731
+    1df0:	00009747 	.word	0x00009747
+    1df4:	0000977f 	.word	0x0000977f
+    1df8:	000097b7 	.word	0x000097b7
 
 00001dfc <xQueueGenericCreate>:
 xQueueGenericCreate():
@@ -6951,7 +6955,7 @@ prvInitialiseNewQueue():
 	if( uxItemSize == ( UBaseType_t ) 0 )
     1e40:	4603      	mov	r3, r0
     1e42:	e7f2      	b.n	1e2a <xQueueGenericCreate+0x2e>
-    1e44:	00009717 	.word	0x00009717
+    1e44:	0000970f 	.word	0x0000970f
 
 00001e48 <xQueueGenericSend>:
 xQueueGenericSend():
@@ -7173,10 +7177,10 @@ xQueueGenericSend():
 			( void ) xTaskResumeAll();
     1f8a:	f000 fcdd 	bl	2948 <xTaskResumeAll>
     1f8e:	e792      	b.n	1eb6 <xQueueGenericSend+0x6e>
-    1f90:	000097da 	.word	0x000097da
-    1f94:	000097e2 	.word	0x000097e2
-    1f98:	00009832 	.word	0x00009832
-    1f9c:	00009879 	.word	0x00009879
+    1f90:	000097d2 	.word	0x000097d2
+    1f94:	000097da 	.word	0x000097da
+    1f98:	0000982a 	.word	0x0000982a
+    1f9c:	00009871 	.word	0x00009871
     1fa0:	e000ed04 	.word	0xe000ed04
 
 00001fa4 <xQueueCreateMutexStatic>:
@@ -7379,9 +7383,9 @@ xQueueGenericSendFromISR():
 			xReturn = errQUEUE_FULL;
     20a0:	2000      	movs	r0, #0
     20a2:	e7f4      	b.n	208e <xQueueGenericSendFromISR+0x9a>
-    20a4:	000097da 	.word	0x000097da
-    20a8:	000097e2 	.word	0x000097e2
-    20ac:	00009832 	.word	0x00009832
+    20a4:	000097d2 	.word	0x000097d2
+    20a8:	000097da 	.word	0x000097da
+    20ac:	0000982a 	.word	0x0000982a
 
 000020b0 <xQueueGiveFromISR>:
 xQueueGiveFromISR():
@@ -7498,9 +7502,9 @@ xQueueGiveFromISR():
     2142:	2000      	movs	r0, #0
     2144:	e7f5      	b.n	2132 <xQueueGiveFromISR+0x82>
     2146:	bf00      	nop
-    2148:	000097da 	.word	0x000097da
-    214c:	000098cf 	.word	0x000098cf
-    2150:	000098e8 	.word	0x000098e8
+    2148:	000097d2 	.word	0x000097d2
+    214c:	000098c7 	.word	0x000098c7
+    2150:	000098e0 	.word	0x000098e0
 
 00002154 <xQueueReceive>:
 xQueueReceive():
@@ -7692,9 +7696,9 @@ xQueueReceive():
     227a:	d0ce      	beq.n	221a <xQueueReceive+0xc6>
     227c:	e796      	b.n	21ac <xQueueReceive+0x58>
     227e:	bf00      	nop
-    2280:	0000994f 	.word	0x0000994f
-    2284:	0000995b 	.word	0x0000995b
-    2288:	00009879 	.word	0x00009879
+    2280:	00009947 	.word	0x00009947
+    2284:	00009953 	.word	0x00009953
+    2288:	00009871 	.word	0x00009871
     228c:	e000ed04 	.word	0xe000ed04
 
 00002290 <xQueueSemaphoreTake>:
@@ -7941,10 +7945,10 @@ xQueueSemaphoreTake():
 						taskEXIT_CRITICAL();
     23f6:	f7ff fa6f 	bl	18d8 <vPortExitCritical>
     23fa:	e7da      	b.n	23b2 <xQueueSemaphoreTake+0x122>
-    23fc:	0000994f 	.word	0x0000994f
-    2400:	000098cf 	.word	0x000098cf
-    2404:	00009879 	.word	0x00009879
-    2408:	000099f9 	.word	0x000099f9
+    23fc:	00009947 	.word	0x00009947
+    2400:	000098c7 	.word	0x000098c7
+    2404:	00009871 	.word	0x00009871
+    2408:	000099f1 	.word	0x000099f1
     240c:	e000ed04 	.word	0xe000ed04
 
 00002410 <xQueueReceiveFromISR>:
@@ -8058,8 +8062,8 @@ xQueueReceiveFromISR():
     249e:	4620      	mov	r0, r4
     24a0:	e7f4      	b.n	248c <xQueueReceiveFromISR+0x7c>
     24a2:	bf00      	nop
-    24a4:	000097da 	.word	0x000097da
-    24a8:	000099ae 	.word	0x000099ae
+    24a4:	000097d2 	.word	0x000097d2
+    24a8:	000099a6 	.word	0x000099a6
 
 000024ac <vQueueDelete>:
 vQueueDelete():
@@ -8087,7 +8091,7 @@ vQueueDelete():
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l1_freertos/source/queue.c:2010
 }
     24ca:	bd08      	pop	{r3, pc}
-    24cc:	000097da 	.word	0x000097da
+    24cc:	000097d2 	.word	0x000097d2
 
 000024d0 <prvAddNewTaskToReadyList>:
 prvAddNewTaskToReadyList():
@@ -8686,9 +8690,9 @@ xTaskCreateStatic():
     278e:	b006      	add	sp, #24
     2790:	bd70      	pop	{r4, r5, r6, pc}
     2792:	bf00      	nop
-    2794:	00009ae4 	.word	0x00009ae4
-    2798:	00009afb 	.word	0x00009afb
-    279c:	00009b10 	.word	0x00009b10
+    2794:	00009adc 	.word	0x00009adc
+    2798:	00009af3 	.word	0x00009af3
+    279c:	00009b08 	.word	0x00009b08
 
 000027a0 <vTaskStartScheduler>:
 vTaskStartScheduler():
@@ -8756,7 +8760,7 @@ vTaskStartScheduler():
     27f6:	b008      	add	sp, #32
     27f8:	bd10      	pop	{r4, pc}
     27fa:	bf00      	nop
-    27fc:	00009a8a 	.word	0x00009a8a
+    27fc:	00009a82 	.word	0x00009a82
     2800:	000025c5 	.word	0x000025c5
     2804:	100009f4 	.word	0x100009f4
     2808:	100009f8 	.word	0x100009f8
@@ -8946,7 +8950,7 @@ BaseType_t xSwitchRequired = pdFALSE;
     2918:	100009c0 	.word	0x100009c0
     291c:	10000a2c 	.word	0x10000a2c
     2920:	100008e4 	.word	0x100008e4
-    2924:	00009b29 	.word	0x00009b29
+    2924:	00009b21 	.word	0x00009b21
     2928:	100008e8 	.word	0x100008e8
     292c:	100009fc 	.word	0x100009fc
     2930:	100009f8 	.word	0x100009f8
@@ -9101,7 +9105,7 @@ BaseType_t xAlreadyYielded = pdFALSE;
     2a08:	e7b1      	b.n	296e <xTaskResumeAll+0x26>
     2a0a:	bf00      	nop
     2a0c:	100009c0 	.word	0x100009c0
-    2a10:	00009b8e 	.word	0x00009b8e
+    2a10:	00009b86 	.word	0x00009b86
     2a14:	100009b8 	.word	0x100009b8
     2a18:	10000a00 	.word	0x10000a00
     2a1c:	100009c8 	.word	0x100009c8
@@ -9156,7 +9160,7 @@ vTaskDelay():
     2a6e:	bf00      	nop
     2a70:	e000ed04 	.word	0xe000ed04
     2a74:	100009c0 	.word	0x100009c0
-    2a78:	00009a44 	.word	0x00009a44
+    2a78:	00009a3c 	.word	0x00009a3c
 
 00002a7c <vTaskSwitchContext>:
 vTaskSwitchContext():
@@ -9266,7 +9270,7 @@ vTaskSwitchContext():
     2b28:	100008e0 	.word	0x100008e0
     2b2c:	100009c8 	.word	0x100009c8
     2b30:	100008ec 	.word	0x100008ec
-    2b34:	00009a8f 	.word	0x00009a8f
+    2b34:	00009a87 	.word	0x00009a87
 
 00002b38 <vTaskPlaceOnEventList>:
 vTaskPlaceOnEventList():
@@ -9298,7 +9302,7 @@ vTaskPlaceOnEventList():
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l1_freertos/source/tasks.c:3033
 	prvAddCurrentTaskToDelayedList( xTicksToWait, pdTRUE );
     2b5c:	f7ff bda4 	b.w	26a8 <prvAddCurrentTaskToDelayedList>
-    2b60:	00009a5e 	.word	0x00009a5e
+    2b60:	00009a56 	.word	0x00009a56
     2b64:	100008e0 	.word	0x100008e0
 
 00002b68 <xTaskRemoveFromEventList>:
@@ -9373,7 +9377,7 @@ xTaskRemoveFromEventList():
     2bc6:	4629      	mov	r1, r5
     2bc8:	4806      	ldr	r0, [pc, #24]	; (2be4 <xTaskRemoveFromEventList+0x7c>)
     2bca:	e7ef      	b.n	2bac <xTaskRemoveFromEventList+0x44>
-    2bcc:	00009b7f 	.word	0x00009b7f
+    2bcc:	00009b77 	.word	0x00009b77
     2bd0:	100009c0 	.word	0x100009c0
     2bd4:	100009c8 	.word	0x100009c8
     2bd8:	100008ec 	.word	0x100008ec
@@ -9485,8 +9489,8 @@ xTaskCheckForTimeOut():
 			xReturn = pdTRUE;
     2c60:	2401      	movs	r4, #1
     2c62:	e7f7      	b.n	2c54 <xTaskCheckForTimeOut+0x54>
-    2c64:	00009a80 	.word	0x00009a80
-    2c68:	00009ad6 	.word	0x00009ad6
+    2c64:	00009a78 	.word	0x00009a78
+    2c68:	00009ace 	.word	0x00009ace
     2c6c:	10000a2c 	.word	0x10000a2c
     2c70:	100009fc 	.word	0x100009fc
 
@@ -9745,8 +9749,8 @@ xTaskPriorityDisinherit():
 		return xReturn;
     2dca:	e7bf      	b.n	2d4c <xTaskPriorityDisinherit+0x8>
     2dcc:	100008e0 	.word	0x100008e0
-    2dd0:	00009b54 	.word	0x00009b54
-    2dd4:	00009b6a 	.word	0x00009b6a
+    2dd0:	00009b4c 	.word	0x00009b4c
+    2dd4:	00009b62 	.word	0x00009b62
     2dd8:	100008ec 	.word	0x100008ec
     2ddc:	100009c8 	.word	0x100009c8
 
@@ -9866,9 +9870,9 @@ vTaskPriorityDisinheritAfterTimeout():
 	}
     2e78:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
     2e7a:	bf00      	nop
-    2e7c:	00009b6a 	.word	0x00009b6a
+    2e7c:	00009b62 	.word	0x00009b62
     2e80:	100008e0 	.word	0x100008e0
-    2e84:	00009a6a 	.word	0x00009a6a
+    2e84:	00009a62 	.word	0x00009a62
     2e88:	100008ec 	.word	0x100008ec
     2e8c:	100009c8 	.word	0x100009c8
 
@@ -10397,7 +10401,7 @@ gpio__set_as_input():
     3136:	b002      	add	sp, #8
     3138:	4770      	bx	lr
     313a:	bf00      	nop
-    313c:	00009ba4 	.word	0x00009ba4
+    313c:	00009b9c 	.word	0x00009b9c
 
 00003140 <gpio__construct_as_input>:
 gpio__construct_as_input():
@@ -10467,7 +10471,7 @@ gpio__set_as_output():
 }
     3178:	b002      	add	sp, #8
     317a:	4770      	bx	lr
-    317c:	00009ba4 	.word	0x00009ba4
+    317c:	00009b9c 	.word	0x00009b9c
 
 00003180 <gpio__construct_as_output>:
 gpio__construct_as_output():
@@ -10542,7 +10546,7 @@ gpio__get():
     31ba:	2000      	moveq	r0, #0
     31bc:	b002      	add	sp, #8
     31be:	4770      	bx	lr
-    31c0:	00009ba4 	.word	0x00009ba4
+    31c0:	00009b9c 	.word	0x00009b9c
 
 000031c4 <gpio__set>:
 gpio__get_struct():
@@ -10579,7 +10583,7 @@ gpio__set():
 }
     31d8:	b002      	add	sp, #8
     31da:	4770      	bx	lr
-    31dc:	00009ba4 	.word	0x00009ba4
+    31dc:	00009b9c 	.word	0x00009b9c
 
 000031e0 <gpio__reset>:
 gpio__get_struct():
@@ -10616,7 +10620,7 @@ gpio__reset():
 }
     31f4:	b002      	add	sp, #8
     31f6:	4770      	bx	lr
-    31f8:	00009ba4 	.word	0x00009ba4
+    31f8:	00009b9c 	.word	0x00009b9c
 
 000031fc <gpio__toggle>:
 gpio__toggle():
@@ -10750,7 +10754,7 @@ void hw_timer__enable(lpc_timer_e timer, const uint32_t prescalar_divider,
 }
     3262:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
     3266:	bf00      	nop
-    3268:	00009bbc 	.word	0x00009bbc
+    3268:	00009bb4 	.word	0x00009bb4
 
 0000326c <hw_timer__enable_match_isr>:
 hw_timer__enable_match_isr():
@@ -10791,7 +10795,7 @@ void hw_timer__enable_match_isr(lpc_timer_e timer, lpc_timer__mr_e mr_type,
 }
     3288:	bd30      	pop	{r4, r5, pc}
     328a:	bf00      	nop
-    328c:	00009bbc 	.word	0x00009bbc
+    328c:	00009bb4 	.word	0x00009bb4
 
 00003290 <hw_timer__acknowledge_interrupt>:
 hw_timer__acknowledge_interrupt():
@@ -10808,7 +10812,7 @@ void hw_timer__acknowledge_interrupt(lpc_timer_e timer,
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l3_drivers/sources/hw_timer.c:58
 }
     329e:	4770      	bx	lr
-    32a0:	00009bbc 	.word	0x00009bbc
+    32a0:	00009bb4 	.word	0x00009bb4
 
 000032a4 <hw_timer__get_value>:
 hw_timer__get_value():
@@ -10823,7 +10827,7 @@ uint32_t hw_timer__get_value(lpc_timer_e timer) {
 }
     32ac:	4770      	bx	lr
     32ae:	bf00      	nop
-    32b0:	00009bbc 	.word	0x00009bbc
+    32b0:	00009bb4 	.word	0x00009bb4
 
 000032b4 <hw_timer__set_value>:
 hw_timer__set_value():
@@ -10838,7 +10842,7 @@ void hw_timer__set_value(lpc_timer_e timer, uint32_t tc_value) {
 }
     32bc:	4770      	bx	lr
     32be:	bf00      	nop
-    32c0:	00009bbc 	.word	0x00009bbc
+    32c0:	00009bb4 	.word	0x00009bb4
 
 000032c4 <i2c__transfer_unprotected>:
 i2c__transfer_unprotected():
@@ -11432,7 +11436,7 @@ i2c__initialize():
   lpc_peripheral__enable_interrupt(peripheral_id, isrs[i2c_number]);
     3512:	f000 b8c5 	b.w	36a0 <lpc_peripheral__enable_interrupt>
     3516:	bf00      	nop
-    3518:	00009bdc 	.word	0x00009bdc
+    3518:	00009bd4 	.word	0x00009bd4
     351c:	1000000c 	.word	0x1000000c
     3520:	000f4240 	.word	0x000f4240
     3524:	000186a0 	.word	0x000186a0
@@ -11725,7 +11729,7 @@ void lpc_peripheral__turn_on_power_to(lpc_peripheral_e peripheral) {
 }
     3670:	4770      	bx	lr
     3672:	bf00      	nop
-    3674:	00009be8 	.word	0x00009be8
+    3674:	00009be0 	.word	0x00009be0
     3678:	400fc000 	.word	0x400fc000
 
 0000367c <lpc_peripheral__is_powered_on>:
@@ -11767,7 +11771,7 @@ bool lpc_peripheral__is_powered_on(lpc_peripheral_e peripheral) {
 }
     3696:	4770      	bx	lr
     3698:	400fc000 	.word	0x400fc000
-    369c:	00009be8 	.word	0x00009be8
+    369c:	00009be0 	.word	0x00009be0
 
 000036a0 <lpc_peripheral__enable_interrupt>:
 lpc_peripheral__enable_interrupt():
@@ -12354,7 +12358,7 @@ void uart__init(uart_e uart, uint32_t peripheral_clock, uint32_t baud_rate) {
       eight_bit_datalen | stop_bits_is_2; // DLAB is reset back to zero also
 }
     3902:	bd70      	pop	{r4, r5, r6, pc}
-    3904:	00009c20 	.word	0x00009c20
+    3904:	00009c18 	.word	0x00009c18
     3908:	10000104 	.word	0x10000104
 
 0000390c <uart__is_initialized>:
@@ -12388,7 +12392,7 @@ bool uart__is_initialized(uart_e uart) {
 /Users/Jannas/Desktop/GitHub/CMPE146_MP3/lpc40xx_freertos/l3_drivers/sources/uart.c:216 (discriminator 6)
 }
     392a:	bd10      	pop	{r4, pc}
-    392c:	00009c20 	.word	0x00009c20
+    392c:	00009c18 	.word	0x00009c18
     3930:	10000104 	.word	0x10000104
 
 00003934 <uart__is_transmit_queue_initialized>:
@@ -12516,8 +12520,8 @@ uart__enable_receive_and_transmit_interrupts():
     39b8:	e7d2      	b.n	3960 <uart__enable_queues+0x14>
     39ba:	bf00      	nop
     39bc:	10000104 	.word	0x10000104
-    39c0:	00009c10 	.word	0x00009c10
-    39c4:	00009c20 	.word	0x00009c20
+    39c0:	00009c08 	.word	0x00009c08
+    39c4:	00009c18 	.word	0x00009c18
 
 000039c8 <uart__polled_put>:
 uart__polled_put():
@@ -13879,9 +13883,9 @@ _fputs_r():
     46da:	460d      	mov	r5, r1
     46dc:	e7c9      	b.n	4672 <_fputs_r+0x52>
     46de:	bf00      	nop
-    46e0:	00009df8 	.word	0x00009df8
-    46e4:	00009e18 	.word	0x00009e18
-    46e8:	00009dd8 	.word	0x00009dd8
+    46e0:	00009df0 	.word	0x00009df0
+    46e4:	00009e10 	.word	0x00009e10
+    46e8:	00009dd0 	.word	0x00009dd0
 
 000046ec <fputs>:
 fputs():
@@ -14413,12 +14417,12 @@ _vfprintf_r():
     4b50:	f000 fb42 	bl	51d8 <_printf_i>
     4b54:	e7e3      	b.n	4b1e <_vfiprintf_r+0x1f6>
     4b56:	bf00      	nop
-    4b58:	00009df8 	.word	0x00009df8
-    4b5c:	00009e18 	.word	0x00009e18
-    4b60:	00009dd8 	.word	0x00009dd8
-    4b64:	00009d2c 	.word	0x00009d2c
-    4b68:	00009d32 	.word	0x00009d32
-    4b6c:	00009d36 	.word	0x00009d36
+    4b58:	00009df0 	.word	0x00009df0
+    4b5c:	00009e10 	.word	0x00009e10
+    4b60:	00009dd0 	.word	0x00009dd0
+    4b64:	00009d24 	.word	0x00009d24
+    4b68:	00009d2a 	.word	0x00009d2a
+    4b6c:	00009d2e 	.word	0x00009d2e
     4b70:	00004c99 	.word	0x00004c99
     4b74:	00004903 	.word	0x00004903
 
@@ -14852,11 +14856,11 @@ _printf_float():
     4f8c:	9304      	str	r3, [sp, #16]
     4f8e:	e015      	b.n	4fbc <_printf_float+0x324>
     4f90:	7fefffff 	.word	0x7fefffff
-    4f94:	00009d3d 	.word	0x00009d3d
-    4f98:	00009d41 	.word	0x00009d41
-    4f9c:	00009d45 	.word	0x00009d45
-    4fa0:	00009d49 	.word	0x00009d49
-    4fa4:	00009737 	.word	0x00009737
+    4f94:	00009d35 	.word	0x00009d35
+    4f98:	00009d39 	.word	0x00009d39
+    4f9c:	00009d3d 	.word	0x00009d3d
+    4fa0:	00009d41 	.word	0x00009d41
+    4fa4:	0000972f 	.word	0x0000972f
     4fa8:	2301      	movs	r3, #1
     4faa:	9a04      	ldr	r2, [sp, #16]
     4fac:	4631      	mov	r1, r6
@@ -15314,8 +15318,8 @@ _printf_i():
     53f0:	2500      	movs	r5, #0
     53f2:	f104 0919 	add.w	r9, r4, #25
     53f6:	e7f5      	b.n	53e4 <_printf_i+0x20c>
-    53f8:	00009d4d 	.word	0x00009d4d
-    53fc:	00009d5e 	.word	0x00009d5e
+    53f8:	00009d45 	.word	0x00009d45
+    53fc:	00009d56 	.word	0x00009d56
 
 00005400 <_scanf_float>:
 _scanf_float():
@@ -15695,7 +15699,7 @@ _scanf_float():
     57b2:	2500      	movs	r5, #0
     57b4:	e66b      	b.n	548e <_scanf_float+0x8e>
     57b6:	bf00      	nop
-    57b8:	00009d6f 	.word	0x00009d6f
+    57b8:	00009d67 	.word	0x00009d67
     57bc:	000090bd 	.word	0x000090bd
 
 000057c0 <iprintf>:
@@ -15895,9 +15899,9 @@ setvbuf():
     5980:	e7ba      	b.n	58f8 <setvbuf+0xe8>
     5982:	bf00      	nop
     5984:	10000134 	.word	0x10000134
-    5988:	00009df8 	.word	0x00009df8
-    598c:	00009e18 	.word	0x00009e18
-    5990:	00009dd8 	.word	0x00009dd8
+    5988:	00009df0 	.word	0x00009df0
+    598c:	00009e10 	.word	0x00009e10
+    5990:	00009dd0 	.word	0x00009dd0
 
 00005994 <nanf>:
 nanf():
@@ -16266,8 +16270,8 @@ _strtod_l():
     5cc6:	2701      	movs	r7, #1
     5cc8:	e7f9      	b.n	5cbe <_strtod_l+0x26e>
     5cca:	bf00      	nop
-    5ccc:	00009e38 	.word	0x00009e38
-    5cd0:	00009d74 	.word	0x00009d74
+    5ccc:	00009e30 	.word	0x00009e30
+    5cd0:	00009d6c 	.word	0x00009d6c
     5cd4:	7ff00000 	.word	0x7ff00000
     5cd8:	9b1b      	ldr	r3, [sp, #108]	; 0x6c
     5cda:	1c59      	adds	r1, r3, #1
@@ -16551,13 +16555,13 @@ _strtod_l():
     5fa2:	6013      	str	r3, [r2, #0]
     5fa4:	e78f      	b.n	5ec6 <_strtod_l+0x476>
     5fa6:	bf00      	nop
-    5fa8:	00009d42 	.word	0x00009d42
-    5fac:	00009dcb 	.word	0x00009dcb
-    5fb0:	00009d4a 	.word	0x00009d4a
-    5fb4:	00009d88 	.word	0x00009d88
+    5fa8:	00009d3a 	.word	0x00009d3a
+    5fac:	00009dc3 	.word	0x00009dc3
+    5fb0:	00009d42 	.word	0x00009d42
+    5fb4:	00009d80 	.word	0x00009d80
     5fb8:	000090bd 	.word	0x000090bd
-    5fbc:	00009e78 	.word	0x00009e78
-    5fc0:	00009e50 	.word	0x00009e50
+    5fbc:	00009e70 	.word	0x00009e70
+    5fc0:	00009e48 	.word	0x00009e48
     5fc4:	7ff00000 	.word	0x7ff00000
     5fc8:	7ca00000 	.word	0x7ca00000
     5fcc:	7fefffff 	.word	0x7fefffff
@@ -16840,7 +16844,7 @@ _strtod_l():
     628c:	f47f af76 	bne.w	617c <_strtod_l+0x72c>
     6290:	e612      	b.n	5eb8 <_strtod_l+0x468>
     6292:	bf00      	nop
-    6294:	00009da0 	.word	0x00009da0
+    6294:	00009d98 	.word	0x00009d98
     6298:	fffffc02 	.word	0xfffffc02
     629c:	7ff00000 	.word	0x7ff00000
     62a0:	39500000 	.word	0x39500000
@@ -17258,7 +17262,7 @@ _strtol_l.isra.0():
     66da:	230a      	movs	r3, #10
     66dc:	e7aa      	b.n	6634 <_strtol_l.isra.0+0x40>
     66de:	bf00      	nop
-    66e0:	00009c25 	.word	0x00009c25
+    66e0:	00009c1d 	.word	0x00009c1d
 
 000066e4 <_strtol_r>:
 _strtol_r():
@@ -17337,9 +17341,9 @@ __swbuf_r():
     6778:	f04f 37ff 	mov.w	r7, #4294967295	; 0xffffffff
     677c:	e7ea      	b.n	6754 <__swbuf_r+0x6c>
     677e:	bf00      	nop
-    6780:	00009df8 	.word	0x00009df8
-    6784:	00009e18 	.word	0x00009e18
-    6788:	00009dd8 	.word	0x00009dd8
+    6780:	00009df0 	.word	0x00009df0
+    6784:	00009e10 	.word	0x00009e10
+    6788:	00009dd0 	.word	0x00009dd0
 
 0000678c <__swsetup_r>:
 __swsetup_r():
@@ -17432,9 +17436,9 @@ __swsetup_r():
     6854:	e7f7      	b.n	6846 <__swsetup_r+0xba>
     6856:	bf00      	nop
     6858:	10000134 	.word	0x10000134
-    685c:	00009df8 	.word	0x00009df8
-    6860:	00009e18 	.word	0x00009e18
-    6864:	00009dd8 	.word	0x00009dd8
+    685c:	00009df0 	.word	0x00009df0
+    6860:	00009e10 	.word	0x00009e10
+    6864:	00009dd0 	.word	0x00009dd0
 
 00006868 <quorem>:
 quorem():
@@ -17855,12 +17859,12 @@ _dtoa_r():
     6ca0:	509f79fb 	.word	0x509f79fb
     6ca4:	3fd34413 	.word	0x3fd34413
     6ca8:	7ff00000 	.word	0x7ff00000
-    6cac:	00009dd1 	.word	0x00009dd1
-    6cb0:	00009dc8 	.word	0x00009dc8
-    6cb4:	00009738 	.word	0x00009738
+    6cac:	00009dc9 	.word	0x00009dc9
+    6cb0:	00009dc0 	.word	0x00009dc0
+    6cb4:	00009730 	.word	0x00009730
     6cb8:	3ff80000 	.word	0x3ff80000
-    6cbc:	00009e78 	.word	0x00009e78
-    6cc0:	00009e50 	.word	0x00009e50
+    6cbc:	00009e70 	.word	0x00009e70
+    6cc0:	00009e48 	.word	0x00009e48
     6cc4:	3101      	adds	r1, #1
     6cc6:	6069      	str	r1, [r5, #4]
     6cc8:	0052      	lsls	r2, r2, #1
@@ -18111,8 +18115,8 @@ _dtoa_r():
     6f80:	e9cd 0100 	strd	r0, r1, [sp]
     6f84:	e7bc      	b.n	6f00 <_dtoa_r+0x580>
     6f86:	bf00      	nop
-    6f88:	00009e78 	.word	0x00009e78
-    6f8c:	00009e50 	.word	0x00009e50
+    6f88:	00009e70 	.word	0x00009e70
+    6f8c:	00009e48 	.word	0x00009e48
     6f90:	3ff00000 	.word	0x3ff00000
     6f94:	40240000 	.word	0x40240000
     6f98:	401c0000 	.word	0x401c0000
@@ -18679,8 +18683,8 @@ _dtoa_r():
     74e6:	4680      	mov	r8, r0
     74e8:	e7ea      	b.n	74c0 <_dtoa_r+0xb40>
     74ea:	bf00      	nop
-    74ec:	00009737 	.word	0x00009737
-    74f0:	00009dc8 	.word	0x00009dc8
+    74ec:	0000972f 	.word	0x0000972f
+    74f0:	00009dc0 	.word	0x00009dc0
 
 000074f4 <__sflush_r>:
 __sflush_r():
@@ -18858,9 +18862,9 @@ _fflush_r():
     7666:	bf08      	it	eq
     7668:	68ec      	ldreq	r4, [r5, #12]
     766a:	e7da      	b.n	7622 <_fflush_r+0x22>
-    766c:	00009df8 	.word	0x00009df8
-    7670:	00009e18 	.word	0x00009e18
-    7674:	00009dd8 	.word	0x00009dd8
+    766c:	00009df0 	.word	0x00009df0
+    7670:	00009e10 	.word	0x00009e10
+    7674:	00009dd0 	.word	0x00009dd0
 
 00007678 <std>:
 std():
@@ -18993,7 +18997,7 @@ __sinit():
     778a:	61a3      	str	r3, [r4, #24]
     778c:	e7d2      	b.n	7734 <__sinit+0xc>
     778e:	bf00      	nop
-    7790:	00009d28 	.word	0x00009d28
+    7790:	00009d20 	.word	0x00009d20
     7794:	000076c1 	.word	0x000076c1
 
 00007798 <__sfp>:
@@ -19049,7 +19053,7 @@ __sfp():
     7816:	603b      	str	r3, [r7, #0]
     7818:	e7ee      	b.n	77f8 <__sfp+0x60>
     781a:	bf00      	nop
-    781c:	00009d28 	.word	0x00009d28
+    781c:	00009d20 	.word	0x00009d20
     7820:	ffff0001 	.word	0xffff0001
 
 00007824 <_fwalk_reent>:
@@ -19456,7 +19460,7 @@ __gethex():
     7be2:	d1dd      	bne.n	7ba0 <__gethex+0x2a0>
     7be4:	e7ee      	b.n	7bc4 <__gethex+0x2c4>
     7be6:	bf00      	nop
-    7be8:	00009e38 	.word	0x00009e38
+    7be8:	00009e30 	.word	0x00009e30
     7bec:	1e6f      	subs	r7, r5, #1
     7bee:	f1ba 0f00 	cmp.w	sl, #0
     7bf2:	d131      	bne.n	7c58 <__gethex+0x358>
@@ -20363,7 +20367,7 @@ __pow5mult():
     8454:	4638      	mov	r0, r7
     8456:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
     845a:	bf00      	nop
-    845c:	00009f40 	.word	0x00009f40
+    845c:	00009f38 	.word	0x00009f38
 
 00008460 <__lshift>:
 __lshift():
@@ -21090,9 +21094,9 @@ _svfiprintf_r():
     8b4c:	f7fc fb44 	bl	51d8 <_printf_i>
     8b50:	e7ea      	b.n	8b28 <_svfiprintf_r+0x1b0>
     8b52:	bf00      	nop
-    8b54:	00009d2c 	.word	0x00009d2c
-    8b58:	00009d32 	.word	0x00009d32
-    8b5c:	00009d36 	.word	0x00009d36
+    8b54:	00009d24 	.word	0x00009d24
+    8b58:	00009d2a 	.word	0x00009d2a
+    8b5c:	00009d2e 	.word	0x00009d2e
     8b60:	00004c99 	.word	0x00004c99
     8b64:	000088c1 	.word	0x000088c1
 
@@ -21677,209 +21681,209 @@ _lseek():
     9437:	58323025 6854000a 65642065 616d6963     %02X..The decima
     9447:	7369206c 0a692520 4c455700 454d4f43     l is %i..WELCOME
     9457:	20746100 20746962 69206925 25203a73     .at bit %i is: %
-    9467:	41000a69 42004141 46004242 52656572     i..AAA.BBB.FreeR
-    9477:	20534f54 45535341 29285452 63636f20     TOS ASSERT() occ
-    9487:	65727275 6e692064 61636964 676e6974     urred indicating
-    9497:	206e6120 6f727265 6f632072 7469646e      an error condit
-    94a7:	206e6f69 74616874 6f687320 20646c75     ion that should 
-    94b7:	4556454e 61682052 6e657070 202d2000     NEVER happen. - 
-    94c7:	20646944 20756f79 6c6c6163 62206120     Did you call a b
-    94d7:	6b636f6c 20676e69 20495041 6e20726f     locking API or n
-    94e7:	46206e6f 496d6f72 29285253 49504120     on FromISR() API
-    94f7:	736e6920 20656469 49206e61 003f5253      inside an ISR?.
-    9507:	44202d20 79206469 6620756f 6567726f      - Did you forge
-    9517:	6f742074 65737520 72706620 66746e69     t to use fprintf
-    9527:	64747328 29727265 206e6920 49206e61     (stderr) in an I
-    9537:	003f5253 65726548 20736920 20656874     SR?.Here is the 
-    9547:	656e696c 20666f20 65646f63 61687420     line of code tha
-    9557:	61682074 6465746c 65687420 55504320     t halted the CPU
-    9567:	7600203a 6c707041 74616369 4d6e6f69     : .vApplicationM
-    9577:	6f6c6c61 69614663 4864656c 286b6f6f     allocFailedHook(
-    9587:	61632029 64656c6c 6f6e203b 726f6d20     ) called; no mor
-    9597:	41522065 656d204d 79726f6d 61747300     e RAM memory.sta
-    95a7:	6f206b63 66726576 20776f6c 74207962     ck overflow by t
-    95b7:	20736968 6b736174 7875003a 74697243     his task:.uxCrit
-    95c7:	6c616369 7473654e 20676e69 7e203d3d     icalNesting == ~
-    95d7:	004c5530 6f702028 564e7472 495f4349     0UL.( portNVIC_I
-    95e7:	435f544e 5f4c5254 20474552 6f702026     NT_CTRL_REG & po
-    95f7:	45567472 43415443 45564954 53414d5f     rtVECTACTIVE_MAS
-    9607:	2029204b 30203d3d 43787500 69746972     K ) == 0.uxCriti
-    9617:	4e6c6163 69747365 7500676e 72754363     calNesting.ucCur
-    9627:	746e6572 6f697250 79746972 203d3e20     rentPriority >= 
-    9637:	614d6375 73795378 6c6c6143 6f697250     ucMaxSysCallPrio
-    9647:	79746972 70202800 4174726f 52435249     rity.( portAIRCR
-    9657:	4745525f 70202620 5074726f 524f4952     _REG & portPRIOR
-    9667:	5f595449 554f5247 414d5f50 29204b53     ITY_GROUP_MASK )
-    9677:	203d3c20 614d6c75 49525078 554f5247      <= ulMaxPRIGROU
-    9687:	6c615650 70006575 4374726f 44495550     PValue.portCPUID
-    9697:	203d2120 74726f70 54524f43 4d5f5845      != portCORTEX_M
-    96a7:	30725f37 495f3170 6f700044 50437472     7_r0p1_ID.portCP
-    96b7:	20444955 70203d21 4374726f 4554524f     UID != portCORTE
-    96c7:	374d5f58 7030725f 44495f30 70202800     X_M7_r0p0_ID.( p
-    96d7:	4d74726f 505f5841 52474952 5f50554f     ortMAX_PRIGROUP_
-    96e7:	53544942 75202d20 78614d6c 47495250     BITS - ulMaxPRIG
-    96f7:	50554f52 756c6156 20292065 5f203d3d     ROUPValue ) == _
-    9707:	49564e5f 52505f43 425f4f49 00535449     _NVIC_PRIO_BITS.
-    9717:	75517875 4c657565 74676e65 203e2068     uxQueueLength > 
-    9727:	42552028 54657361 5f657079 20292074     ( UBaseType_t ) 
-    9737:	78700030 74617453 75516369 20657565     0.pxStaticQueue 
-    9747:	4e203d21 004c4c55 28202821 63757020     != NULL.!( ( puc
-    9757:	75657551 6f745365 65676172 203d2120     QueueStorage != 
-    9767:	4c4c554e 26202920 20282026 74497875     NULL ) && ( uxIt
-    9777:	69536d65 3d20657a 2030203d 00292029     emSize == 0 ) ).
-    9787:	28202821 63757020 75657551 6f745365     !( ( pucQueueSto
-    9797:	65676172 203d3d20 4c4c554e 26202920     rage == NULL ) &
-    97a7:	20282026 74497875 69536d65 2120657a     & ( uxItemSize !
-    97b7:	2030203d 00292029 7a695378 3d3d2065     = 0 ) ).xSize ==
-    97c7:	7a697320 28666f65 65755120 745f6575      sizeof( Queue_t
-    97d7:	70002920 65755178 21006575 20282028      ).pxQueue.!( ( 
-    97e7:	74497670 6f546d65 75657551 3d3d2065     pvItemToQueue ==
-    97f7:	4c554e20 2029204c 28202626 51787020      NULL ) && ( pxQ
-    9807:	65756575 78753e2d 6d657449 657a6953     ueue->uxItemSize
-    9817:	203d2120 42552028 54657361 5f657079      != ( UBaseType_
-    9827:	20292074 29205530 21002920 20282028     t ) 0U ) ).!( ( 
-    9837:	706f4378 736f5079 6f697469 3d3d206e     xCopyPosition ==
-    9847:	65757120 564f6575 52575245 20455449      queueOVERWRITE 
-    9857:	26262029 70202820 65755178 3e2d6575     ) && ( pxQueue->
-    9867:	654c7875 6874676e 203d2120 20292031     uxLength != 1 ) 
-    9877:	28210029 78202820 6b736154 53746547     ).!( ( xTaskGetS
-    9887:	64656863 72656c75 74617453 20292865     chedulerState() 
-    9897:	74203d3d 536b7361 44454843 52454c55     == taskSCHEDULER
-    98a7:	5355535f 444e4550 29204445 20262620     _SUSPENDED ) && 
-    98b7:	54782028 736b6369 61576f54 21207469     ( xTicksToWait !
-    98c7:	2030203d 00292029 75517870 2d657565     = 0 ) ).pxQueue-
-    98d7:	4978753e 536d6574 20657a69 30203d3d     >uxItemSize == 0
-    98e7:	20282100 78702028 75657551 753e2d65     .!( ( pxQueue->u
-    98f7:	65755178 79546575 3d206570 7571203d     xQueueType == qu
-    9907:	51657565 45554555 5f53495f 4554554d     eueQUEUE_IS_MUTE
-    9917:	20292058 28202626 51787020 65756575     X ) && ( pxQueue
-    9927:	2e753e2d 6d655378 6f687061 782e6572     ->u.xSemaphore.x
-    9937:	6574754d 6c6f4878 20726564 4e203d21     MutexHolder != N
-    9947:	204c4c55 00292029 78702028 75657551     ULL ) ).( pxQueu
-    9957:	00292065 28202821 70202820 66754276     e ).!( ( ( pvBuf
-    9967:	20726566 3d3d2029 4c554e20 2029204c     fer ) == NULL ) 
-    9977:	28202626 70202820 65755178 29206575     && ( ( pxQueue )
-    9987:	78753e2d 6d657449 657a6953 203d2120     ->uxItemSize != 
-    9997:	42552028 54657361 5f657079 20292074     ( UBaseType_t ) 
-    99a7:	29205530 21002920 20282028 75427670     0U ) ).!( ( pvBu
-    99b7:	72656666 203d3d20 4c4c554e 26202920     ffer == NULL ) &
-    99c7:	20282026 75517870 2d657565 4978753e     & ( pxQueue->uxI
-    99d7:	536d6574 20657a69 28203d21 61425520     temSize != ( UBa
-    99e7:	79546573 745f6570 30202920 20292055     seType_t ) 0U ) 
-    99f7:	49780029 7265686e 6e617469 634f6563     ).xInheritanceOc
-    9a07:	72727563 3d206465 6470203d 534c4146     curred == pdFALS
-    9a17:	78700045 76657250 73756f69 656b6157     E.pxPreviousWake
-    9a27:	656d6954 78202800 656d6954 72636e49     Time.( xTimeIncr
-    9a37:	6e656d65 203e2074 29205530 53787500     ement > 0U ).uxS
-    9a47:	64656863 72656c75 70737553 65646e65     chedulerSuspende
-    9a57:	3d3d2064 70003020 65764578 694c746e     d == 0.pxEventLi
-    9a67:	70007473 42435478 203d2120 75437870     st.pxTCB != pxCu
-    9a77:	6e657272 42435474 54787000 4f656d69     rrentTCB.pxTimeO
-    9a87:	49007475 00454c44 7473696c 52525543     ut.IDLE.listCURR
-    9a97:	5f544e45 5453494c 4e454c5f 28485447     ENT_LIST_LENGTH(
-    9aa7:	20282620 65527870 54796461 736b7361      &( pxReadyTasks
-    9ab7:	7473694c 75205b73 706f5478 6f697250     Lists[ uxTopPrio
-    9ac7:	79746972 29205d20 3e202920 70003020     rity ] ) ) > 0.p
-    9ad7:	63695478 6f54736b 74696157 78757000     xTicksToWait.pux
-    9ae7:	63617453 6675426b 20726566 4e203d21     StackBuffer != N
-    9af7:	004c4c55 61547870 75426b73 72656666     ULL.pxTaskBuffer
-    9b07:	203d2120 4c4c554e 69537800 3d20657a      != NULL.xSize =
-    9b17:	6973203d 666f657a 43542028 20745f42     = sizeof( TCB_t 
-    9b27:	20280029 7473696c 5453494c 5f53495f     ).( listLIST_IS_
-    9b37:	54504d45 70202859 6c654478 64657961     EMPTY( pxDelayed
-    9b47:	6b736154 7473694c 29202920 54787000     TaskList ) ).pxT
-    9b57:	3d204243 7870203d 72727543 54746e65     CB == pxCurrentT
-    9b67:	70004243 42435478 78753e2d 6574754d     CB.pxTCB->uxMute
-    9b77:	48736578 00646c65 6e557870 636f6c62     xesHeld.pxUnbloc
-    9b87:	5464656b 75004243 68635378 6c756465     kedTCB.uxSchedul
-    9b97:	75537265 6e657073 00646564               erSuspended..
+    9467:	46000a69 52656572 20534f54 45535341     i..FreeRTOS ASSE
+    9477:	29285452 63636f20 65727275 6e692064     RT() occurred in
+    9487:	61636964 676e6974 206e6120 6f727265     dicating an erro
+    9497:	6f632072 7469646e 206e6f69 74616874     r condition that
+    94a7:	6f687320 20646c75 4556454e 61682052      should NEVER ha
+    94b7:	6e657070 202d2000 20646944 20756f79     ppen. - Did you 
+    94c7:	6c6c6163 62206120 6b636f6c 20676e69     call a blocking 
+    94d7:	20495041 6e20726f 46206e6f 496d6f72     API or non FromI
+    94e7:	29285253 49504120 736e6920 20656469     SR() API inside 
+    94f7:	49206e61 003f5253 44202d20 79206469     an ISR?. - Did y
+    9507:	6620756f 6567726f 6f742074 65737520     ou forget to use
+    9517:	72706620 66746e69 64747328 29727265      fprintf(stderr)
+    9527:	206e6920 49206e61 003f5253 65726548      in an ISR?.Here
+    9537:	20736920 20656874 656e696c 20666f20      is the line of 
+    9547:	65646f63 61687420 61682074 6465746c     code that halted
+    9557:	65687420 55504320 7600203a 6c707041      the CPU: .vAppl
+    9567:	74616369 4d6e6f69 6f6c6c61 69614663     icationMallocFai
+    9577:	4864656c 286b6f6f 61632029 64656c6c     ledHook() called
+    9587:	6f6e203b 726f6d20 41522065 656d204d     ; no more RAM me
+    9597:	79726f6d 61747300 6f206b63 66726576     mory.stack overf
+    95a7:	20776f6c 74207962 20736968 6b736174     low by this task
+    95b7:	7875003a 74697243 6c616369 7473654e     :.uxCriticalNest
+    95c7:	20676e69 7e203d3d 004c5530 6f702028     ing == ~0UL.( po
+    95d7:	564e7472 495f4349 435f544e 5f4c5254     rtNVIC_INT_CTRL_
+    95e7:	20474552 6f702026 45567472 43415443     REG & portVECTAC
+    95f7:	45564954 53414d5f 2029204b 30203d3d     TIVE_MASK ) == 0
+    9607:	43787500 69746972 4e6c6163 69747365     .uxCriticalNesti
+    9617:	7500676e 72754363 746e6572 6f697250     ng.ucCurrentPrio
+    9627:	79746972 203d3e20 614d6375 73795378     rity >= ucMaxSys
+    9637:	6c6c6143 6f697250 79746972 70202800     CallPriority.( p
+    9647:	4174726f 52435249 4745525f 70202620     ortAIRCR_REG & p
+    9657:	5074726f 524f4952 5f595449 554f5247     ortPRIORITY_GROU
+    9667:	414d5f50 29204b53 203d3c20 614d6c75     P_MASK ) <= ulMa
+    9677:	49525078 554f5247 6c615650 70006575     xPRIGROUPValue.p
+    9687:	4374726f 44495550 203d2120 74726f70     ortCPUID != port
+    9697:	54524f43 4d5f5845 30725f37 495f3170     CORTEX_M7_r0p1_I
+    96a7:	6f700044 50437472 20444955 70203d21     D.portCPUID != p
+    96b7:	4374726f 4554524f 374d5f58 7030725f     ortCORTEX_M7_r0p
+    96c7:	44495f30 70202800 4d74726f 505f5841     0_ID.( portMAX_P
+    96d7:	52474952 5f50554f 53544942 75202d20     RIGROUP_BITS - u
+    96e7:	78614d6c 47495250 50554f52 756c6156     lMaxPRIGROUPValu
+    96f7:	20292065 5f203d3d 49564e5f 52505f43     e ) == __NVIC_PR
+    9707:	425f4f49 00535449 75517875 4c657565     IO_BITS.uxQueueL
+    9717:	74676e65 203e2068 42552028 54657361     ength > ( UBaseT
+    9727:	5f657079 20292074 78700030 74617453     ype_t ) 0.pxStat
+    9737:	75516369 20657565 4e203d21 004c4c55     icQueue != NULL.
+    9747:	28202821 63757020 75657551 6f745365     !( ( pucQueueSto
+    9757:	65676172 203d2120 4c4c554e 26202920     rage != NULL ) &
+    9767:	20282026 74497875 69536d65 3d20657a     & ( uxItemSize =
+    9777:	2030203d 00292029 28202821 63757020     = 0 ) ).!( ( puc
+    9787:	75657551 6f745365 65676172 203d3d20     QueueStorage == 
+    9797:	4c4c554e 26202920 20282026 74497875     NULL ) && ( uxIt
+    97a7:	69536d65 2120657a 2030203d 00292029     emSize != 0 ) ).
+    97b7:	7a695378 3d3d2065 7a697320 28666f65     xSize == sizeof(
+    97c7:	65755120 745f6575 70002920 65755178      Queue_t ).pxQue
+    97d7:	21006575 20282028 74497670 6f546d65     ue.!( ( pvItemTo
+    97e7:	75657551 3d3d2065 4c554e20 2029204c     Queue == NULL ) 
+    97f7:	28202626 51787020 65756575 78753e2d     && ( pxQueue->ux
+    9807:	6d657449 657a6953 203d2120 42552028     ItemSize != ( UB
+    9817:	54657361 5f657079 20292074 29205530     aseType_t ) 0U )
+    9827:	21002920 20282028 706f4378 736f5079      ).!( ( xCopyPos
+    9837:	6f697469 3d3d206e 65757120 564f6575     ition == queueOV
+    9847:	52575245 20455449 26262029 70202820     ERWRITE ) && ( p
+    9857:	65755178 3e2d6575 654c7875 6874676e     xQueue->uxLength
+    9867:	203d2120 20292031 28210029 78202820      != 1 ) ).!( ( x
+    9877:	6b736154 53746547 64656863 72656c75     TaskGetScheduler
+    9887:	74617453 20292865 74203d3d 536b7361     State() == taskS
+    9897:	44454843 52454c55 5355535f 444e4550     CHEDULER_SUSPEND
+    98a7:	29204445 20262620 54782028 736b6369     ED ) && ( xTicks
+    98b7:	61576f54 21207469 2030203d 00292029     ToWait != 0 ) ).
+    98c7:	75517870 2d657565 4978753e 536d6574     pxQueue->uxItemS
+    98d7:	20657a69 30203d3d 20282100 78702028     ize == 0.!( ( px
+    98e7:	75657551 753e2d65 65755178 79546575     Queue->uxQueueTy
+    98f7:	3d206570 7571203d 51657565 45554555     pe == queueQUEUE
+    9907:	5f53495f 4554554d 20292058 28202626     _IS_MUTEX ) && (
+    9917:	51787020 65756575 2e753e2d 6d655378      pxQueue->u.xSem
+    9927:	6f687061 782e6572 6574754d 6c6f4878     aphore.xMutexHol
+    9937:	20726564 4e203d21 204c4c55 00292029     der != NULL ) ).
+    9947:	78702028 75657551 00292065 28202821     ( pxQueue ).!( (
+    9957:	70202820 66754276 20726566 3d3d2029      ( pvBuffer ) ==
+    9967:	4c554e20 2029204c 28202626 70202820      NULL ) && ( ( p
+    9977:	65755178 29206575 78753e2d 6d657449     xQueue )->uxItem
+    9987:	657a6953 203d2120 42552028 54657361     Size != ( UBaseT
+    9997:	5f657079 20292074 29205530 21002920     ype_t ) 0U ) ).!
+    99a7:	20282028 75427670 72656666 203d3d20     ( ( pvBuffer == 
+    99b7:	4c4c554e 26202920 20282026 75517870     NULL ) && ( pxQu
+    99c7:	2d657565 4978753e 536d6574 20657a69     eue->uxItemSize 
+    99d7:	28203d21 61425520 79546573 745f6570     != ( UBaseType_t
+    99e7:	30202920 20292055 49780029 7265686e      ) 0U ) ).xInher
+    99f7:	6e617469 634f6563 72727563 3d206465     itanceOccurred =
+    9a07:	6470203d 534c4146 78700045 76657250     = pdFALSE.pxPrev
+    9a17:	73756f69 656b6157 656d6954 78202800     iousWakeTime.( x
+    9a27:	656d6954 72636e49 6e656d65 203e2074     TimeIncrement > 
+    9a37:	29205530 53787500 64656863 72656c75     0U ).uxScheduler
+    9a47:	70737553 65646e65 3d3d2064 70003020     Suspended == 0.p
+    9a57:	65764578 694c746e 70007473 42435478     xEventList.pxTCB
+    9a67:	203d2120 75437870 6e657272 42435474      != pxCurrentTCB
+    9a77:	54787000 4f656d69 49007475 00454c44     .pxTimeOut.IDLE.
+    9a87:	7473696c 52525543 5f544e45 5453494c     listCURRENT_LIST
+    9a97:	4e454c5f 28485447 20282620 65527870     _LENGTH( &( pxRe
+    9aa7:	54796461 736b7361 7473694c 75205b73     adyTasksLists[ u
+    9ab7:	706f5478 6f697250 79746972 29205d20     xTopPriority ] )
+    9ac7:	3e202920 70003020 63695478 6f54736b      ) > 0.pxTicksTo
+    9ad7:	74696157 78757000 63617453 6675426b     Wait.puxStackBuf
+    9ae7:	20726566 4e203d21 004c4c55 61547870     fer != NULL.pxTa
+    9af7:	75426b73 72656666 203d2120 4c4c554e     skBuffer != NULL
+    9b07:	69537800 3d20657a 6973203d 666f657a     .xSize == sizeof
+    9b17:	43542028 20745f42 20280029 7473696c     ( TCB_t ).( list
+    9b27:	5453494c 5f53495f 54504d45 70202859     LIST_IS_EMPTY( p
+    9b37:	6c654478 64657961 6b736154 7473694c     xDelayedTaskList
+    9b47:	29202920 54787000 3d204243 7870203d      ) ).pxTCB == px
+    9b57:	72727543 54746e65 70004243 42435478     CurrentTCB.pxTCB
+    9b67:	78753e2d 6574754d 48736578 00646c65     ->uxMutexesHeld.
+    9b77:	6e557870 636f6c62 5464656b 75004243     pxUnblockedTCB.u
+    9b87:	68635378 6c756465 75537265 6e657073     xSchedulerSuspen
+    9b97:	00646564                                 ded..
 
-00009ba4 <gpio_memory_map>:
-    9ba4:	20098000 20098020 20098040 20098060     ...  .. @.. `.. 
-    9bb4:	20098080 200980a0                       ... ... 
+00009b9c <gpio_memory_map>:
+    9b9c:	20098000 20098020 20098040 20098060     ...  .. @.. `.. 
+    9bac:	20098080 200980a0                       ... ... 
 
-00009bbc <hw_timers>:
-    9bbc:	40004000 00000001 40008000 00000002     .@.@.......@....
-    9bcc:	40090000 00000003 40094000 00000004     ...@.....@.@....
-    9bdc:	00003465 00003459 0000344d              e4..Y4..M4..
+00009bb4 <hw_timers>:
+    9bb4:	40004000 00000001 40008000 00000002     .@.@.......@....
+    9bc4:	40090000 00000003 40094000 00000004     ...@.....@.@....
+    9bd4:	00003465 00003459 0000344d              e4..Y4..M4..
 
-00009be8 <lpc_peripheral_pconp_bit_map>:
-    9be8:	16020100 18040317 13070619 0a15001a     ................
-    9bf8:	00000000 000c0000 001d0000 00000000     ................
-    9c08:	00000000 ffffff14                       ........
+00009be0 <lpc_peripheral_pconp_bit_map>:
+    9be0:	16020100 18040317 13070619 0a15001a     ................
+    9bf0:	00000000 000c0000 001d0000 00000000     ................
+    9c00:	00000000 ffffff14                       ........
 
-00009c10 <uart__isrs>:
-    9c10:	000038a9 0000389d 00003891 00003885     .8...8...8...8..
+00009c08 <uart__isrs>:
+    9c08:	000038a9 0000389d 00003891 00003885     .8...8...8...8..
 
-00009c20 <uart_peripheral_ids>:
-    9c20:	08070605                                ....
+00009c18 <uart_peripheral_ids>:
+    9c18:	08070605                                ....
 
-00009c24 <_ctype_>:
-    9c24:	20202000 20202020 28282020 20282828     .         ((((( 
-    9c34:	20202020 20202020 20202020 20202020                     
-    9c44:	10108820 10101010 10101010 10101010      ...............
-    9c54:	04040410 04040404 10040404 10101010     ................
-    9c64:	41411010 41414141 01010101 01010101     ..AAAAAA........
-    9c74:	01010101 01010101 01010101 10101010     ................
-    9c84:	42421010 42424242 02020202 02020202     ..BBBBBB........
-    9c94:	02020202 02020202 02020202 10101010     ................
-    9ca4:	00000020 00000000 00000000 00000000      ...............
+00009c1c <_ctype_>:
+    9c1c:	20202000 20202020 28282020 20282828     .         ((((( 
+    9c2c:	20202020 20202020 20202020 20202020                     
+    9c3c:	10108820 10101010 10101010 10101010      ...............
+    9c4c:	04040410 04040404 10040404 10101010     ................
+    9c5c:	41411010 41414141 01010101 01010101     ..AAAAAA........
+    9c6c:	01010101 01010101 01010101 10101010     ................
+    9c7c:	42421010 42424242 02020202 02020202     ..BBBBBB........
+    9c8c:	02020202 02020202 02020202 10101010     ................
+    9c9c:	00000020 00000000 00000000 00000000      ...............
 	...
-    9d24:	ffffff00                                ....
+    9d1c:	ffffff00                                ....
 
-00009d28 <_global_impure_ptr>:
-    9d28:	10000138 2b302d23 6c680020 6665004c     8...#-0+ .hlL.ef
-    9d38:	47464567 464e4900 666e6900 4e414e00     gEFG.INF.inf.NAN
-    9d48:	6e616e00 32313000 36353433 41393837     .nan.0123456789A
-    9d58:	45444342 31300046 35343332 39383736     BCDEF.0123456789
-    9d68:	64636261 65006665 00646c25              abcdef.e%ld.
+00009d20 <_global_impure_ptr>:
+    9d20:	10000138 2b302d23 6c680020 6665004c     8...#-0+ .hlL.ef
+    9d30:	47464567 464e4900 666e6900 4e414e00     gEFG.INF.inf.NAN
+    9d40:	6e616e00 32313000 36353433 41393837     .nan.0123456789A
+    9d50:	45444342 31300046 35343332 39383736     BCDEF.0123456789
+    9d60:	64636261 65006665 00646c25              abcdef.e%ld.
 
-00009d74 <fpi.7522>:
-    9d74:	00000035 fffffbce 000003cb 00000001     5...............
-    9d84:	00000000                                ....
+00009d6c <fpi.7522>:
+    9d6c:	00000035 fffffbce 000003cb 00000001     5...............
+    9d7c:	00000000                                ....
 
-00009d88 <fpinan.7558>:
-    9d88:	00000034 fffffbce 000003cb 00000001     4...............
-    9d98:	00000000 ffffffff                       ........
+00009d80 <fpinan.7558>:
+    9d80:	00000034 fffffbce 000003cb 00000001     4...............
+    9d90:	00000000 ffffffff                       ........
 
-00009da0 <tinytens>:
-    9da0:	97d889bc 3c9cd2b2 d5a8a733 3949f623     .......<3...#.I9
-    9db0:	44f4a73d 32a50ffd cf8c979d 255bba08     =..D...2......[%
-    9dc0:	64ac6f43 11680628 69666e49 7974696e     Co.d(.h.Infinity
-    9dd0:	4e614e00 ffffff00                       .NaN....
+00009d98 <tinytens>:
+    9d98:	97d889bc 3c9cd2b2 d5a8a733 3949f623     .......<3...#.I9
+    9da8:	44f4a73d 32a50ffd cf8c979d 255bba08     =..D...2......[%
+    9db8:	64ac6f43 11680628 69666e49 7974696e     Co.d(.h.Infinity
+    9dc8:	4e614e00 ffffff00                       .NaN....
 
-00009dd8 <__sf_fake_stderr>:
-	...
-
-00009df8 <__sf_fake_stdin>:
+00009dd0 <__sf_fake_stderr>:
 	...
 
-00009e18 <__sf_fake_stdout>:
+00009df0 <__sf_fake_stdin>:
 	...
 
-00009e38 <_C_numeric_locale>:
-    9e38:	00009e44 000090bd 10000198 0043002e     D.............C.
-    9e48:	49534f50 ffff0058                       POSIX...
+00009e10 <__sf_fake_stdout>:
+	...
 
-00009e50 <__mprec_bigtens>:
-    9e50:	37e08000 4341c379 b5056e17 4693b8b5     ...7y.AC.n.....F
-    9e60:	e93ff9f5 4d384f03 f9301d32 5a827748     ..?..O8M2.0.Hw.Z
-    9e70:	7f73bf3c 75154fdd                       <.s..O.u
+00009e30 <_C_numeric_locale>:
+    9e30:	00009e3c 000090bd 10000198 0043002e     <.............C.
+    9e40:	49534f50 ffff0058                       POSIX...
 
-00009e78 <__mprec_tens>:
-    9e78:	00000000 3ff00000 00000000 40240000     .......?......$@
-    9e88:	00000000 40590000 00000000 408f4000     ......Y@.....@.@
-    9e98:	00000000 40c38800 00000000 40f86a00     .......@.....j.@
-    9ea8:	00000000 412e8480 00000000 416312d0     .......A......cA
-    9eb8:	00000000 4197d784 00000000 41cdcd65     .......A....e..A
-    9ec8:	20000000 4202a05f e8000000 42374876     ... _..B....vH7B
-    9ed8:	a2000000 426d1a94 e5400000 42a2309c     ......mB..@..0.B
-    9ee8:	1e900000 42d6bcc4 26340000 430c6bf5     .......B..4&.k.C
-    9ef8:	37e08000 4341c379 85d8a000 43763457     ...7y.AC....W4vC
-    9f08:	674ec800 43abc16d 60913d00 43e158e4     ..Ngm..C.=.`.X.C
-    9f18:	78b58c40 4415af1d d6e2ef50 444b1ae4     @..x...DP.....KD
-    9f28:	064dd592 4480f0cf c7e14af6 44b52d02     ..M....D.J...-.D
-    9f38:	79d99db4 44ea7843                       ...yCx.D
+00009e48 <__mprec_bigtens>:
+    9e48:	37e08000 4341c379 b5056e17 4693b8b5     ...7y.AC.n.....F
+    9e58:	e93ff9f5 4d384f03 f9301d32 5a827748     ..?..O8M2.0.Hw.Z
+    9e68:	7f73bf3c 75154fdd                       <.s..O.u
 
-00009f40 <p05.7444>:
-    9f40:	00000005 00000019 0000007d              ........}...
+00009e70 <__mprec_tens>:
+    9e70:	00000000 3ff00000 00000000 40240000     .......?......$@
+    9e80:	00000000 40590000 00000000 408f4000     ......Y@.....@.@
+    9e90:	00000000 40c38800 00000000 40f86a00     .......@.....j.@
+    9ea0:	00000000 412e8480 00000000 416312d0     .......A......cA
+    9eb0:	00000000 4197d784 00000000 41cdcd65     .......A....e..A
+    9ec0:	20000000 4202a05f e8000000 42374876     ... _..B....vH7B
+    9ed0:	a2000000 426d1a94 e5400000 42a2309c     ......mB..@..0.B
+    9ee0:	1e900000 42d6bcc4 26340000 430c6bf5     .......B..4&.k.C
+    9ef0:	37e08000 4341c379 85d8a000 43763457     ...7y.AC....W4vC
+    9f00:	674ec800 43abc16d 60913d00 43e158e4     ..Ngm..C.=.`.X.C
+    9f10:	78b58c40 4415af1d d6e2ef50 444b1ae4     @..x...DP.....KD
+    9f20:	064dd592 4480f0cf c7e14af6 44b52d02     ..M....D.J...-.D
+    9f30:	79d99db4 44ea7843                       ...yCx.D
+
+00009f38 <p05.7444>:
+    9f38:	00000005 00000019 0000007d              ........}...

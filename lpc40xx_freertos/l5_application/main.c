@@ -92,12 +92,14 @@ int main(void) {
   // }
 
   // mp3_init();
+
   lcd_init();
-  display_clear();
-  first_line();
-  display("AAA");
-  next_line();
-  display("BBB");
+  // display_clear();
+  // first_line();
+  // display("AAA");
+  // next_line();
+  // display("BBB");
+
   // sj2_cli__init(); // For testing only
 
   // xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
