@@ -94,13 +94,6 @@ void play_play_pause(void); // for sw_play_pause
 void play_jump(void);       // for sw_jump
 void scroll_song(void);     // for sw_scroll
 
-void sw_test1(void);
-void sw_test2(void);
-void sw_test3(void);
-void sw_test4(void);
-void sw_test5(void);
-void sw_test6(void);
-
 // functions
 void sd_mount(void);
 void mp3_init(void);
@@ -194,6 +187,9 @@ void mp3_init(void) {
          "the song of your choice.\n");
   printf("If no <Jump> is pressed, <Scroll> would not effect your current "
          "music play!!!\n");
+  printf("3: SWs\n");
+  printf("<NEXT> <PREVIOUS> <PLAY/PAUSE> <STATE> <UP> <DOWN>\n");
+  printf("Onboard <Scroll> <JUMP>\n");
   printf("\n***************************\n\n");
 
   printf("First Song: %s\n", song_list[current_song]);
@@ -217,6 +213,7 @@ void mp3_play(void) {
     else {
       // printf("play start\n");                                // TESTING
       // printf("current song: %s\n", song_list[current_song]); // TESTING
+      jump_index = current_song;
       f_open(&file, song_list[current_song], FA_READ);
       while (next_read == 512 && !next && !prev && !jump) {
 
@@ -274,7 +271,7 @@ void mp3_lcd(void) {
     if (lcd_print && !pause) {
       // We do not have a working LCD now!!!
       // So print on Terminal
-      printf("Song: %s\n", song_list[current_song]); // TESTING
+      printf("Song playing: %s\n", song_list[current_song]); // TESTING
       lcd_print = false;
     }
   }
@@ -468,7 +465,6 @@ void play_jump(void) {
 }
 
 void scroll_song(void) {
-  jump_index = current_song;
   if (jump_index + 1 < song_count) {
     jump_index++;
   } else {
