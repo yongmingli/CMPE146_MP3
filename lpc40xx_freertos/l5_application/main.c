@@ -94,12 +94,8 @@ int main(void) {
 
   // mp3_init();
 
+  // lcd_init_ssp();
   lcd_init();
-  // display_clear();
-  // first_line();
-  // display("AAA");
-  // next_line();
-  // display("BBB");
 
   // sj2_cli__init(); // For testing only
 

@@ -47,8 +47,8 @@ lcd_pin lcd;
 // Function declareations
 void lcd_init_ssp(void);
 void lcd_hardware_reset(void);
-void lcd_write_command();
-void lcd_write_data();
+void lcd_write_command(uint8_t command);
+void lcd_write_data(uint8_t data);
 void lcd_display(char *input);
 
 // void decoder_send_data(uint8_t data[], int size);

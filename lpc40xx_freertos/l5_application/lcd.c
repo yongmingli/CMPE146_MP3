@@ -17,24 +17,24 @@ void execute(void);
 void set_address(void);
 
 void lcd_pins(void) {
-  gpio__set_function(E, 0);
-  gpio__set_function(RS, 0);
+  // gpio__set_function(E, 0);
+  // gpio__set_function(RS, 0);
 
-  gpio__set_function(DB0, 0);
-  gpio__set_function(DB1, 0);
-  gpio__set_function(DB2, 0);
-  gpio__set_function(DB3, 0);
-  gpio__set_function(DB4, 0);
-  gpio__set_function(DB5, 0);
-  gpio__set_function(DB6, 0);
-  gpio__set_function(DB7, 0);
+  // gpio__set_function(DB0, 0);
+  // gpio__set_function(DB1, 0);
+  // gpio__set_function(DB2, 0);
+  // gpio__set_function(DB3, 0);
+  // gpio__set_function(DB4, 0);
+  // gpio__set_function(DB5, 0);
+  // gpio__set_function(DB6, 0);
+  // gpio__set_function(DB7, 0);
 
   E = gpio__construct_as_output(1, 30);
   RS = gpio__construct_as_output(1, 31);
-  DB0 = gpio__construct_as_output(0, 7);
+  DB0 = gpio__construct_as_output(1, 20);
   DB1 = gpio__construct_as_output(1, 23);
-  DB2 = gpio__construct_as_output(0, 11);
-  DB3 = gpio__construct_as_output(0, 10);
+  DB2 = gpio__construct_as_output(1, 29);
+  DB3 = gpio__construct_as_output(1, 28);
   DB4 = gpio__construct_as_output(2, 1);
   DB5 = gpio__construct_as_output(2, 4);
   DB6 = gpio__construct_as_output(2, 6);
@@ -104,10 +104,7 @@ void write_command(int command) {
   else
     gpio__reset(DB7);
 
-  gpio__set(E);
-  delay__ms(10);
-  gpio__reset(E);
-  //   gpio__set(E);
+  execute();
 }
 
 void execute(void) {
@@ -115,7 +112,7 @@ void execute(void) {
   delay__ms(10);
   gpio__reset(E);
   delay__ms(10);
-  // gpio__set(E);
+  gpio__set(E);
 }
 
 void set_address(void) {
@@ -194,6 +191,7 @@ void lcd_init(void) {
   delay__ms(10);
   set_2_lines();
   delay__ms(10);
+
   first_line();
 
   //   display_on();
@@ -227,8 +225,12 @@ void display_on(void) {
 
   gpio__reset(RS); // COMMAND
 
-  gpio__reset(DB0);
-  gpio__reset(DB1);
+  // gpio__reset(DB0);
+  // gpio__reset(DB1);
+
+  gpio__set(DB0);
+  gpio__set(DB1);
+
   gpio__set(DB2);
   gpio__set(DB3);
   gpio__reset(DB4);
