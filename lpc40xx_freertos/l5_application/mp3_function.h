@@ -36,3 +36,4 @@
 
 // check if song_name is vaild
 bool isMP3(char *file_name);
+void mp3_delay(void);

@@ -30,3 +30,12 @@ bool isMP3(char *file_name) {
   printf("error\n");
   return false;
 }
+
+void mp3_delay(void) {
+  int temp = 0;
+  for (int i = 0; i < 10000000; i++) {
+    temp = 1;
+    temp = 2;
+    temp = 3;
+  }
+}

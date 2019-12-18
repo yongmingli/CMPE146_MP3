@@ -41,7 +41,8 @@
 
 // bottoms
 static gpio_s onboard_button2, onboard_button3;
-static gpio_s sw_vup, sw_vdown, sw_next, sw_prev, sw_play_pause;
+static gpio_s sw_state, sw_up, sw_down, sw_jump, sw_scroll, sw_next, sw_prev,
+    sw_play_pause;
 
 // FATFS variables
 FATFS fat_fs;
@@ -54,19 +55,55 @@ bool next = false;
 bool pause = true;
 bool prev = false;
 bool lcd_print = false;
+bool jump = false;
 
 // song name buffer
 char song_list[20][100]; // 20 song max for now
 int song_count = 0;
 int current_song = 0;
+int jump_index = 0;
+
+// 1: VOL
+// 2: BASS
+// 3: TREBLE
+
+int state = 1;
+void change_state(void);
+
 int vol = 10;                 // default setting for display
 uint16_t vol_change = 0x3838; // default setting for change
+void vol_down(void);
+void vol_up(void);
+
+int bass = 0;
+uint16_t BASS = 0x0806; // default setting for change
+void bass_down(void);
+void bass_up(void);
+
+int treble = 0;
+void treble_down(void);
+void treble_up(void);
+
+// functions for sws
+void change_state(void);    // for sw_state
+void state_up(void);        // for sw_up
+void state_down(void);      // for sw_down
+void play_next(void);       // for sw_next
+void play_prev(void);       // for sw_prev
+void play_play_pause(void); // for sw_play_pause
+void play_jump(void);       // for sw_jump
+void scroll_song(void);     // for sw_scroll
+
+void sw_test1(void);
+void sw_test2(void);
+void sw_test3(void);
+void sw_test4(void);
+void sw_test5(void);
+void sw_test6(void);
 
 // functions
 void sd_mount(void);
 void mp3_init(void);
-void vol_down(void);
-void vol_up(void);
 
 // functions for task
 void mp3_lcd(void);
@@ -74,33 +111,55 @@ void mp3_play(void);
 
 int main(void) {
   /* START UP*/
-  // {
-  //   /*************************************************************************************
-  //    *
-  //    * buttons setup
-  //    * interrupt assign and enable
-  //    *
-  //    *************************************************************************************/
-  //   onboard_button2 = gpio__construct_as_input(0, 30); // (0, 30);
-  //   onboard_button3 = gpio__construct_as_input(0, 29); // (0, 29);
+  {
+    /*************************************************************************************
+     *
+     * buttons setup
+     * interrupt assign and enable
+     *
+     *************************************************************************************/
+    onboard_button2 = gpio__construct_as_input(0, 30); // (0, 30);
+    onboard_button3 = gpio__construct_as_input(0, 29); // (0, 29);
 
-  //   gpio0__attach_interrupt(30, GPIO_INTR__FALLING_EDGE,
-  //                           vol_up); // button 2 => Vol ++
-  //   gpio0__attach_interrupt(29, GPIO_INTR__RISING_EDGE,
-  //                           vol_down); // button 3 => Vol--
-  //   lpc_peripheral__enable_interrupt(GPIO_IRQn, gpio0__interrupt_dispatcher);
-  //   NVIC_EnableIRQ(GPIO_IRQn);
-  // }
+    sw_state = gpio__construct_as_input(0, 15);     // (0, 15);
+    sw_up = gpio__construct_as_input(0, 17);        // (0, 17);
+    sw_down = gpio__construct_as_input(0, 30);      // (0, 22);
+    sw_next = gpio__construct_as_input(2, 1);       // (2, 1);
+    sw_prev = gpio__construct_as_input(2, 4);       // (2, 4);
+    sw_play_pause = gpio__construct_as_input(2, 6); // (2, 6);
 
-  // mp3_init();
+    gpio0__attach_interrupt(30, GPIO_INTR__RISING_EDGE,
+                            play_jump); // onboard_button2
+    gpio0__attach_interrupt(29, GPIO_INTR__RISING_EDGE,
+                            scroll_song); // onboard_button3
+
+    gpio0__attach_interrupt(15, GPIO_INTR__RISING_EDGE, change_state);
+    gpio0__attach_interrupt(17, GPIO_INTR__RISING_EDGE, state_up);
+    gpio0__attach_interrupt(22, GPIO_INTR__RISING_EDGE, state_down);
+    gpio2__attach_interrupt(1, GPIO_INTR__RISING_EDGE, play_next);
+    gpio2__attach_interrupt(4, GPIO_INTR__RISING_EDGE, play_prev);
+    gpio2__attach_interrupt(6, GPIO_INTR__RISING_EDGE, play_play_pause);
+
+    // gpio0__attach_interrupt(15, GPIO_INTR__RISING_EDGE, sw_test1);
+    // gpio0__attach_interrupt(17, GPIO_INTR__RISING_EDGE, sw_test2);
+    // gpio0__attach_interrupt(22, GPIO_INTR__RISING_EDGE, sw_test3);
+    // gpio2__attach_interrupt(1, GPIO_INTR__RISING_EDGE, sw_test4);
+    // gpio2__attach_interrupt(4, GPIO_INTR__RISING_EDGE, sw_test5);
+    // gpio2__attach_interrupt(6, GPIO_INTR__RISING_EDGE, sw_test6);
+
+    lpc_peripheral__enable_interrupt(GPIO_IRQn, gpio0_2__interrupt_dispatcher);
+    NVIC_EnableIRQ(GPIO_IRQn);
+  }
+
+  mp3_init();
 
   // lcd_init_ssp();
-  lcd_init();
+  // lcd_init();
 
   // sj2_cli__init(); // For testing only
 
-  // xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
-  // xTaskCreate(mp3_play, "play", 1024U * 6 / (sizeof(void *)), NULL, 3, NULL);
+  xTaskCreate(mp3_lcd, "lcd", 1024U * 1 / (sizeof(void *)), NULL, 2, NULL);
+  xTaskCreate(mp3_play, "play", 1024U * 6 / (sizeof(void *)), NULL, 3, NULL);
 
   vTaskStartScheduler(); // This function never returns unless RTOS scheduler
                          // runs out of memory and fails
@@ -117,17 +176,32 @@ void mp3_init(void) {
   printf("MP3 decoder initialized!!!\n");
 
   /* LCD INIT*/
-
-  lcd_init();
-  printf("MP3 LCD initialized!!!\n");
+  // lcd_init();
+  // printf("MP3 LCD initialized!!!\n");
 
   printf("MP3 initialization END!!!\n");
   printf("***************************\n\n");
   printf("Welcome to use our MP3!!!\n");
-  printf("Play to start playing music!\n\n");
-  printf("***************************\n\n");
+  printf("Play to start playing music!\n");
+
+  printf("HELP: \n");
+  printf("1:\n");
+  printf("State 1: To change Volume\n");
+  printf("State 2: To change Bass\n");
+  printf("State 3: To change Treble\n");
+  printf("2:\n");
+  printf("Press <Scroll> bottom to browse songs, and hit <Jump> bottom to play "
+         "the song of your choice.\n");
+  printf("If no <Jump> is pressed, <Scroll> would not effect your current "
+         "music play!!!\n");
+  printf("\n***************************\n\n");
+
   printf("First Song: %s\n", song_list[current_song]);
+  printf("The Song you are viewing: %s\n", song_list[jump_index]);
   printf("Default Volume: %d\n", vol);
+  printf("Default Bass: %d\n", bass);
+  printf("Default Treble: %d\n", treble);
+  printf("Default State: 1\n");
 }
 
 void mp3_play(void) {
@@ -144,7 +218,7 @@ void mp3_play(void) {
       // printf("play start\n");                                // TESTING
       // printf("current song: %s\n", song_list[current_song]); // TESTING
       f_open(&file, song_list[current_song], FA_READ);
-      while (next_read == 512 && !next && !prev) {
+      while (next_read == 512 && !next && !prev && !jump) {
 
         taskENTER_CRITICAL(); // DISABLE OTHER FEATURES: interrupt, etc.
         f_read(&file, &bytes_512[0], 512, &next_read);
@@ -176,6 +250,12 @@ void mp3_play(void) {
           current_song = 0;
         }
         next = false;
+      } else if (jump) {
+        if (jump_index < 0 || jump_index >= song_count)
+          printf("ERROR in JUMP!\n");
+        else
+          current_song = jump_index;
+        jump = false;
       } else { // default == next
         if (current_song + 1 < song_count) {
           current_song++;
@@ -260,15 +340,140 @@ void vol_down(void) {
       decoder_write_reg(0x0B, 0xFEFE);
     else
       decoder_write_reg(0x0B, vol_change);
-    fprintf(stderr, "Volume: %d\n", vol);
   }
+  fprintf(stderr, "Volume: %d\n", vol);
 }
-
 void vol_up(void) {
   if (vol < 24) {
     vol_change = vol_change - 0x0404;
     vol++;
     decoder_write_reg(0x0B, vol_change);
-    fprintf(stderr, "Volume: %d\n", vol);
   }
+  fprintf(stderr, "Volume: %d\n", vol);
+}
+void bass_down(void) {
+  if (bass > 0) {
+    BASS = BASS - 0x10;
+    bass--;
+    decoder_write_reg(0x02, BASS);
+  }
+  fprintf(stderr, "Bass: %d\n", bass);
+}
+void bass_up(void) {
+  if (bass < 15) {
+    BASS = BASS + 0x10;
+    bass++;
+    decoder_write_reg(0x02, BASS);
+  }
+  fprintf(stderr, "Bass: %d\n", bass);
+}
+void treble_down(void) {
+  if (treble > 0) {
+    BASS = BASS - 0x1000;
+    treble--;
+    decoder_write_reg(0x02, BASS);
+  }
+  fprintf(stderr, "Treble: %d\n", treble);
+}
+void treble_up(void) {
+  if (treble < 7) {
+    BASS = BASS + 0x1000;
+    treble++;
+    decoder_write_reg(0x02, BASS);
+  }
+  fprintf(stderr, "Treble: %d\n", treble);
+}
+
+/************************************************************************************
+ *
+ *
+ * functions for sws
+ *
+ * **********************************************************************************/
+void change_state(void) {
+  if (state == 1) {
+    state = 2;
+    fprintf(stderr, "State: %d\n", state);
+    fprintf(stderr, "You can change BASS now!\n");
+  } else if (state == 2) {
+    state = 3;
+    fprintf(stderr, "State: %d\n", state);
+    fprintf(stderr, "You can change TREBLE now!\n");
+  } else if (state == 3) {
+    state = 1;
+    fprintf(stderr, "State: %d\n", state);
+    fprintf(stderr, "You can change VOLUME now!\n");
+  } else {
+    fprintf(stderr, "ERROR!\n");
+    fprintf(stderr, "THIS SHOULD NOT PRINT!\n");
+  }
+  mp3_delay();
+}
+
+void state_up(void) {
+  if (state == 1)
+    vol_up();
+  else if (state == 2)
+    bass_up();
+  else if (state == 3)
+    treble_up();
+  else {
+    fprintf(stderr, "ERROR!\n");
+    fprintf(stderr, "THIS SHOULD NOT PRINT!\n");
+  }
+  mp3_delay();
+}
+
+void state_down(void) {
+  if (state == 1)
+    vol_down();
+  else if (state == 2)
+    bass_down();
+  else if (state == 3)
+    treble_down();
+  else {
+    fprintf(stderr, "ERROR!\n");
+    fprintf(stderr, "THIS SHOULD NOT PRINT!\n");
+  }
+  mp3_delay();
+}
+
+void play_next(void) {
+  pause = false;
+  next = true;
+  mp3_delay();
+}
+
+void play_prev(void) {
+  pause = false;
+  prev = true;
+  mp3_delay();
+}
+
+void play_play_pause(void) {
+  if (pause) {
+    pause = false;
+    fprintf(stderr, "PLAY\n");
+  } else {
+    pause = true;
+    fprintf(stderr, "PAUSE\n");
+  }
+  mp3_delay();
+}
+
+void play_jump(void) {
+  pause = false;
+  jump = true;
+  mp3_delay();
+}
+
+void scroll_song(void) {
+  jump_index = current_song;
+  if (jump_index + 1 < song_count) {
+    jump_index++;
+  } else {
+    jump_index = 0;
+  }
+  fprintf(stderr, "The Song you are viewing: %s\n", song_list[jump_index]);
+  mp3_delay();
 }
